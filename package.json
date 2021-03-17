@@ -1,0 +1,38 @@
+{
+  "name": "shopify-base-theme",
+  "version": "0.0.0",
+  "repository": "https://github.com/maxvien/shopify-base-theme.git",
+  "author": "Vien Dinh <maxvien@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "gulp"
+  },
+  "devDependencies": {
+    "@types/cheerio": "^0.22.27",
+    "@types/gulp": "^4.0.8",
+    "@types/gulp-autoprefixer": "^0.0.32",
+    "@types/gulp-concat": "^0.0.32",
+    "@types/gulp-load-plugins": "^0.0.32",
+    "@types/gulp-sass": "^4.0.0",
+    "@types/gulp-sourcemaps": "^0.0.34",
+    "@types/gulp-tap": "^1.0.0",
+    "cheerio": "^1.0.0-rc.5",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-load-plugins": "^2.0.6",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.3"
+  },
+  "dependencies": {
+    "gulp-tap": "^2.0.0"
+  },
+  "grammars": [
+    {
+      "language": "liquid",
+      "scopeName": "source.html"
+    }
+  ]
+}
