@@ -1,3 +1,4 @@
+const fs = require('fs');
 const gulp = require('gulp');
 const cheerio = require('cheerio');
 const plugins = require('gulp-load-plugins')();
@@ -33,11 +34,31 @@ const sources = [
   'src/layout/*.liquid',
   'src/snippets/*.liquid',
   'src/sections/*.liquid',
-  'src/templates/*.liquid',
+  'src/templates/**/*.liquid',
 ];
 
 gulp.task('templates', () => {
-  return gulp.src(sources).pipe(parse('template')).pipe(gulp.dest('dist'));
+  return gulp
+    .src(sources)
+    .pipe(parse('template'))
+    .pipe(
+      plugins.if(
+        (file) => file.path.indexOf('/src/layout/') >= 0,
+        gulp.dest('dist/layout'),
+        plugins.if(
+          (file) => file.path.indexOf('/src/snippets/') >= 0,
+          gulp.dest('dist/snippets'),
+          plugins.if(
+            (file) => file.path.indexOf('/src/sections/') >= 0,
+            gulp.dest('dist/sections'),
+            plugins.if(
+              (file) => file.path.indexOf('/src/templates/') >= 0,
+              gulp.dest('dist/templates')
+            )
+          )
+        )
+      )
+    );
 });
 
 gulp.task('styles', () => {
@@ -55,20 +76,47 @@ gulp.task('scripts', () => {
     .src(sources)
     .pipe(parse('script'))
     .pipe(plugins.concat('script.js'))
+
     .pipe(gulp.dest('dist/assets'));
+});
+
+gulp.task('config', () => {
+  return gulp.src('src/config/*.json').pipe(gulp.dest('dist/config'));
+});
+
+gulp.task('locales', () => {
+  return gulp.src('src/locales/*.json').pipe(gulp.dest('dist/locales'));
 });
 
 gulp.task('clean', function () {
   return gulp.src('dist/*').pipe(plugins.clean({ force: true }));
 });
 
-gulp.task(
-  'build',
-  gulp.series('clean', gulp.parallel('templates', 'styles', 'scripts'))
+gulp.task('prepare', function () {
+  return gulp
+    .src([
+      'src/config',
+      'src/locales',
+      'src/layout',
+      'src/snippets',
+      'src/sections',
+      'src/templates',
+    ])
+    .pipe(gulp.dest('dist'));
+});
+
+const build = gulp.parallel(
+  'templates',
+  'styles',
+  'scripts',
+  'config',
+  'locales'
 );
 
+gulp.task('build', gulp.series('clean', 'prepare', build));
+
 gulp.task('watch', function () {
-  plugins.watch(sources, gulp.parallel('templates', 'styles', 'scripts'));
+  plugins.watch([...sources, 'src/**/*.json'], build);
 });
 
 gulp.task('default', gulp.series('build', 'watch'));

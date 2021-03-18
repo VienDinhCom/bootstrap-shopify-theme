@@ -5,7 +5,9 @@
   "author": "Vien Dinh <maxvien@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "gulp"
+    "start": "gulp",
+    "build": "gulp build",
+    "test": "gulp build && theme-check dist"
   },
   "devDependencies": {
     "@babel/core": "^7.13.10",
@@ -15,6 +17,7 @@
     "gulp-autoprefixer": "^7.0.1",
     "gulp-clean": "^0.4.0",
     "gulp-concat": "^2.6.1",
+    "gulp-if": "^3.0.0",
     "gulp-load-plugins": "^2.0.6",
     "gulp-sass": "^4.1.0",
     "gulp-tap": "^2.0.0",
