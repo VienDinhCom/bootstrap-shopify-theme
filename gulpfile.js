@@ -5,13 +5,27 @@ const plugins = require('gulp-load-plugins')();
 
 function parse(type) {
   return plugins.tap(function (file) {
-    const $ = cheerio.load(file.contents?.toString() || '');
+    const html = file.contents?.toString() || '';
+    const $ = cheerio.load(html);
+
+    const str = file.contents?.toString() || '';
 
     let contents = '';
 
     switch (type) {
       case 'template':
-        contents = $('template[code]').html() || '';
+        if (
+          html.indexOf('<html') >= 0 &&
+          html.indexOf('<head') >= 0 &&
+          html.indexOf('<body') >= 0
+        ) {
+          contents = str.substring(
+            str.indexOf('<template code>') + 15,
+            str.lastIndexOf('</template>')
+          );
+        } else {
+          contents = $('template[code]').html() || '';
+        }
         break;
 
       case 'style':

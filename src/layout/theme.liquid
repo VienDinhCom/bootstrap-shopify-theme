@@ -1,5 +1,5 @@
 <template code>
-  <!DOCTYPE html>
+  <!DOCTYPE html />
   <html lang="{{ request.locale.iso_code }}">
     <head>
       <meta charset="UTF-8" />
@@ -15,8 +15,19 @@
         content_for_header
       }}
     </head>
-    <body>
+    <body class="layout-theme">
       {{ content_for_layout }}
     </body>
   </html>
 </template>
+
+<style code>
+  .layout-theme {
+    background-color: yellow;
+    color: red;
+  }
+</style>
+
+<script code>
+  console.log('layout-theme');
+</script>
