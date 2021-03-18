@@ -1,4 +1,9 @@
-const fs = require('fs');
+/*
+ [] Auto format
+ [] Minify
+ [] Bundle vendor
+*/
+
 const gulp = require('gulp');
 const cheerio = require('cheerio');
 const plugins = require('gulp-load-plugins')();
@@ -15,9 +20,9 @@ function parse(type) {
     switch (type) {
       case 'template':
         if (
-          html.indexOf('<html') >= 0 &&
-          html.indexOf('<head') >= 0 &&
-          html.indexOf('<body') >= 0
+          html.indexOf('<html') > 0 &&
+          html.indexOf('<head') > 0 &&
+          html.indexOf('<body') > 0
         ) {
           contents = str.substring(
             str.indexOf('<template code>') + 15,
@@ -57,16 +62,16 @@ gulp.task('templates', () => {
     .pipe(parse('template'))
     .pipe(
       plugins.if(
-        (file) => file.path.indexOf('/src/layout/') >= 0,
+        ({ path }) => path.indexOf('/src/layout/') > 0,
         gulp.dest('dist/layout'),
         plugins.if(
-          (file) => file.path.indexOf('/src/snippets/') >= 0,
+          ({ path }) => path.indexOf('/src/snippets/') > 0,
           gulp.dest('dist/snippets'),
           plugins.if(
-            (file) => file.path.indexOf('/src/sections/') >= 0,
+            ({ path }) => path.indexOf('/src/sections/') > 0,
             gulp.dest('dist/sections'),
             plugins.if(
-              (file) => file.path.indexOf('/src/templates/') >= 0,
+              ({ path }) => path.indexOf('/src/templates/') > 0,
               gulp.dest('dist/templates')
             )
           )
