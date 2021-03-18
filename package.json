@@ -5,14 +5,15 @@
   "author": "Vien Dinh <maxvien@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "gulp",
     "build": "gulp build",
-    "test": "gulp build && theme-check dist"
+    "test": "gulp build && theme-check dist",
+    "dev": "concurrently -i false -r gulp 'theme watch --allow-live'"
   },
   "devDependencies": {
     "@babel/core": "^7.13.10",
     "@babel/preset-env": "^7.13.10",
     "cheerio": "^1.0.0-rc.5",
+    "concurrently": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-clean": "^0.4.0",
