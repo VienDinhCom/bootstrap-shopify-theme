@@ -1,0 +1,5 @@
+development:
+  directory: dist
+  store: your-site.myshopify.com
+  password: your-admin-api-password
+  theme_id: your-theme-id
