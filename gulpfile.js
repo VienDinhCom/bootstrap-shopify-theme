@@ -1,6 +1,8 @@
 /*
- [] Auto format
- [] Minify
+ [] Auto format html
+ [] Minify CSS
+ [] JS Babel
+ [] Minify JS
  [] Bundle vendor
 */
 
@@ -13,8 +15,6 @@ function parse(type) {
     const html = file.contents?.toString() || '';
     const $ = cheerio.load(html);
 
-    const str = file.contents?.toString() || '';
-
     let contents = '';
 
     switch (type) {
@@ -24,9 +24,9 @@ function parse(type) {
           html.indexOf('<head') > 0 &&
           html.indexOf('<body') > 0
         ) {
-          contents = str.substring(
-            str.indexOf('<template code>') + 15,
-            str.lastIndexOf('</template>')
+          contents = html.substring(
+            html.indexOf('<template code>') + 15,
+            html.lastIndexOf('</template>')
           );
         } else {
           contents = $('template[code]').html() || '';
