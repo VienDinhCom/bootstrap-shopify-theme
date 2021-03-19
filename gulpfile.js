@@ -1,6 +1,6 @@
 /*
  [x] Auto format html
- [] Minify CSS
+ [x] Minify CSS
  [] JS Babel
  [] Minify JS
  [] Bundle vendor
@@ -88,6 +88,7 @@ gulp.task('styles', () => {
     .pipe(plugins.concat('style.scss'))
     .pipe(plugins.sass().on('error', plugins.sass.logError))
     .pipe(plugins.autoprefixer())
+    .pipe(plugins.cssnano())
     .pipe(gulp.dest('dist/assets'));
 });
 
