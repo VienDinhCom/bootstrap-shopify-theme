@@ -7,12 +7,12 @@
   "scripts": {
     "build": "gulp build",
     "test": "gulp build && theme-check dist",
-    "dev": "concurrently -i false -r gulp 'theme watch --allow-live'"
+    "dev": "concurrently -i false -r gulp 'theme watch --allow-live'",
+    "deploy": "theme deploy --allow-live"
   },
   "devDependencies": {
     "@babel/core": "^7.13.10",
     "@babel/preset-env": "^7.13.10",
-    "cheerio": "^1.0.0-rc.5",
     "concurrently": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",

@@ -1,44 +1,45 @@
 /*
  [x] Auto format html
  [x] Minify CSS
- [] JS Babel
- [] Minify JS
+ [x] JS Babel
+ [x] Minify JS
  [] Bundle vendor
 */
 
 const gulp = require('gulp');
-const cheerio = require('cheerio');
 const plugins = require('gulp-load-plugins')();
 
 function parse(type) {
   return plugins.tap(function (file) {
-    const html = file.contents?.toString() || '';
-    const $ = cheerio.load(html);
+    let contents = file.contents?.toString() || '';
 
-    let contents = '';
+    function getTag(tag) {
+      const tagStart = contents.indexOf(`<${tag} code>`);
+      const contentStart = tagStart + tag.length + 7;
+      const contentEnd = contents.indexOf(`</${tag}>`, contentStart);
+      const tagEnd = contentEnd + tag.length + 3;
+    
+      return {
+        tag: contents.substring(tagStart, tagEnd),
+        content: contents.substring(contentStart, contentEnd)
+      }
+    }
 
+    const style = getTag('style');
+    const script = getTag('script');
+    
     switch (type) {
       case 'template':
-        if (
-          html.indexOf('<html') > 0 &&
-          html.indexOf('<head') > 0 &&
-          html.indexOf('<body') > 0
-        ) {
-          contents = html.substring(
-            html.indexOf('<template code>') + 15,
-            html.lastIndexOf('</template>')
-          );
-        } else {
-          contents = $('template[code]').html() || '';
-        }
+        contents = contents.replace(style.tag, '');
+        contents = contents.replace(script.tag, '');
         break;
 
       case 'style':
-        contents = $('style[code]').html() || '';
+        contents = style.content;
         break;
 
       case 'script':
-        contents = $('script[code]').html() || '';
+        contents = script.content;
         break;
 
       default:
