@@ -97,7 +97,8 @@ gulp.task('scripts', () => {
     .src(sources)
     .pipe(parse('script'))
     .pipe(plugins.concat('script.js'))
-
+    .pipe(plugins.babel({ presets: ['@babel/env'] }))
+    .pipe(plugins.uglify())
     .pipe(gulp.dest('dist/assets'));
 });
 
