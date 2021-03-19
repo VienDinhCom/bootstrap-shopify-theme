@@ -1,5 +1,5 @@
 /*
- [] Auto format html
+ [x] Auto format html
  [] Minify CSS
  [] JS Babel
  [] Minify JS
@@ -60,6 +60,7 @@ gulp.task('templates', () => {
   return gulp
     .src(sources)
     .pipe(parse('template'))
+    .pipe(plugins.prettier({ parser: 'html' }))
     .pipe(
       plugins.if(
         ({ path }) => path.indexOf('/src/layout/') > 0,
