@@ -5,14 +5,17 @@
  [x] Minify JS
  [x] Theme Kit for Node
  [x] Bundle CSS Vendors
+ [x] Bundle JS Vendors
 */
 
+const fs = require('fs');
 const path = require('path');
 const gulp = require('gulp');
 const themeKit = require('@shopify/themekit');
 const plugins = require('gulp-load-plugins')();
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
+const merge = require('merge-stream');
 
 function parse(type) {
   return plugins.tap((file) => {
@@ -110,8 +113,13 @@ gulp.task('styles', () => {
 
 gulp.task('scripts', () => {
   return gulp
-    .src(sources)
-    .pipe(parse('script'))
+    .src(['src/assets/global/global.js', ...sources])
+    .pipe(
+      plugins.if(
+        (file) => path.extname(file.path) === '.liquid',
+        parse('script')
+      )
+    )
     .pipe(plugins.concat('script.js'))
     .pipe(plugins.babel({ presets: ['@babel/env'] }))
     .pipe(plugins.uglify())
@@ -119,7 +127,7 @@ gulp.task('scripts', () => {
 });
 
 gulp.task('vendors', () => {
-  return gulp
+  const styles = gulp
     .src('src/assets/vendor/vendor.scss')
     .pipe(plugins.sass().on('error', plugins.sass.logError))
     .pipe(
@@ -131,6 +139,19 @@ gulp.task('vendors', () => {
       ])
     )
     .pipe(gulp.dest('dist/assets'));
+
+  const scriptSource = JSON.parse(
+    fs.readFileSync('src/assets/vendor/vendor.json', 'utf-8')
+  ).map((path) => `src/assets/vendor/${path}`);
+
+  const scripts = gulp
+    .src(scriptSource)
+    .pipe(plugins.concat('vendor.js'))
+    .pipe(plugins.babel({ presets: ['@babel/env'] }))
+    .pipe(plugins.uglify())
+    .pipe(gulp.dest('dist/assets'));
+
+  return merge(styles, scripts);
 });
 
 gulp.task('config', () => {
@@ -158,18 +179,19 @@ gulp.task('prepare', function () {
     .pipe(gulp.dest('dist'));
 });
 
-const build = gulp.parallel(
-  'templates',
-  'styles',
-  'scripts',
-  'config',
-  'locales'
+const buildVendors = gulp.parallel('vendors');
+const buildJson = gulp.parallel('config', 'locales');
+const buildLiquid = gulp.parallel('templates', 'styles', 'scripts');
+
+gulp.task(
+  'build',
+  gulp.series('clean', 'prepare', buildJson, buildVendors, buildLiquid)
 );
 
-gulp.task('build', gulp.series('clean', 'prepare', build));
-
 gulp.task('watch', function () {
-  gulp.watch([...sources, 'src/**/*.json'], build);
+  gulp.watch(sources, buildLiquid);
+  gulp.watch('src/assets/vendor/**/*.*', buildVendors);
+  gulp.watch(['src/config/*.json', 'src/locales/*.json'], buildJson);
   themeKit.command('watch', { env: 'development', allowLive: true });
 });
 
