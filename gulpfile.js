@@ -6,7 +6,7 @@
  [x] Theme Kit for Node
  [x] Bundle CSS Vendors
  [x] Bundle JS Vendors
- [] Copy Assets
+ [x] Copy Assets
 */
 
 const fs = require('fs');
@@ -163,6 +163,10 @@ gulp.task('locales', () => {
   return gulp.src('src/locales/*.json').pipe(gulp.dest('dist/locales'));
 });
 
+gulp.task('assets', () => {
+  return gulp.src('src/assets/*.*').pipe(gulp.dest('dist/assets'));
+});
+
 gulp.task('clean', function () {
   return gulp.src('dist/*').pipe(plugins.clean({ force: true }));
 });
@@ -180,17 +184,26 @@ gulp.task('prepare', function () {
     .pipe(gulp.dest('dist'));
 });
 
+const buildAssets = gulp.parallel('assets');
 const buildVendors = gulp.parallel('vendors');
 const buildJson = gulp.parallel('config', 'locales');
 const buildLiquid = gulp.parallel('templates', 'styles', 'scripts');
 
 gulp.task(
   'build',
-  gulp.series('clean', 'prepare', buildJson, buildVendors, buildLiquid)
+  gulp.series(
+    'clean',
+    'prepare',
+    buildAssets,
+    buildJson,
+    buildVendors,
+    buildLiquid
+  )
 );
 
 gulp.task('watch', function () {
   gulp.watch(sources, buildLiquid);
+  gulp.watch('src/assets/*.*', buildAssets);
   gulp.watch('src/assets/vendors/**/*.*', buildVendors);
   gulp.watch(['src/config/*.json', 'src/locales/*.json'], buildJson);
   themeKit.command('watch', { env: 'development', allowLive: true });
