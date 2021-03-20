@@ -129,7 +129,7 @@ gulp.task('scripts', () => {
 
 gulp.task('vendors', () => {
   const styles = gulp
-    .src('src/assets/vendor/vendor.scss')
+    .src('src/assets/vendors/vendor.scss')
     .pipe(plugins.sass().on('error', plugins.sass.logError))
     .pipe(
       plugins.postcss([
@@ -142,8 +142,8 @@ gulp.task('vendors', () => {
     .pipe(gulp.dest('dist/assets'));
 
   const scriptSource = JSON.parse(
-    fs.readFileSync('src/assets/vendor/vendor.json', 'utf-8')
-  ).map((path) => `src/assets/vendor/${path}`);
+    fs.readFileSync('src/assets/vendors/vendor.json', 'utf-8')
+  ).map((path) => `src/assets/vendors/${path}`);
 
   const scripts = gulp
     .src(scriptSource)
@@ -191,7 +191,7 @@ gulp.task(
 
 gulp.task('watch', function () {
   gulp.watch(sources, buildLiquid);
-  gulp.watch('src/assets/vendor/**/*.*', buildVendors);
+  gulp.watch('src/assets/vendors/**/*.*', buildVendors);
   gulp.watch(['src/config/*.json', 'src/locales/*.json'], buildJson);
   themeKit.command('watch', { env: 'development', allowLive: true });
 });
