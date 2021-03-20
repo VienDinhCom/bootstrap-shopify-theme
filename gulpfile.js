@@ -169,12 +169,10 @@ gulp.task('assets', () => {
   return gulp.src('src/assets/*.*').pipe(gulp.dest('dist/assets'));
 });
 
-gulp.task('clean', () => {
-  return gulp.src('dist/*').pipe(plugins.clean({ force: true }));
-});
-
 gulp.task('prepare', () => {
-  return gulp
+  const clean = gulp.src('dist/*').pipe(plugins.clean({ force: true }));
+
+  const folders = gulp
     .src([
       'src/config',
       'src/locales',
@@ -184,6 +182,8 @@ gulp.task('prepare', () => {
       'src/templates',
     ])
     .pipe(gulp.dest('dist'));
+
+  return merge(clean, folders);
 });
 
 const buildAssets = gulp.parallel('assets');
@@ -193,14 +193,7 @@ const buildLiquid = gulp.parallel('templates', 'styles', 'scripts');
 
 gulp.task(
   'build',
-  gulp.series(
-    'clean',
-    'prepare',
-    buildAssets,
-    buildJson,
-    buildVendors,
-    buildLiquid
-  )
+  gulp.series('prepare', buildAssets, buildJson, buildVendors, buildLiquid)
 );
 
 gulp.task('watch', () => {
