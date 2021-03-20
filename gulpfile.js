@@ -141,7 +141,7 @@ const build = gulp.parallel(
 gulp.task('build', gulp.series('clean', 'prepare', build));
 
 gulp.task('watch', function () {
-  plugins.watch([...sources, 'src/**/*.json'], build);
+  gulp.watch([...sources, 'src/**/*.json'], build);
   themeKit.command('watch', { env: 'development', allowLive: true });
 });
 
