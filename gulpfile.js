@@ -12,7 +12,7 @@ const themeKit = require('@shopify/themekit');
 const plugins = require('gulp-load-plugins')();
 
 function parse(type) {
-  return plugins.tap(function (file) {
+  return plugins.tap((file) => {
     let contents = file.contents?.toString() || '';
 
     function getTag(tag) {
