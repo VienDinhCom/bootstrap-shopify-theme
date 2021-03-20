@@ -7,6 +7,8 @@
  [x] Bundle CSS Vendors
  [x] Bundle JS Vendors
  [x] Copy Assets
+ [] Wrap JS
+ [] Wrap CSS
 */
 
 const fs = require('fs');
