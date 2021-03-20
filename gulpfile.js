@@ -6,6 +6,7 @@
  [x] Theme Kit for Node
  [x] Bundle CSS Vendors
  [x] Bundle JS Vendors
+ [] Copy Assets
 */
 
 const fs = require('fs');
@@ -98,7 +99,7 @@ gulp.task('styles', () => {
         parse('style')
       )
     )
-    .pipe(plugins.concat('style.scss'))
+    .pipe(plugins.concat('main.scss'))
     .pipe(plugins.sass().on('error', plugins.sass.logError))
     .pipe(
       plugins.postcss([
@@ -120,7 +121,7 @@ gulp.task('scripts', () => {
         parse('script')
       )
     )
-    .pipe(plugins.concat('script.js'))
+    .pipe(plugins.concat('main.js'))
     .pipe(plugins.babel({ presets: ['@babel/env'] }))
     .pipe(plugins.uglify())
     .pipe(gulp.dest('dist/assets'));
