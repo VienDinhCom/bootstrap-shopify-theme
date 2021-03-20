@@ -1,4 +1,4 @@
 {
   "css.validate": false,
-  "prettier.enable": false,
+  "prettier.enable": true,
 }
