@@ -169,11 +169,11 @@ gulp.task('assets', () => {
   return gulp.src('src/assets/*.*').pipe(gulp.dest('dist/assets'));
 });
 
-gulp.task('clean', function () {
+gulp.task('clean', () => {
   return gulp.src('dist/*').pipe(plugins.clean({ force: true }));
 });
 
-gulp.task('prepare', function () {
+gulp.task('prepare', () => {
   return gulp
     .src([
       'src/config',
@@ -203,7 +203,7 @@ gulp.task(
   )
 );
 
-gulp.task('watch', function () {
+gulp.task('watch', () => {
   gulp.watch(sources, buildLiquid);
   gulp.watch('src/assets/*.*', buildAssets);
   gulp.watch('src/assets/vendors/**/*.*', buildVendors);
