@@ -4,12 +4,15 @@
  [x] JS Babel
  [x] Minify JS
  [x] Theme Kit for Node
- [] Bundle vendor
+ [x] Bundle CSS Vendors
 */
 
+const path = require('path');
 const gulp = require('gulp');
 const themeKit = require('@shopify/themekit');
 const plugins = require('gulp-load-plugins')();
+const autoprefixer = require('autoprefixer');
+const cssnano = require('cssnano');
 
 function parse(type) {
   return plugins.tap((file) => {
@@ -63,7 +66,6 @@ gulp.task('templates', () => {
   return gulp
     .src(sources)
     .pipe(parse('template'))
-    .pipe(plugins.prettier({ parser: 'html' }))
     .pipe(
       plugins.if(
         ({ path }) => path.indexOf('/src/layout/') > 0,
@@ -86,12 +88,23 @@ gulp.task('templates', () => {
 
 gulp.task('styles', () => {
   return gulp
-    .src(sources)
-    .pipe(parse('style'))
+    .src(['src/assets/global/global.scss', ...sources])
+    .pipe(
+      plugins.if(
+        (file) => path.extname(file.path) === '.liquid',
+        parse('style')
+      )
+    )
     .pipe(plugins.concat('style.scss'))
     .pipe(plugins.sass().on('error', plugins.sass.logError))
-    .pipe(plugins.autoprefixer())
-    .pipe(plugins.cssnano())
+    .pipe(
+      plugins.postcss([
+        require('postcss-import'),
+        require('postcss-copy')({ dest: 'dist/assets' }),
+        autoprefixer(),
+        cssnano(),
+      ])
+    )
     .pipe(gulp.dest('dist/assets'));
 });
 
@@ -102,6 +115,21 @@ gulp.task('scripts', () => {
     .pipe(plugins.concat('script.js'))
     .pipe(plugins.babel({ presets: ['@babel/env'] }))
     .pipe(plugins.uglify())
+    .pipe(gulp.dest('dist/assets'));
+});
+
+gulp.task('vendors', () => {
+  return gulp
+    .src('src/assets/vendor/vendor.scss')
+    .pipe(plugins.sass().on('error', plugins.sass.logError))
+    .pipe(
+      plugins.postcss([
+        require('postcss-import'),
+        require('postcss-copy')({ dest: 'dist/assets' }),
+        autoprefixer(),
+        cssnano(),
+      ])
+    )
     .pipe(gulp.dest('dist/assets'));
 });
 
