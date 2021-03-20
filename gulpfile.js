@@ -3,10 +3,12 @@
  [x] Minify CSS
  [x] JS Babel
  [x] Minify JS
+ [x] Theme Kit for Node
  [] Bundle vendor
 */
 
 const gulp = require('gulp');
+const themeKit = require('@shopify/themekit');
 const plugins = require('gulp-load-plugins')();
 
 function parse(type) {
@@ -18,16 +20,16 @@ function parse(type) {
       const contentStart = tagStart + tag.length + 7;
       const contentEnd = contents.indexOf(`</${tag}>`, contentStart);
       const tagEnd = contentEnd + tag.length + 3;
-    
+
       return {
         tag: contents.substring(tagStart, tagEnd),
-        content: contents.substring(contentStart, contentEnd)
-      }
+        content: contents.substring(contentStart, contentEnd),
+      };
     }
 
     const style = getTag('style');
     const script = getTag('script');
-    
+
     switch (type) {
       case 'template':
         contents = contents.replace(style.tag, '');
@@ -140,6 +142,7 @@ gulp.task('build', gulp.series('clean', 'prepare', build));
 
 gulp.task('watch', function () {
   plugins.watch([...sources, 'src/**/*.json'], build);
+  themeKit.command('watch', { env: 'development', allowLive: true });
 });
 
-gulp.task('default', gulp.series('build', 'watch'));
+gulp.task('dev', gulp.series('build', 'watch'));

@@ -5,15 +5,16 @@
   "author": "Vien Dinh <maxvien@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "dev": "gulp dev",
     "build": "gulp build",
-    "test": "gulp build && theme-check dist",
-    "dev": "concurrently -i false -r gulp 'theme watch --allow-live'",
+    "pretest": "gulp build",
+    "test": "theme-check dist",
     "deploy": "theme deploy --allow-live"
   },
   "devDependencies": {
     "@babel/core": "^7.13.10",
     "@babel/preset-env": "^7.13.10",
-    "concurrently": "^6.0.0",
+    "@shopify/themekit": "^1.1.7",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-babel": "^8.0.0",
