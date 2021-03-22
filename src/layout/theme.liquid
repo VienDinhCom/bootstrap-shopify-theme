@@ -5,7 +5,12 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>{{ shop.name }}</title>
-    {{ 'main.css' | asset_url | stylesheet_tag }}
+
+    <script defer src="{{ 'vendor.js' | asset_url }}"></script>
+    <link rel="stylesheet" href="{{ 'vendor.css' | asset_url }}">
+    <script defer src="{{ 'main.js' | asset_url }}"></script>
+    <link rel="stylesheet" href="{{ 'main.css' | asset_url }}">
+
     {{ content_for_header }}
   </head>
   <body class="layout-theme">
