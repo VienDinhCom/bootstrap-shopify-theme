@@ -148,7 +148,7 @@ gulp.task('clean', () => {
   return gulp.src('dist/*').pipe(plugins.clean({ force: true }));
 });
 
-gulp.task('prepare', () => {
+gulp.task('folders', () => {
   return gulp
     .src(['src/config', 'src/locales', 'src/layout', 'src/snippets', 'src/sections', 'src/templates'])
     .pipe(gulp.dest('dist'));
@@ -159,7 +159,7 @@ const buildVendors = gulp.parallel('vendors');
 const buildJson = gulp.parallel('config', 'locales');
 const buildLiquid = gulp.parallel('templates', 'styles', 'scripts');
 
-gulp.task('build', gulp.series('clean', 'prepare', buildAssets, buildJson, buildVendors, buildLiquid));
+gulp.task('build', gulp.series('clean', 'folders', buildAssets, buildJson, buildVendors, buildLiquid));
 
 gulp.task('watch', () => {
   gulp.watch(sources, buildLiquid);
