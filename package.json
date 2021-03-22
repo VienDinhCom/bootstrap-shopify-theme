@@ -5,17 +5,18 @@
   "author": "Vien Dinh <maxvien@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "gulp dev",
     "build": "gulp build",
     "pretest": "gulp build",
     "test": "theme-check dist",
-    "deploy": "theme deploy --allow-live"
+    "deploy": "theme deploy --allow-live",
+    "dev": "cross-env NODE_ENV=development gulp dev"
   },
   "devDependencies": {
     "@babel/core": "^7.13.10",
     "@babel/preset-env": "^7.13.10",
     "@shopify/themekit": "^1.1.7",
     "autoprefixer": "^10.2.5",
+    "cross-env": "^7.0.3",
     "cssnano": "^4.1.10",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
@@ -23,6 +24,8 @@
     "gulp-concat": "^2.6.1",
     "gulp-if": "^3.0.0",
     "gulp-load-plugins": "^2.0.6",
+    "gulp-prettier": "^3.0.0",
+    "gulp-postcss": "^9.0.0",
     "gulp-sass": "^4.1.0",
     "gulp-tap": "^2.0.0",
     "gulp-uglify": "^3.0.2",
@@ -31,7 +34,23 @@
     "postcss-copy": "^7.1.0",
     "postcss-import": "^14.0.0"
   },
-  "dependencies": {
-    "gulp-postcss": "^9.0.0"
+  "prettier": {
+    "tabWidth": 2,
+    "semi": true,
+    "printWidth": 120,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

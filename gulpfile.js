@@ -1,24 +1,13 @@
-/*
- [x] Auto format html
- [x] Minify CSS
- [x] JS Babel
- [x] Minify JS
- [x] Theme Kit for Node
- [x] Bundle CSS Vendors
- [x] Bundle JS Vendors
- [x] Copy Assets
- [] Wrap JS
- [] Wrap CSS
-*/
-
 const fs = require('fs');
-const path = require('path');
 const gulp = require('gulp');
-const themeKit = require('@shopify/themekit');
-const plugins = require('gulp-load-plugins')();
-const autoprefixer = require('autoprefixer');
+const path = require('path');
 const cssnano = require('cssnano');
 const merge = require('merge-stream');
+const autoprefixer = require('autoprefixer');
+const themeKit = require('@shopify/themekit');
+const plugins = require('gulp-load-plugins')();
+
+const isDev = process.env.NODE_ENV === 'development';
 
 function parse(type) {
   return plugins.tap((file) => {
@@ -32,7 +21,7 @@ function parse(type) {
 
       return {
         tag: contents.substring(tagStart, tagEnd),
-        content: contents.substring(contentStart, contentEnd),
+        content: contents.substring(contentStart, contentEnd).trim(),
       };
     }
 
@@ -50,7 +39,7 @@ function parse(type) {
         break;
 
       case 'script':
-        contents = script.content;
+        contents = style.content.length ? `(() => {${script.content}})();` : '';
         break;
 
       default:
@@ -61,12 +50,7 @@ function parse(type) {
   });
 }
 
-const sources = [
-  'src/layout/*.liquid',
-  'src/snippets/*.liquid',
-  'src/sections/*.liquid',
-  'src/templates/**/*.liquid',
-];
+const sources = ['src/layout/*.liquid', 'src/snippets/*.liquid', 'src/sections/*.liquid', 'src/templates/**/*.liquid'];
 
 gulp.task('templates', () => {
   return gulp
@@ -82,10 +66,7 @@ gulp.task('templates', () => {
           plugins.if(
             ({ path }) => path.indexOf('/src/sections/') > 0,
             gulp.dest('dist/sections'),
-            plugins.if(
-              ({ path }) => path.indexOf('/src/templates/') > 0,
-              gulp.dest('dist/templates')
-            )
+            plugins.if(({ path }) => path.indexOf('/src/templates/') > 0, gulp.dest('dist/templates'))
           )
         )
       )
@@ -95,37 +76,32 @@ gulp.task('templates', () => {
 gulp.task('styles', () => {
   return gulp
     .src(['src/assets/global/global.scss', ...sources])
-    .pipe(
-      plugins.if(
-        (file) => path.extname(file.path) === '.liquid',
-        parse('style')
-      )
-    )
+    .pipe(plugins.if((file) => path.extname(file.path) === '.liquid', parse('style')))
     .pipe(plugins.concat('main.scss'))
     .pipe(plugins.sass().on('error', plugins.sass.logError))
     .pipe(
-      plugins.postcss([
-        require('postcss-import'),
-        require('postcss-copy')({ dest: 'dist/assets' }),
-        autoprefixer(),
-        cssnano(),
-      ])
+      plugins.if(
+        () => isDev,
+        plugins.postcss([require('postcss-import'), require('postcss-copy')({ dest: 'dist/assets' }), autoprefixer()]),
+        plugins.postcss([
+          require('postcss-import'),
+          require('postcss-copy')({ dest: 'dist/assets' }),
+          autoprefixer(),
+          cssnano(),
+        ])
+      )
     )
+    .pipe(plugins.if(() => isDev, plugins.prettier()))
     .pipe(gulp.dest('dist/assets'));
 });
 
 gulp.task('scripts', () => {
   return gulp
     .src(['src/assets/global/global.js', ...sources])
-    .pipe(
-      plugins.if(
-        (file) => path.extname(file.path) === '.liquid',
-        parse('script')
-      )
-    )
+    .pipe(plugins.if((file) => path.extname(file.path) === '.liquid', parse('script')))
     .pipe(plugins.concat('main.js'))
     .pipe(plugins.babel({ presets: ['@babel/env'] }))
-    .pipe(plugins.uglify())
+    .pipe(plugins.if(() => isDev, plugins.prettier(), plugins.uglify()))
     .pipe(gulp.dest('dist/assets'));
 });
 
@@ -143,9 +119,9 @@ gulp.task('vendors', () => {
     )
     .pipe(gulp.dest('dist/assets'));
 
-  const scriptSource = JSON.parse(
-    fs.readFileSync('src/assets/vendors/vendor.json', 'utf-8')
-  ).map((path) => `src/assets/vendors/${path}`);
+  const scriptSource = JSON.parse(fs.readFileSync('src/assets/vendors/vendor.json', 'utf-8')).map(
+    (path) => `src/assets/vendors/${path}`
+  );
 
   const scripts = gulp
     .src(scriptSource)
@@ -168,22 +144,14 @@ gulp.task('locales', () => {
 gulp.task('assets', () => {
   return gulp.src('src/assets/*.*').pipe(gulp.dest('dist/assets'));
 });
+gulp.task('clean', () => {
+  return gulp.src('dist/*').pipe(plugins.clean({ force: true }));
+});
 
 gulp.task('prepare', () => {
-  const clean = gulp.src('dist/*').pipe(plugins.clean({ force: true }));
-
-  const folders = gulp
-    .src([
-      'src/config',
-      'src/locales',
-      'src/layout',
-      'src/snippets',
-      'src/sections',
-      'src/templates',
-    ])
+  return gulp
+    .src(['src/config', 'src/locales', 'src/layout', 'src/snippets', 'src/sections', 'src/templates'])
     .pipe(gulp.dest('dist'));
-
-  return merge(clean, folders);
 });
 
 const buildAssets = gulp.parallel('assets');
@@ -191,10 +159,7 @@ const buildVendors = gulp.parallel('vendors');
 const buildJson = gulp.parallel('config', 'locales');
 const buildLiquid = gulp.parallel('templates', 'styles', 'scripts');
 
-gulp.task(
-  'build',
-  gulp.series('prepare', buildAssets, buildJson, buildVendors, buildLiquid)
-);
+gulp.task('build', gulp.series('clean', 'prepare', buildAssets, buildJson, buildVendors, buildLiquid));
 
 gulp.task('watch', () => {
   gulp.watch(sources, buildLiquid);
