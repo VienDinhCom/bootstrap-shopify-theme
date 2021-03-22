@@ -5,11 +5,12 @@
   "author": "Vien Dinh <maxvien@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "gulp build",
-    "pretest": "gulp build",
     "test": "theme-check dist",
+    "pretest": "npm run build",
+    "predeploy": "npm run build",
     "deploy": "theme deploy --allow-live",
-    "dev": "cross-env NODE_ENV=development gulp dev"
+    "dev": "cross-env NODE_ENV=development gulp dev",
+    "build": "cross-env NODE_ENV=production gulp build"
   },
   "devDependencies": {
     "@babel/core": "^7.13.10",
