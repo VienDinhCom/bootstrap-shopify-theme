@@ -75,7 +75,7 @@ gulp.task('templates', () => {
 
 gulp.task('styles', () => {
   return gulp
-    .src(['src/assets/global/global.scss', ...sources])
+    .src(['src/global/global.scss', ...sources])
     .pipe(plugins.if((file) => path.extname(file.path) === '.liquid', parse('style')))
     .pipe(plugins.concat('main.scss'))
     .pipe(plugins.sass().on('error', plugins.sass.logError))
@@ -97,7 +97,7 @@ gulp.task('styles', () => {
 
 gulp.task('scripts', () => {
   return gulp
-    .src(['src/assets/global/global.js', ...sources])
+    .src(['src/global/global.js', ...sources])
     .pipe(plugins.if((file) => path.extname(file.path) === '.liquid', parse('script')))
     .pipe(plugins.concat('main.js'))
     .pipe(plugins.babel({ presets: ['@babel/env'] }))
@@ -107,7 +107,7 @@ gulp.task('scripts', () => {
 
 gulp.task('vendors', () => {
   const styles = gulp
-    .src('src/assets/vendors/vendor.scss')
+    .src('src/vendors/vendor.scss')
     .pipe(plugins.sass().on('error', plugins.sass.logError))
     .pipe(
       plugins.postcss([
@@ -119,8 +119,8 @@ gulp.task('vendors', () => {
     )
     .pipe(gulp.dest('dist/assets'));
 
-  const scriptSource = JSON.parse(fs.readFileSync('src/assets/vendors/vendor.json', 'utf-8')).map(
-    (path) => `src/assets/vendors/${path}`
+  const scriptSource = JSON.parse(fs.readFileSync('src/vendors/vendor.json', 'utf-8')).map(
+    (path) => `src/vendors/${path}`
   );
 
   const scripts = gulp
@@ -163,8 +163,8 @@ gulp.task('build', gulp.series('clean', 'folders', buildAssets, buildSettings, b
 
 gulp.task('watch', () => {
   gulp.watch('src/assets/*.*', buildAssets);
-  gulp.watch('src/assets/vendors/**/*.*', buildVendors);
-  gulp.watch([...sources, 'src/assets/global/**/*.*'], buildLiquid);
+  gulp.watch('src/vendors/**/*.*', buildVendors);
+  gulp.watch([...sources, 'src/global/**/*.*'], buildLiquid);
   gulp.watch(['src/config/*.json', 'src/locales/*.json'], buildSettings);
   themeKit.command('watch', { env: 'development', allowLive: true });
 });
