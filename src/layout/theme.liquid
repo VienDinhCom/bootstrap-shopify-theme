@@ -8,10 +8,11 @@
 
     <title>{{ shop.name }}</title>
 
-    <script defer src="{{ 'vendor.js' | asset_url }}"></script>
     <link rel="stylesheet" href="{{ 'vendor.css' | asset_url }}">
-    <script defer src="{{ 'main.js' | asset_url }}"></script>
+    <script defer src="{{ 'vendor.js' | asset_url }}"></script>
+
     <link rel="stylesheet" href="{{ 'main.css' | asset_url }}">
+    <script defer src="{{ 'main.js' | asset_url }}"></script>
 
     {{ content_for_header }}
   </head>
