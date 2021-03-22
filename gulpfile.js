@@ -156,16 +156,16 @@ gulp.task('folders', () => {
 
 const buildAssets = gulp.parallel('assets');
 const buildVendors = gulp.parallel('vendors');
-const buildJson = gulp.parallel('config', 'locales');
+const buildSettings = gulp.parallel('config', 'locales');
 const buildLiquid = gulp.parallel('templates', 'styles', 'scripts');
 
-gulp.task('build', gulp.series('clean', 'folders', buildAssets, buildJson, buildVendors, buildLiquid));
+gulp.task('build', gulp.series('clean', 'folders', buildAssets, buildSettings, buildVendors, buildLiquid));
 
 gulp.task('watch', () => {
   gulp.watch(sources, buildLiquid);
   gulp.watch('src/assets/*.*', buildAssets);
   gulp.watch('src/assets/vendors/**/*.*', buildVendors);
-  gulp.watch(['src/config/*.json', 'src/locales/*.json'], buildJson);
+  gulp.watch(['src/config/*.json', 'src/locales/*.json'], buildSettings);
   themeKit.command('watch', { env: 'development', allowLive: true });
 });
 
