@@ -50,7 +50,12 @@ function parse(type) {
   });
 }
 
-const sources = ['src/layout/*.liquid', 'src/snippets/*.liquid', 'src/sections/*.liquid', 'src/templates/**/*.liquid'];
+const sources = [
+  'src/layout/*.liquid',
+  'src/snippets/*.liquid',
+  'src/sections/*.liquid',
+  'src/templates/**/*.liquid',
+];
 
 gulp.task('templates', () => {
   return gulp
@@ -66,7 +71,10 @@ gulp.task('templates', () => {
           plugins.if(
             ({ path }) => path.indexOf('/src/sections/') > 0,
             gulp.dest('dist/sections'),
-            plugins.if(({ path }) => path.indexOf('/src/templates/') > 0, gulp.dest('dist/templates'))
+            plugins.if(
+              ({ path }) => path.indexOf('/src/templates/') > 0,
+              gulp.dest('dist/templates')
+            )
           )
         )
       )
@@ -82,13 +90,8 @@ gulp.task('styles', () => {
     .pipe(
       plugins.if(
         () => isDev,
-        plugins.postcss([require('postcss-import'), require('postcss-copy')({ dest: 'dist/assets' }), autoprefixer()]),
-        plugins.postcss([
-          require('postcss-import'),
-          require('postcss-copy')({ dest: 'dist/assets' }),
-          autoprefixer(),
-          cssnano(),
-        ])
+        plugins.postcss([autoprefixer()]),
+        plugins.postcss([autoprefixer(), cssnano()])
       )
     )
     .pipe(plugins.if(() => isDev, plugins.prettier()))
@@ -150,7 +153,14 @@ gulp.task('clean', () => {
 
 gulp.task('folders', () => {
   return gulp
-    .src(['src/config', 'src/locales', 'src/layout', 'src/snippets', 'src/sections', 'src/templates'])
+    .src([
+      'src/config',
+      'src/locales',
+      'src/layout',
+      'src/snippets',
+      'src/sections',
+      'src/templates',
+    ])
     .pipe(gulp.dest('dist'));
 });
 
@@ -159,7 +169,10 @@ const buildVendors = gulp.parallel('vendors');
 const buildSettings = gulp.parallel('config', 'locales');
 const buildLiquid = gulp.parallel('templates', 'styles', 'scripts');
 
-gulp.task('build', gulp.series('clean', 'folders', buildAssets, buildSettings, buildVendors, buildLiquid));
+gulp.task(
+  'build',
+  gulp.series('clean', 'folders', buildAssets, buildSettings, buildVendors, buildLiquid)
+);
 
 gulp.task('watch', () => {
   gulp.watch('src/assets/*.*', buildAssets);
