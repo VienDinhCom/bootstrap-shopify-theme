@@ -1,13 +1,16 @@
 const fs = require('fs');
 const gulp = require('gulp');
+const yaml = require('yaml');
 const path = require('path');
 const cssnano = require('cssnano');
 const merge = require('merge-stream');
+const browserSync = require('browser-sync');
 const autoprefixer = require('autoprefixer');
 const themeKit = require('@shopify/themekit');
 const plugins = require('gulp-load-plugins')();
 
 const isDev = process.env.NODE_ENV === 'development';
+const config = yaml.parse(fs.readFileSync('config.yml', 'utf-8')).development;
 
 function parse(type) {
   return plugins.tap((file) => {
@@ -179,7 +182,31 @@ gulp.task('watch', () => {
   gulp.watch('src/vendors/**/*.*', buildVendors);
   gulp.watch([...sources, 'src/global/**/*.*'], buildLiquid);
   gulp.watch(['src/config/*.json', 'src/locales/*.json'], buildSettings);
-  themeKit.command('watch', { env: 'development', allowLive: true });
+
+  themeKit.command('watch', {
+    allowLive: true,
+    env: 'development',
+    notify: path.join(__dirname, '.updated'),
+  });
 });
 
-gulp.task('dev', gulp.series('build', 'watch'));
+gulp.task('serve', () => {
+  browserSync({
+    port: 8080,
+    open: false,
+    notify: false,
+    reloadDelay: 1000,
+    proxy: `https://${config.store}/`,
+    files: path.join(__dirname, '.updated'),
+    snippetOptions: {
+      rule: {
+        match: /<\/body>/i,
+        fn: function (snippet, match) {
+          return snippet + match;
+        },
+      },
+    },
+  });
+});
+
+gulp.task('dev', gulp.series('build', gulp.parallel('watch', 'serve')));
