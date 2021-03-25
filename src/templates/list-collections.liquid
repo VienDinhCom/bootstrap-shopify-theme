@@ -1,0 +1,29 @@
+<ion-grid>
+  <ion-row>
+    {% for collection in collections %}
+      <ion-col size-md="4" size-sm="6" size-xs="12">
+        <ion-card>
+          {% if collection.image %}
+            <img src="{{ collection | img_url: '450x450' }}" alt="{{ collection.image.alt }}"/>
+          {% else %}
+            <img src="{{ collection.products.first | img_url: '450x450' }}" alt="{{ collection.title | escape }}"/>
+          {% endif %}
+          <ion-card-header>
+            <ion-card-subtitle>
+              {{ collection.products_count }}
+              {{ collection.products_count | pluralize: 'Product', 'Products' }}
+            </ion-card-subtitle>
+            <ion-card-title>{{ collection.title }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            {{ collection.description }}
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    {% endfor %}
+  </ion-row>
+</ion-grid>
+
+<style code></style>
+
+<script code></script>
