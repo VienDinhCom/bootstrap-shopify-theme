@@ -1,0 +1,4 @@
+- Mobile First
+- LiveReload
+- Ionic
+- BEM
