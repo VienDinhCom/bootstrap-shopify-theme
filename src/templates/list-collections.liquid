@@ -1,13 +1,14 @@
-<ion-grid>
+<ion-grid class="template-list-collections">
   <ion-row>
     {% for collection in collections %}
-      <ion-col size-md="4" size-sm="6" size-xs="12">
+      <ion-col size-lg="4" size-sm="6" size-xl="3" size-xs="12">
         <ion-card>
           {% if collection.image %}
-            <img src="{{ collection | img_url: '450x450' }}" alt="{{ collection.image.alt }}"/>
+            <img class="template-list-collections__image" class src="{{ collection | img_url: '450x450' }}" alt="{{ collection.image.alt }}"/>
           {% else %}
-            <img src="{{ collection.products.first | img_url: '450x450' }}" alt="{{ collection.title | escape }}"/>
+            <img class="template-list-collections__image" src="{{ collection.products.first | img_url: '450x450' }}" alt="{{ collection.title | escape }}"/>
           {% endif %}
+
           <ion-card-header>
             <ion-card-subtitle>
               {{ collection.products_count }}
@@ -24,6 +25,15 @@
   </ion-row>
 </ion-grid>
 
-<style code></style>
+<style code>
+  .template-list-collections {
+
+    &__image {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+  }
+</style>
 
 <script code></script>
