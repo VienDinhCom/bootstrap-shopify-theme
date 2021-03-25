@@ -11,7 +11,9 @@
     <script async src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" rel="stylesheet"/>
 
-    <script async src="{{ 'vendor.js' | asset_url }}"></script>
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script defer src="{{ 'vendor.js' | asset_url }}"></script>
     <link rel="stylesheet" href="{{ 'vendor.css' | asset_url }}">
 
     <script defer src="{{ 'main.js' | asset_url }}"></script>
@@ -23,22 +25,18 @@
 
     <ion-app>
       <ion-split-pane content-id="main">
-        <ion-menu content-id="main">
+        <ion-menu content-id="main" mode="md">
           <ion-header>
             <ion-toolbar>
               <ion-title>Menu</ion-title>
             </ion-toolbar>
           </ion-header>
           <ion-content>
-            <ion-item href="/">
-              <ion-label>
-                Hello
-              </ion-label>
-            </ion-item>
+            {% render 'main-menu' %}
           </ion-content>
         </ion-menu>
 
-        <ion-router-outlet id="main">
+        <ion-router-outlet id="main" mode="md">
           <ion-header>
             <ion-toolbar>
               <ion-buttons slot="start">

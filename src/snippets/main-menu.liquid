@@ -1,0 +1,60 @@
+<ion-list class="snippet-main-menu">
+  {% for link in linklists.main-menu.links %}
+    <div class="snippet-main-menu__list">
+      <ion-item class="snippet-main-menu__item" detail href="{{ link.url }}" lines="full" {% if link.active %} color="light" {% endif %}>
+        <ion-label>
+          {{ link.title }}
+        </ion-label>
+      </ion-item>
+
+      {%- if link.links != blank -%}
+        <div class="snippet-main-menu__list">
+          {%- for child_link in link.links -%}
+            <ion-item class="snippet-main-menu__item" detail href="{{ child_link.url }}" lines="full" {% if child_link.active %} color="light" {% endif %}>
+              <ion-label>
+                {{ child_link.title }}
+              </ion-label>
+            </ion-item>
+
+            {%- if child_link.links != blank -%}
+              <div class="snippet-main-menu__list">
+                {%- for grandchild_link in child_link.links -%}
+                  <ion-item class="snippet-main-menu__item" detail href="{{ grandchild_link.url }}" lines="full" {% if grandchild_link.active %} color="light" {% endif %}>
+                    <ion-label>
+                      {{ grandchild_link.title }}
+                    </ion-label>
+                  </ion-item>
+                {%- endfor -%}
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+  {% endfor %}
+</ion-list>
+
+<style code>
+  .snippet-main-menu {
+    &__list {
+      display: none;
+
+      .snippet-main-menu__list {
+        margin-left: 16px;
+      }
+    }
+  }
+</style>
+
+<script code>
+  const item = $(".snippet-main-menu__item");
+
+  $(item).each((index, elm) => {
+    if ($(elm).attr("color") === "light") {
+      $(elm)
+        .parents()
+        .children(".snippet-main-menu__list")
+        .show();
+    }
+  });
+</script>
