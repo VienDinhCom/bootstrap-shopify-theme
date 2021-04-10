@@ -18,6 +18,10 @@ function parse(type) {
 
     function getTag(tag) {
       const tagStart = contents.indexOf(`<${tag} code>`);
+      const hasTag = tagStart >= 0;
+
+      if (!hasTag) return { tag: '', content: '' };
+
       const contentStart = tagStart + tag.length + 7;
       const contentEnd = contents.indexOf(`</${tag}>`, contentStart);
       const tagEnd = contentEnd + tag.length + 3;
