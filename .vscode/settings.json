@@ -1,4 +1,8 @@
 {
   "css.validate": false,
   "prettier.enable": true,
+  "liquid.format": true,
+  "liquid.rules": {},
+  "editor.tabSize": 2,
+  "editor.formatOnSave": true
 }
