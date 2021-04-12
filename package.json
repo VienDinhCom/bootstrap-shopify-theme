@@ -7,9 +7,8 @@
   "scripts": {
     "test": "theme-check dist",
     "pretest": "npm run build",
-    "theme": "shopify-themekit",
     "predeploy": "npm run build",
-    "deploy": "theme deploy --allow-live",
+    "deploy": "shopify-themekit deploy --allow-live",
     "dev": "cross-env NODE_ENV=development gulp dev",
     "build": "cross-env NODE_ENV=production gulp build"
   },
