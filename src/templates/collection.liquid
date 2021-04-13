@@ -1,9 +1,9 @@
 {% render 'page-header' title: collection.title description: collection.description %}
 
-<div class="global-grid">
+<div class="template-collection global-grid">
   {%- for product in collection.products -%}
     <ion-card href="{{ product.url | within: collection }}">
-      <img class="template-list-collections__image" class src="{{ product.featured_image.src | img_url: '450x450' }}" width="450" height="450" alt="{{product.title}}"/>
+      <img class="template-collection__image" class src="{{ product.featured_image.src | img_url: '450x450' }}" width="450" height="450" alt="{{product.title}}"/>
 
       <ion-card-header>
         <ion-card-subtitle>
@@ -28,7 +28,7 @@
 
 
 <style code>
-  .template-list-collections {
+  .template-collection {
 
     &__image {
       width: 100%;
