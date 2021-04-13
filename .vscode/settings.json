@@ -4,5 +4,9 @@
   "liquid.format": true,
   "liquid.rules": {},
   "editor.tabSize": 2,
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "emmet.includeLanguages": {
+    "liquid": "html"
+  },
+  "emmet.triggerExpansionOnTab": true
 }
