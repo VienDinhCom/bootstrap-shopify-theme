@@ -1,6 +1,6 @@
-{% render 'page-title' title: 'Collections' %}
+{% render 'page-header' title: 'Collections' %}
 
-<ion-grid class="template-list-collections">
+<div class="template-list-collections global-grid">
   {% for collection in collections %}
     <ion-card href="{{ collection.url }}">
       {% if collection.image %}
@@ -17,53 +17,14 @@
         <ion-card-title>{{ collection.title }}</ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        {{ collection.description }}
+        <p>{{ collection.description | strip_html | truncate: 100 }}</p>
       </ion-card-content>
     </ion-card>
   {% endfor %}
-</ion-grid>
+</div>
 
 <style code>
   .template-list-collections {
-    display: grid;
-    grid-template-columns: 100%;
-    padding-bottom: 60px;
-
-    @media(min-width: 600px) {
-      grid-template-columns: 50% 50%;
-    }
-
-    @media(min-width: 1000px) {
-      grid-template-columns: calc(100% / 3) calc(100% / 3) calc(100% / 3);
-    }
-
-    @media(min-width: 1400px) {
-      grid-template-columns: 25% 25% 25% 25%;
-    }
-
-    @media(min-width: 1800px) {
-      grid-template-columns: 20% 20% 20% 20% 20%;
-    }
-
-    @media(min-width: 2200px) {
-      grid-template-columns: calc(100% / 6) calc(100% / 6) calc(100% / 6) calc(100% / 6) calc(100% / 6) calc(100% / 6);
-    }
-
-    @media(min-width: 2600px) {
-      grid-template-columns: calc(100% / 7) calc(100% / 7) calc(100% / 7) calc(100% / 7) calc(100% / 7) calc(100% / 7) calc(100% / 7);
-    }
-
-    @media(min-width: 3000px) {
-      grid-template-columns: calc(100% / 8) calc(100% / 8) calc(100% / 8) calc(100% / 8) calc(100% / 8) calc(100% / 8) calc(100% / 8) calc(100% / 8);
-    }
-
-    @media(min-width: 3400px) {
-      grid-template-columns: calc(100% / 9) calc(100% / 9) calc(100% / 9) calc(100% / 9) calc(100% / 9) calc(100% / 9) calc(100% / 9) calc(100% / 9) calc(100% / 9);
-    }
-
-    @media(min-width: 3800px) {
-      grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
-    }
 
     &__image {
       width: 100%;
