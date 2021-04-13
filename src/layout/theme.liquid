@@ -46,7 +46,9 @@
             </ion-toolbar>
           </ion-header>
           <ion-content>
-            {{ content_for_layout }}
+            <div class="layout-theme__content">
+              {{ content_for_layout }}
+            </div>
           </ion-content>
         </ion-router-outlet>
       </ion-split-pane>
@@ -61,6 +63,14 @@
 
     &__pane {
       --side-max-width: 300px;
+    }
+
+    &__content {
+      padding: 0 10px 70px;
+
+      @media(max-width: 599px) {
+        padding: 0 0 70px;
+      }
     }
   }
 </style>
