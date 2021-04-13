@@ -14,7 +14,7 @@
           {%- if article.excerpt.size > 0 -%}
             {{ article.excerpt }}
           {%- else -%}
-            {{ article.content | strip_html | truncate: 100 }}
+            {{ article.content | strip_html | truncate: 120 }}
           {%- endif -%}
         </p>
       </ion-card-content>
