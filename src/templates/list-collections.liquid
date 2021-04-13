@@ -4,7 +4,7 @@
   {% for collection in collections %}
     <ion-card href="{{ collection.url }}">
       {% if collection.image %}
-        <img class="template-list-collections__image" class src="{{ collection | img_url: '450x450' }}" width="450" height="450" alt="{{ collection.image.alt }}"/>
+        <img class="template-list-collections__image" src="{{ collection | img_url: '450x450' }}" width="450" height="450" alt="{{ collection.image.alt }}"/>
       {% else %}
         <img class="template-list-collections__image" src="{{ collection.products.first | img_url: '450x450' }}" width="450" height="450" alt="{{ collection.title | escape }}"/>
       {% endif %}
