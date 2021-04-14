@@ -5,8 +5,8 @@
     <ion-card href="{{ article.url }}">
       <img class="template-blog__image" src="{{ article.image | img_url: '450x450' }}" width="450" height="450" alt="{{ article.title | escape }}">
       <ion-card-header>
-        <ion-card-subtitle>By
-          {{ article.author }}</ion-card-subtitle>
+        <ion-card-subtitle>Published at
+          {{ article.published_at | date: format: 'abbreviated_date' }}</ion-card-subtitle>
         <ion-card-title>{{ article.title | escape }}</ion-card-title>
       </ion-card-header>
       <ion-card-content>
