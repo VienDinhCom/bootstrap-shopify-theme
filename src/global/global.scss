@@ -59,6 +59,11 @@ $content-width: 1200px - $side-width;
     margin-left: -#{$side-width};
   }
 
+  &__content {
+    padding-bottom: 30px;
+    color: var(--ion-text-color, #333);
+  }
+
   @media (max-width: $content-width + $side-width * 3 + 40px) {
     max-width: 100%;
 

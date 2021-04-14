@@ -1,0 +1,21 @@
+<div class="template-page global-content">
+  <ion-card class="global-content__card">
+    <ion-card-header>
+      <ion-card-title>
+        <h1 class="template-page__title">{{ page.title | escape }}</h1>
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="global-content__content">
+      {{ page.content }}
+    </ion-card-content>
+  </ion-card>
+</div>
+
+
+<style code>
+  .template-page {
+    &__title {
+      margin: 0;
+    }
+  }
+</style>
