@@ -1,3 +1,6 @@
+$side-width: 300px;
+$content-width: 1200px - $side-width;
+
 .global-grid {
   display: grid;
   grid-template-columns: 100%;
