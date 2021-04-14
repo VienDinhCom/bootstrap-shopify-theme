@@ -66,31 +66,4 @@ $content-width: 1200px - $side-width;
       margin-left: 10px;
     }
   }
-
-  &__title {
-    margin: 0;
-  }
-
-  &__image {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-bottom: 1px solid #dadada;
-
-    @media (min-width: 600px) {
-      height: 350px;
-    }
-
-    @media (min-width: 1000px) {
-      height: 450px;
-    }
-
-    @media (min-width: 1600px) {
-      height: 550px;
-    }
-  }
-
-  &__content {
-    padding-bottom: 30px;
-  }
 }

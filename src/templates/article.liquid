@@ -1,5 +1,5 @@
-<div class="template-article">
-  <ion-card class="template-article__card">
+<div class="template-article global-content">
+  <ion-card class="global-content__card">
     <img class="template-article__image" src="{{ article.image | img_url: '1024x1024' }}" width="1024" height="1024" alt="{{ article.title | escape }}">
     <ion-card-header>
       <ion-card-subtitle>Published at
@@ -17,22 +17,6 @@
 
 <style code>
   .template-article {
-    max-width: #{$content-width};
-    margin: 0 auto;
-    padding-top: 10px;
-
-    &__card {
-      margin-left: -#{$side-width};
-    }
-
-    @media(max-width: $content-width + $side-width * 3 + 40px) {
-      max-width: 100%;
-
-      &__card {
-        margin-left: 10px;
-      }
-    }
-
     &__title {
       margin: 0;
     }
