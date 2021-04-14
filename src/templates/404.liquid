@@ -1,0 +1,24 @@
+<div class="global-content">
+  <ion-card class="global-content__card">
+    <img class="global-content__image" src="" width="1024" height="1024" alt="{{ article.title | escape }}">
+    <ion-card-header>
+
+
+      <ion-card-title>
+        <h1 class="global-content__title">404</h1>
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="global-content__content"></ion-card-content>
+  </ion-card>
+</div>
+
+
+<div class="page-width">
+  <div class="empty-page-content text-center">
+    <h1>{{ 'general.404.title' | t }}</h1>
+    <p>{{ 'general.404.subtext' | t }}</p>
+    <p>
+      <a href="{{ routes.root_url }}" class="btn btn--has-icon-after">{{ 'general.404.link' | t }}{% include 'icon-arrow-right' %}</a>
+    </p>
+  </div>
+</div>
