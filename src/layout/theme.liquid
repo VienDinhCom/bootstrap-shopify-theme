@@ -42,7 +42,11 @@
               <ion-buttons slot="start">
                 <ion-menu-button></ion-menu-button>
               </ion-buttons>
-              <ion-title>{{ shop.name }}</ion-title>
+              <a class="layout-theme__brand" href="{{ routes.root_url }}">
+                <ion-title>
+                  {{ shop.name }}
+                </ion-title>
+              </a>
             </ion-toolbar>
           </ion-header>
           <ion-content>
@@ -63,6 +67,11 @@
 
     &__pane {
       --side-max-width: #{$side-width};
+    }
+
+    &__brand {
+      text-decoration: none;
+      color: inherit;
     }
 
     &__content {
