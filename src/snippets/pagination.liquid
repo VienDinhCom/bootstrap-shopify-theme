@@ -1,0 +1,38 @@
+{%- if paginate.pages > 1 -%}
+  <div class="snippet-pagination">
+    {%- if paginate.previous -%}
+      <ion-button class="snippet-pagination__button" color="light" href="{{ paginate.previous.url }}">Previous</ion-button>
+    {%- else -%}
+      <ion-button class="snippet-pagination__button" color="light" href="{{ paginate.previous.url }}" disabled>Previous</ion-button>
+    {%- endif -%}
+
+    {%- for part in paginate.parts -%}
+      {%- if part.is_link -%}
+        <ion-button class="snippet-pagination__button" href="{{ part.url }}" color="light">{{ part.title }}</ion-button>
+      {%- else -%}
+        {%- if part.title == paginate.current_page -%}
+          <ion-button class="snippet-pagination__button">{{ paginate.current_page }}</ion-button>
+        {%- else -%}
+          <ion-button class="snippet-pagination__button" color="light">{{ part.title }}</ion-button>
+        {%- endif -%}
+      {%- endif -%}
+    {%- endfor -%}
+
+    {%- if paginate.next -%}
+      <ion-button class="snippet-pagination__button" color="light" href="{{ paginate.next.url }}">Next</ion-button>
+    {%- else -%}
+      <ion-button class="snippet-pagination__button" color="light" href="{{ paginate.next.url }}" disabled>Next</ion-button>
+    {%- endif -%}
+  </div>
+{%- endif -%}
+
+
+<style code>
+  .snippet-pagination {
+    margin: 20px 5px 0;
+
+    &__button {
+      margin: 0 5px;
+    }
+  }
+</style>
