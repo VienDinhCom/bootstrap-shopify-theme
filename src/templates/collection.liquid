@@ -1,29 +1,38 @@
 {% render 'page-header' title: collection.title description: collection.description %}
 
-<div class="template-collection global-grid">
-  {%- for product in collection.products -%}
-    <ion-card href="{{ product.url | within: collection }}">
-      <img class="template-collection__image" src="{{ product.featured_image.src | img_url: '450x450' }}" width="450" height="450" alt="{{product.title}}"/>
+<div class="template-collection">
+  {%- paginate collection.products by 24 -%}
 
-      <ion-card-header>
-        <ion-card-subtitle>
-          <ion-text color="danger">
-            {%- if product.price_varies -%}
-              <span>Starting at</span>
-              {{ product.price_min | money_without_trailing_zeros }}
-              <span aria-hidden="true">+</span>
-            {%- else -%}
-              {{ product.price | money_without_trailing_zeros }}
-            {%- endif -%}
-          </ion-text>
-        </ion-card-subtitle>
-        <ion-card-title>{{ product.title }}</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p>{{ product.description | strip_html | truncate: 120 }}</p>
-      </ion-card-content>
-    </ion-card>
-  {%- endfor -%}
+    <div class="global-grid">
+      {%- for product in collection.products -%}
+        <ion-card href="{{ product.url | within: collection }}">
+          <img class="template-collection__image" src="{{ product.featured_image.src | img_url: '450x450' }}" width="450" height="450" alt="{{product.title}}"/>
+
+          <ion-card-header>
+            <ion-card-subtitle>
+              <ion-text color="danger">
+                {%- if product.price_varies -%}
+                  <span>Starting at</span>
+                  {{ product.price_min | money_without_trailing_zeros }}
+                  <span aria-hidden="true">+</span>
+                {%- else -%}
+                  {{ product.price | money_without_trailing_zeros }}
+                {%- endif -%}
+              </ion-text>
+            </ion-card-subtitle>
+            <ion-card-title>{{ product.title }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p>{{ product.description | strip_html | truncate: 120 }}</p>
+          </ion-card-content>
+        </ion-card>
+      {%- endfor -%}
+    </div>
+
+    {% render 'pagination' paginate: paginate %}
+
+
+  {%- endpaginate -%}
 </div>
 
 
