@@ -1,25 +1,31 @@
 {% render 'page-header' title: page_title %}
 
-<div class="template-blog global-grid">
-  {% for article in blog.articles %}
-    <ion-card href="{{ article.url }}">
-      <img class="template-blog__image" src="{{ article.image | img_url: '450x450' }}" width="450" height="450" alt="{{ article.title | escape }}">
-      <ion-card-header>
-        <ion-card-subtitle>Published at
-          {{ article.published_at | date: format: 'abbreviated_date' }}</ion-card-subtitle>
-        <ion-card-title>{{ article.title | escape }}</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p>
-          {%- if article.excerpt.size > 0 -%}
-            {{ article.excerpt }}
-          {%- else -%}
-            {{ article.content | strip_html | truncate: 120 }}
-          {%- endif -%}
-        </p>
-      </ion-card-content>
-    </ion-card>
-  {% endfor %}
+<div class="template-blog">
+  {%- paginate blog.articles by 24 -%}
+    <div class="global-grid">
+      {% for article in blog.articles %}
+        <ion-card href="{{ article.url }}">
+          <img class="template-blog__image" src="{{ article.image | img_url: '450x450' }}" width="450" height="450" alt="{{ article.title | escape }}">
+          <ion-card-header>
+            <ion-card-subtitle>Published at
+              {{ article.published_at | date: format: 'abbreviated_date' }}</ion-card-subtitle>
+            <ion-card-title>{{ article.title | escape }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p>
+              {%- if article.excerpt.size > 0 -%}
+                {{ article.excerpt }}
+              {%- else -%}
+                {{ article.content | strip_html | truncate: 120 }}
+              {%- endif -%}
+            </p>
+          </ion-card-content>
+        </ion-card>
+      {% endfor %}
+    </div>
+
+    {% render 'pagination' paginate: paginate %}
+  {%- endpaginate -%}
 </div>
 
 <style code>
