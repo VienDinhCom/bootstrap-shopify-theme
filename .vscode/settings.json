@@ -1,12 +1,8 @@
 {
-  "css.validate": false,
-  "prettier.enable": true,
-  "liquid.format": true,
-  "liquid.rules": {},
   "editor.tabSize": 2,
+  "liquid.format": true,
+  "prettier.enable": true,
   "editor.formatOnSave": true,
-  "emmet.includeLanguages": {
-    "liquid": "html"
-  },
-  "emmet.triggerExpansionOnTab": true
+  "emmet.triggerExpansionOnTab": true,
+  "emmet.includeLanguages": { "liquid": "html" }
 }
