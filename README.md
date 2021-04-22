@@ -1,4 +1,5 @@
 - Mobile First
 - LiveReload
-- Ionic
+- Parcel
+- Bootstrap
 - BEM
