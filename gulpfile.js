@@ -54,7 +54,7 @@ gulp.task('locales', () => {
 gulp.task('watch', () => {
   new Bundler(entryFile, { outDir }).bundle();
 
-  gulp.watch('src/**/*.liquid', gulp.parallel(['liquid']));
+  gulp.watch('src/**/*.liquid', gulp.parallel('liquid'));
 
   themeKit.command('watch', {
     allowLive: true,
