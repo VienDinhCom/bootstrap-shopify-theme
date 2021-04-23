@@ -35,6 +35,7 @@ gulp.task('liquid', () => {
 gulp.task('bundle', () => {
   return new Bundler(entryFile, {
     outDir,
+    hmr: false,
     watch: isDev,
     minify: isProd,
     sourceMaps: false,
@@ -73,6 +74,7 @@ gulp.task('serve', () => {
   browserSync({
     port: 8080,
     open: false,
+    https: true,
     notify: false,
     reloadDelay: 1000,
     proxy: `https://${config.store}/`,
@@ -80,9 +82,7 @@ gulp.task('serve', () => {
     snippetOptions: {
       rule: {
         match: /<\/body>/i,
-        fn: (snippet, match) => {
-          return snippet + match;
-        },
+        fn: (snippet, match) => snippet + match,
       },
     },
   });
