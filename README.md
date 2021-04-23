@@ -1,5 +1,8 @@
 - Mobile First
-- LiveReload
+- LiveReload with BrowserSync
 - Parcel
+- PostCSS
+- SASS/SCSS
+- Gulp
 - Bootstrap
 - BEM

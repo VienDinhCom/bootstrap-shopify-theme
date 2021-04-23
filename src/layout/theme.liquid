@@ -8,14 +8,6 @@
 
     <title>{{ shop.name }}</title>
 
-    <script async src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" rel="stylesheet"/>
-
-    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-    <script defer src="{{ 'vendor.js' | asset_url }}"></script>
-    <link rel="stylesheet" href="{{ 'vendor.css' | asset_url }}">
-
     <script defer src="{{ 'main.js' | asset_url }}"></script>
     <link rel="stylesheet" href="{{ 'main.css' | asset_url }}">
 
@@ -23,63 +15,66 @@
   </head>
   <body class="layout-theme">
 
-    <ion-app>
-      <ion-split-pane class="layout-theme__pane" content-id="main" when="xl">
-        <ion-menu content-id="main" mode="md">
-          <ion-header>
-            <ion-toolbar>
-              <ion-title>Menu</ion-title>
-            </ion-toolbar>
-          </ion-header>
-          <ion-content>
-            {% render 'main-menu' %}
-          </ion-content>
-        </ion-menu>
+    <nav class="layout-theme__main-menu navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+      <div class="container">
+        <a class="navbar-brand" href="{{ routes.root_url }}">{{ shop.name }}</a>
+        <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarNavDropdown" data-toggle="collapse" type="button">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <!-- Left nav -->
+          <ul class="nav navbar-nav mr-auto">
+            {% for link in linklists.main-menu.links %}
+              {%- if link.links == blank -%}
+                <li class="nav-item">
+                  <a class="nav-link {% if link.active %}active{% endif %}" href="{{ link.url }}">{{ link.title }}</a>
+                </li>
+              {% else %}
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle {% if link.child_active %}active{% endif %}" href="{{ link.url }}">
+                    {{ link.title }}
+                  </a>
+                  <ul class="dropdown-menu">
+                    {%- for child_link in link.links -%}
+                      {%- if child_link.links == blank -%}
+                        <li>
+                          <a class="dropdown-item {% if child_link.active %}active{% endif %}" href="{{ child_link.url }}">
+                            {{ child_link.title }}
+                          </a>
+                        </li>
+                      {% else %}
+                        <li class="dropdown">
+                          <a class="dropdown-item dropdown-toggle {% if link.child_active %}active{% endif %}" href="{{ child_link.url }}">
+                            {{ child_link.title }}
+                          </a>
+                          <ul class="dropdown-menu">
+                            {%- for grandchild_link in child_link.links -%}
+                              <li>
+                                <a class="dropdown-item {% if grandchild_link.active %}active{% endif %}" href="{{ grandchild_link.url }}">{{ grandchild_link.title }}</a>
+                              </li>
+                            {%- endfor -%}
+                          </ul>
+                        </li>
+                      {%- endif -%}
+                    {%- endfor -%}
+                  </ul>
+                </li>
+              {%- endif -%}
+            {% endfor %}
+          </ul>
 
-        <ion-router-outlet id="main" mode="md">
-          <ion-header>
-            <ion-toolbar>
-              <ion-buttons slot="start">
-                <ion-menu-button></ion-menu-button>
-              </ion-buttons>
-              <a class="layout-theme__brand" href="{{ routes.root_url }}">
-                <ion-title>
-                  {{ shop.name }}
-                </ion-title>
-              </a>
-            </ion-toolbar>
-          </ion-header>
-          <ion-content>
-            <div class="layout-theme__content">
-              {{ content_for_layout }}
-            </div>
-          </ion-content>
-        </ion-router-outlet>
-      </ion-split-pane>
-    </ion-app>
+          <!-- Right nav -->
+                                                    <!-- <ul class="nav navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="bootstrap-4-navbar.html">Default</a>
+              </li>
+            </ul> -->
+        </div>
+      </div>
+    </nav>
 
+    <main class="layout-theme__main">
+      {{ content_for_layout }}
+    </main>
   </body>
 </html>
-
-
-<style code>
-  .layout-theme {
-
-    &__pane {
-      --side-max-width: #{$side-width};
-    }
-
-    &__brand {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    &__content {
-      padding: 0 10px 100px;
-
-      @media(max-width: 599px) {
-        padding: 0 0 100px;
-      }
-    }
-  }
-</style>

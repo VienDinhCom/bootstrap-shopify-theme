@@ -12,6 +12,12 @@
     "dev": "cross-env NODE_ENV=development gulp dev",
     "build": "cross-env NODE_ENV=production gulp build"
   },
+  "dependencies": {
+    "bootstrap": "^4.6.0",
+    "jquery": "^3.6.0",
+    "popper.js": "^1.16.1",
+    "smartmenus-bootstrap-4": "^0.1.0"
+  },
   "devDependencies": {
     "@shopify/themekit": "^1.1.7",
     "autoprefixer": "^9.8.6",

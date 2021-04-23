@@ -1,4 +1,2 @@
-body {
-  background: #000;
-  transform: scale(0.5);
-}
+@use '~bootstrap/scss/bootstrap.scss';
+@use '~smartmenus-bootstrap-4/jquery.smartmenus.bootstrap-4.css';
