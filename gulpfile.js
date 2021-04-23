@@ -11,6 +11,7 @@ const Bundler = require('parcel-bundler');
 const entryFile = path.join(__dirname, 'src/main.js');
 const outDir = path.join(__dirname, 'dist/assets');
 
+const isDev = process.env.NODE_ENV === 'development';
 const isProd = process.env.NODE_ENV === 'production';
 const config = yaml.parse(fs.readFileSync('config.yml', 'utf-8')).development;
 
@@ -32,7 +33,12 @@ gulp.task('liquid', () => {
 });
 
 gulp.task('bundle', () => {
-  return new Bundler(entryFile, { outDir, watch: false, minify: isProd }).bundle();
+  return new Bundler(entryFile, {
+    outDir,
+    watch: isDev,
+    minify: isProd,
+    sourceMaps: false,
+  }).bundle();
 });
 
 gulp.task('assets', () => {
@@ -52,7 +58,7 @@ gulp.task('locales', () => {
 });
 
 gulp.task('watch', () => {
-  new Bundler(entryFile, { outDir }).bundle();
+  gulp.task('bundle')();
 
   gulp.watch('src/**/*.liquid', gulp.parallel('liquid'));
 
