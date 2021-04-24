@@ -1,2 +1,8 @@
 @use '~bootstrap/scss/bootstrap.scss';
 @use '~smartmenus-bootstrap-4/jquery.smartmenus.bootstrap-4.css';
+
+@import './layout/theme.scss';
+
+@import './snippets/page-header.scss';
+
+@import './templates//list-collections.scss';
