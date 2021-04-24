@@ -76,7 +76,7 @@ gulp.task('serve', () => {
     open: false,
     https: true,
     notify: false,
-    reloadDelay: 1000,
+    reloadDelay: 1500,
     proxy: `https://${config.store}/`,
     files: path.join(__dirname, '.cache/updated'),
     snippetOptions: {
