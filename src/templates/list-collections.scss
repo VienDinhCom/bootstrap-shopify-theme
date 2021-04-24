@@ -1,5 +1,6 @@
 .template-list-collections {
   &__card {
+    height: calc(100% - 30px);
     margin-bottom: 30px;
   }
 
@@ -11,5 +12,15 @@
     @media (max-width: 575px) {
       height: 350px;
     }
+  }
+
+  &__card-body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__card-info {
+    flex: 1;
+    margin-bottom: 0.75rem;
   }
 }
