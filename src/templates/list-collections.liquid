@@ -1,36 +1,29 @@
 {% render 'page-header' title: 'Collections' %}
 
-<div class="template-list-collections global-grid">
-  {% for collection in collections %}
-    <ion-card href="{{ collection.url }}">
-      {% if collection.image %}
-        <img class="template-list-collections__image" src="{{ collection | img_url: '450x450' }}" width="450" height="450" alt="{{ collection.image.alt }}"/>
-      {% else %}
-        <img class="template-list-collections__image" src="{{ collection.products.first | img_url: '450x450' }}" width="450" height="450" alt="{{ collection.title | escape }}"/>
-      {% endif %}
-
-      <ion-card-header>
-        <ion-card-subtitle>
-          {{ collection.products_count }}
-          {{ collection.products_count | pluralize: 'Product', 'Products' }}
-        </ion-card-subtitle>
-        <ion-card-title>{{ collection.title }}</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p>{{ collection.description | strip_html | truncate: 120 }}</p>
-      </ion-card-content>
-    </ion-card>
-  {% endfor %}
+<div class="template-list-collections">
+  <div class="container">
+    <div class="row">
+      {% for collection in collections %}
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="template-list-collections__card card">
+            {% if collection.image %}
+              <img class="template-list-collections__image card-img-top" src="{{ collection | img_url: '450x450', crop: 'center' }}" width="450" height="450" alt="{{ collection.image.alt }}"/>
+            {% else %}
+              <img class="template-list-collections__image card-img-top" src="{{ collection.products.first | img_url: '450x450', crop: 'center' }}" width="450" height="450" alt="{{ collection.title | escape }}"/>
+            {% endif %}
+            <div class="card-body">
+              <h5 class="card-title">{{ collection.title }}</h5>
+              <p class="card-text">{{ collection.description | strip_html | truncate: 120 }}</p>
+              <a class="btn btn-primary btn-block" href="{{ collection.url }}">
+                Explore
+                {{ collection.products_count }}
+                {{ collection.products_count | pluralize: 'Product', 'Products' }}
+              </a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
 </div>
-
-<style code>
-  .template-list-collections {
-
-    &__image {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-      border-bottom: 1px solid #dadada;
-    }
-  }
-</style>
+<!-- /.template-list-collections -->
