@@ -1,3 +1,9 @@
 .snippet-product-carousel {
-  height: 450px;
+  &__image {
+    img {
+      width: 100%;
+      height: 450px;
+      object-fit: cover;
+    }
+  }
 }

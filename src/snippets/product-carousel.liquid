@@ -5,23 +5,23 @@
       <div class="carousel-item {% if media.position == 1 %}active{% endif %}">
         {% case media.media_type %}
           {% when 'image' %}
-            <div class="snippet-product-carousel_image">
-              <img class="d-block w-100" src="{{ media | img_url: '450x450', crop: 'center' }}" width="450" height="450" alt="{{ media.alt }}">
+            <div class="snippet-product-carousel__image">
+              <img src="{{ media | img_url: '450x450', crop: 'center' }}" width="450" height="450" alt="{{ media.alt }}">
             </div>
           {% when 'external_video' %}
-            <div class="snippet-product-carousel_media">
+            <div class="snippet-product-carousel__media">
               {{ media | external_video_tag }}
             </div>
           {% when 'video' %}
-            <div class="snippet-product-carousel_video">
+            <div class="snippet-product-carousel__video">
               {{ media | video_tag: controls: true }}
             </div>
           {% when 'model' %}
-            <div class="snippet-product-carousel_media">
+            <div class="snippet-product-carousel__media">
               {{ media | model_viewer_tag }}
             </div>
           {% else %}
-            <div class="snippet-product-carousel_media">
+            <div class="snippet-product-carousel__media">
               {{ media | media_tag }}
             </div>
         {% endcase %}
@@ -38,3 +38,4 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
+<!-- /.snippet-product-carousel -->
