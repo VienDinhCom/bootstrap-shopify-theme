@@ -1,0 +1,40 @@
+<div class="snippet-product-carousel carousel slide" data-bs-ride="carousel" id="snippet-product-carousel">
+
+  <div class="carousel-inner">
+    {% for media in product.media %}
+      <div class="carousel-item {% if media.position == 1 %}active{% endif %}">
+        {% case media.media_type %}
+          {% when 'image' %}
+            <div class="snippet-product-carousel_image">
+              <img class="d-block w-100" src="{{ media | img_url: '450x450', crop: 'center' }}" width="450" height="450" alt="{{ media.alt }}">
+            </div>
+          {% when 'external_video' %}
+            <div class="snippet-product-carousel_media">
+              {{ media | external_video_tag }}
+            </div>
+          {% when 'video' %}
+            <div class="snippet-product-carousel_video">
+              {{ media | video_tag: controls: true }}
+            </div>
+          {% when 'model' %}
+            <div class="snippet-product-carousel_media">
+              {{ media | model_viewer_tag }}
+            </div>
+          {% else %}
+            <div class="snippet-product-carousel_media">
+              {{ media | media_tag }}
+            </div>
+        {% endcase %}
+      </div>
+    {% endfor %}
+  </div>
+
+  <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#snippet-product-carousel" type="button">
+    <span aria-hidden="true" class="carousel-control-prev-icon"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" data-bs-slide="next" data-bs-target="#snippet-product-carousel" type="button">
+    <span aria-hidden="true" class="carousel-control-next-icon"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>

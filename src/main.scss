@@ -1,9 +1,11 @@
-@use '~bootstrap/scss/bootstrap.scss';
-@use '~smartmenus-bootstrap-4/jquery.smartmenus.bootstrap-4.css';
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+@import '../node_modules/smartmenus-bootstrap-4/jquery.smartmenus.bootstrap-4.css';
 
 @import './layout/theme.scss';
 
 @import './snippets/page-header.scss';
+@import './snippets/product-carousel.scss';
 
 @import './templates/collection.scss';
 @import './templates/list-collections.scss';
+@import './templates/product.scss';
