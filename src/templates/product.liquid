@@ -1,27 +1,51 @@
-<br/>
 <div class="template-product">
   <div class="container">
-    <div class="card">
+    <div class="card mb-3">
       <div class="card-body">
         <div class="row">
-          <div class="col-md-12 col-lg-5">
+          <div class="col-md-12 col-lg-6 mb-3">
             {% render 'product-carousel' product: product %}
           </div>
-          <div class="col-md-12 col-lg-7">
-            <hr>
+          <div class="col-md-12 col-lg-6 mb-3">
+
             {% form "product", product %}
-              <select name="id">
-                {% for variant in product.variants %}
-                  <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} value="{{ variant.id }}">{{ variant.title }}
-                    -
-                    {{ variant.price | money }}</option>
-                {% endfor %}
-              </select>
 
-              <input name="quantity" type="text" value="1"/>
+              <h1 class="mb-3">{{ product.title }}</h1>
 
-              <input type="submit" value="Add to cart"/>
+              <div class="mb-3">{{ product.description}}</div>
+
+              <h3 class="mb-3 text-danger">{{ product.price | money}}</h3>
+
+              <div class="mb-3">
+                <label class="form-label" for="product-form-variants">Variants</label>
+                <select class="form-select" id="product-form-variants" name="id">
+                  {% for variant in product.variants %}
+                    <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} value="{{ variant.id }}">
+                      {{ variant.title }}
+                      -
+                      {{ variant.price | money }}
+                    </option>
+                  {% endfor %}
+                </select>
+              </div>
+
+              <div class="mb-4">
+                <label class="form-label" for="product-form-quantity">Quantity</label>
+                <input class="form-control" id="product-form-quantity" name="quantity" type="text" value="1">
+              </div>
+
+              <button class="btn btn-primary btn-lg mb-2" type="submit">Add to cart</button>
             {% endform %}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body">
+                {{ product.content }}
+              </div>
+            </div>
           </div>
         </div>
       </div>
