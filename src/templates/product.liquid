@@ -12,7 +12,7 @@
 
               <h1 class="mb-3">{{ product.title }}</h1>
 
-              <div class="mb-3">{{ product.description}}</div>
+              <div class="mb-3">{{ product.description | strip_html }}</div>
 
               <h3 class="mb-3 text-danger">{{ product.price | money}}</h3>
 
