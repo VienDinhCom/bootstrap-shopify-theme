@@ -1,52 +1,11 @@
-<div class="template-404 global-content">
-  <ion-card class="global-content__card">
-    <img class="template-404__image" src="{{ '404.png' | asset_url }}" width="1024" height="1024" alt="{{ article.title | escape }}">
-    <ion-card-header>
-      <ion-card-title>
-        <h1 class="template-404__title">Page Not Found</h1>
-      </ion-card-title>
-    </ion-card-header>
-    <ion-card-content class="template-404__content">
-      <p>The requested URL
-        <b class="template-404__url"></b>
-        was not found on this server.</p>
-    </ion-card-content>
-  </ion-card>
+<div class="template-404">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-12 text-center">
+        <span class="display-1 d-block">404</span>
+        <div class="mb-4 lead">The page you are looking for was not found.</div>
+        <a class="btn btn-link" href="{{ routes.root_url }}">Back to Home</a>
+      </div>
+    </div>
+  </div>
 </div>
-
-<script code>
-  $(".template-404__url").html(window.location.pathname);
-</script>
-
-<style code>
-  .template-404 {
-    &__title {
-      margin: 0;
-      text-align: center;
-    }
-
-    &__image {
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
-      border-bottom: 1px solid #dadada;
-
-      @media(min-width: 600px) {
-        height: 400px;
-      }
-
-      @media(min-width: 1000px) {
-        height: 500px;
-      }
-
-      @media(min-width: 1600px) {
-        height: 600px;
-      }
-    }
-
-    &__content {
-      padding-bottom: 30px;
-      text-align: center;
-    }
-  }
-</style>
