@@ -1,47 +1,18 @@
-<div class="template-article global-content">
-  <ion-card class="global-content__card">
-    <img class="template-article__image" src="{{ article.image | img_url: '1024x1024' }}" width="1024" height="1024" alt="{{ article.title | escape }}">
-    <ion-card-header>
-      <ion-card-subtitle>Published at
-        {{ article.published_at | date: format: 'abbreviated_date' }}</ion-card-subtitle>
-      <ion-card-title>
-        <h1 class="template-article__title">{{ article.title | escape }}</h1>
-      </ion-card-title>
-    </ion-card-header>
-    <ion-card-content class="template-article__content">
-      {{ article.content }}
-    </ion-card-content>
-  </ion-card>
+<div class="template-article">
+  <div class="container">
+    <div class="card">
+      <img class="template-article__image card-img-top" src="{{ article.image | img_url: '1024x1024', crop: 'center' }}" width="1024" height="1024" alt="{{ article.image.alt }}"/>
+      <div class="card-body">
+        <h1 class="card-title fs-2">{{ article.title | escape }}</h1>
+
+        <h6 class="card-subtitle mb-3 text-muted">
+          Published at
+          {{ article.published_at | date: format: 'abbreviated_date' }}
+        </h6>
+
+        <div class="card-text">{{ article.content }}</div>
+      </div>
+    </div>
+  </div>
 </div>
-
-
-<style code>
-  .template-article {
-    &__title {
-      margin: 0;
-    }
-
-    &__image {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-      border-bottom: 1px solid #dadada;
-
-      @media(min-width: 600px) {
-        height: 350px;
-      }
-
-      @media(min-width: 1000px) {
-        height: 450px;
-      }
-
-      @media(min-width: 1600px) {
-        height: 550px;
-      }
-    }
-
-    &__content {
-      padding-bottom: 30px;
-    }
-  }
-</style>
+<!-- /.template-article -->

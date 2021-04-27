@@ -1,0 +1,11 @@
+.template-article {
+  &__image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+
+    @media (max-width: 575px) {
+      height: 350px;
+    }
+  }
+}
