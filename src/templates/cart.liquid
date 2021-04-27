@@ -1,0 +1,75 @@
+<div class="template-cart">
+  <div class="container">
+    <div class="card">
+      <div class="card-header">
+        <h1 class="fs-3 mb-0">Cart</h1>
+      </div>
+      <div class="card-body">
+        {%- if cart.item_count > 0 -%}
+          <form action="{{ routes.cart_url }}" method="post">
+            <div class="table-responsive">
+              <table class="table border rounded">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th width="1000">Product</th>
+                    <th width="200">Variant</th>
+                    <th class="text-center" width="50">Quantity</th>
+                    <th class="text-center" width="100">Price</th>
+                    <th class="text-end" width="20"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {%- for item in cart.items -%}
+                    <tr valign="middle">
+                      <th><img src="{{ item | img_url: '50x50', crop: 'center' }}" height="50" width="50" alt="{{ item.image.alt | escape }}"></th>
+                      <td>
+                        <a class="text-decoration-none" href="{{ item.url | within: collections.all }}">{{ item.product.title }}</a>
+                      </td>
+                      <td>
+                        {{ item.variant.title }}
+                      </td>
+                      <td class="text-center">
+                        <input class="form-control" name="updates[]" type="number" value="{{ item.quantity }}" min="0" pattern="[0-9]*"/>
+                      </td>
+                      <td class="text-center">
+                        <b class="text-danger">
+                          {{item.final_price | money}}
+                        </b>
+                      </td>
+                      <td class="text-end">
+                        <a class="btn btn-outline-dark" href="{{ routes.cart_url }}/change?line={{ forloop.index }}&amp;quantity=0">
+                          <svg class="bi bi-trash" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                            <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" fill-rule="evenodd"/>
+                          </svg>
+                        </a>
+                      </td>
+                    </tr>
+                  {%- endfor -%}
+                </tbody>
+              </table>
+            </div>
+
+            <div class="d-flex justify-content-end align-items-center">
+              <div>
+                <b>
+                  Total:
+                  <span class="text-danger">{{ cart.total_price | money }}</span>
+                </b>
+              </div>
+              <button class="btn btn-primary ms-3" name="checkout" type="submit">Checkout</button>
+              <button class="btn btn-secondary ms-2" name="update" type="submit">Update</button>
+            </div>
+          </form>
+        {%- else -%}
+          <p class="text-center">
+            The cart is empty.
+            <a href="/collections/all">Continue shopping</a>
+          </p>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /.template-cart -->
