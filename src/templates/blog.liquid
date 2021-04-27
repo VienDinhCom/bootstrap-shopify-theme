@@ -1,41 +1,36 @@
 {% render 'page-header' title: page_title %}
 
 <div class="template-blog">
-  {%- paginate blog.articles by 24 -%}
-    <div class="global-grid">
-      {% for article in blog.articles %}
-        <ion-card href="{{ article.url }}">
-          <img class="template-blog__image" src="{{ article.image | img_url: '450x450' }}" width="450" height="450" alt="{{ article.title | escape }}">
-          <ion-card-header>
-            <ion-card-subtitle>Published at
-              {{ article.published_at | date: format: 'abbreviated_date' }}</ion-card-subtitle>
-            <ion-card-title>{{ article.title | escape }}</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
-            <p>
-              {%- if article.excerpt.size > 0 -%}
-                {{ article.excerpt }}
-              {%- else -%}
-                {{ article.content | strip_html | truncate: 120 }}
-              {%- endif -%}
-            </p>
-          </ion-card-content>
-        </ion-card>
-      {% endfor %}
-    </div>
+  <div class="container">
+    {%- paginate blog.articles by 12 -%}
+      <div class="row">
+        {%- for article in blog.articles -%}
+          <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="template-blog__card card">
+              <img class="template-blog__image card-img-top" src="{{ article.image | img_url: '450x450', crop: 'center' }}" width="450" height="450" alt="{{article.title}}"/>
+              <div class="template-blog__card-body card-body">
+                <div class="template-blog__card-info">
+                  <h5 class="card-title mb-3">{{ article.title }}</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">
+                    {{ article.published_at | date: format: 'abbreviated_date' }}
+                  </h6>
+                  <p class="card-text">
+                    {%- if article.excerpt.size > 0 -%}
+                      {{ article.excerpt }}
+                    {%- else -%}
+                      {{ article.content | strip_html | truncate: 120 }}
+                    {%- endif -%}
+                  </p>
+                </div>
 
-    {% render 'pagination' paginate: paginate %}
-  {%- endpaginate -%}
+                <a class="btn btn-primary btn-block" href="{{ article.url}}">Read More</a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      {% render 'pagination' paginate: paginate %}
+    {%- endpaginate -%}
+  </div>
 </div>
-
-<style code>
-  .template-blog {
-
-    &__image {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-      border-bottom: 1px solid #dadada;
-    }
-  }
-</style>
+<!-- /.template-blog -->
