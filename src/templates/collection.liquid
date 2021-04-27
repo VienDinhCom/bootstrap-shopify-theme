@@ -11,9 +11,20 @@
               <div class="template-collection__card-body card-body">
                 <div class="template-collection__card-info">
                   <h5 class="card-title">{{ product.title }}</h5>
-                  <p class="card-text">{{ product.description | strip_html | truncate: 100 }}</p>
+                  <p class="card-text">{{ product.description | strip_html | truncate: 50 }}</p>
+
                 </div>
-                <a class="btn btn-primary btn-block" href="{{ product.url | within: collection }}">View This Product</a>
+                <h5 class="text-danger mb-3">
+                  {%- if product.price_varies -%}
+                    <span>Starting at</span>
+                    {{ product.price_min | money_without_trailing_zeros }}
+                    <span aria-hidden="true">+</span>
+                  {%- else -%}
+                    {{ product.price | money_without_trailing_zeros }}
+                  {%- endif -%}
+                </h5>
+
+                <a class="btn btn-primary btn-block" href="{{ product.url | within: collection }}">View</a>
               </div>
             </div>
           </div>
