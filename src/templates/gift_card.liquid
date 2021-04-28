@@ -1,0 +1,25 @@
+<div class="template-gift-card">
+  <div class="template-gift-card__card card">
+    <img class="template-gift-card__image card-img-top" src="{{ 'gift-card/card.jpg' | shopify_asset_url }}" alt="" width="848" height="565">
+    <div class="card-body text-center">
+      <h5 class="card-title text-danger">
+        <b>{{ gift_card.balance | money }}</b>
+      </h5>
+
+      <p class="card-text">
+        Hey,
+        <b>{{ gift_card.customer.first_name }}</b>! Use this code at checkout to redeem your gift card.
+      </p>
+
+      <p class="card-text">
+        <input class="form-control text-center" disabled type="text" value="{{ gift_card.code }}">
+      </p>
+
+      {% if gift_card.expires_on %}
+        <p class="card-text text-muted">This gift card expires on
+          {{ gift_card.expires_on }}</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+<!-- /.template-gift-card -->
