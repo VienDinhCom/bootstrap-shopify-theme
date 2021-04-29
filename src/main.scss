@@ -2,6 +2,7 @@
 @import '../node_modules/smartmenus-bootstrap-4/jquery.smartmenus.bootstrap-4.css';
 
 @import './layout/theme.scss';
+@import './layout/password.scss';
 
 @import './snippets/page-header.scss';
 @import './snippets/product-carousel.scss';
@@ -11,4 +12,5 @@
 @import './templates/collection.scss';
 @import './templates/gift_card.scss';
 @import './templates/list-collections.scss';
+@import './templates/password.scss';
 @import './templates/product.scss';
