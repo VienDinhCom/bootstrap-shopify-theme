@@ -1,0 +1,49 @@
+{% render 'page-header' title: 'Search' %}
+
+<div class="template-search">
+  <div class="container">
+    <form action="/search" class="input-group mb-4">
+      <input class="form-control" type="text" name="q" value="{{ search.terms | escape }}">
+      <button class="btn btn-primary" type="submit">Search</button>
+    </form>
+
+    {% if search.results_count == 0 %}
+      <p>
+        There are no results for
+        <b>{{ search.terms | escape }}</b>. Try checking your spelling or using different words.
+      </p>
+    {% endif %}
+
+    {% paginate search.results by 10 %}
+      <div class="template-search__results mb-4">
+        {% for item in search.results %}
+          <div class="template-search__card card mb-3 overflow-hidden">
+            <div class="template-search__card-image">
+              <a href="{{ item.url }}">
+                {% if item.object_type == 'article' %}
+                  {{ item | img_url: '300x300', crop: 'center' | img_tag: item.title }}
+                {% elsif item.object_type == 'page' %}
+                  {{ item | img_url: '300x300', crop: 'center' | img_tag: item.title }}
+                {% else %}
+                  {{ item.featured_image | img_url: '300x300', crop: 'center' | img_tag: item.featured_image.alt }}
+                {% endif %}
+              </a>
+            </div>
+
+            <div class="template-search__card-body card-body">
+              <h5 class="card-title">
+                <a class="text-decoration-none" href="{{ item.url }}">{{ item.title }}</a>
+              </h5>
+              <div class="card-text">{{ item.content | strip_html | truncate: 300 | highlight: search.terms }}</div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      {% render 'pagination' paginate: paginate %}
+    {% endpaginate %}
+
+
+  </div>
+</div>
+<!-- /.template-search --> 
