@@ -1,5 +1,8 @@
-{% for field in form.errors %}
-  <div class="alert alert-danger" role="alert">
-    {{ form.errors.messages[field] }}
-  </div>
-{% endfor %}
+<div class="snippet-form-errors">
+  {% for field in form.errors %}
+    <div class="alert alert-danger" role="alert">
+      {{ form.errors.messages[field] }}
+    </div>
+  {% endfor %}
+</div>
+<!-- /.snippet-form-errors -->
