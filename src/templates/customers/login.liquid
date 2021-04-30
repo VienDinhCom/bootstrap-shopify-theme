@@ -1,0 +1,27 @@
+<div class="template-account-login container">
+  <div class="row justify-content-center">
+    <div class="col-sm-12 col-md-8 col-lg-6">
+      <div class="card">
+        <h1 class="card-header fs-3 text-center">Login</h1>
+        <div class="card-body">
+          {% form 'create_customer' %}
+            {% render 'form-errors' form: form %}
+
+            <div class="mb-3">
+              <label class="form-label" for="account-register-email">Email</label>
+              <input class="form-control" id="account-register-email" name="customer[email]" size="30" type="email"/>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label" for="account-register-password">Password</label>
+              <input class="form-control" id="account-register-password" name="customer[password]" size="30" type="password"/>
+            </div>
+
+            <button class="btn btn-primary" type="submit">Login</button>
+          {% endform %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /.template-account-login -->
