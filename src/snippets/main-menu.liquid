@@ -59,6 +59,24 @@
             {% endif %}
           </a>
         </li>
+
+        {%- if shop.customer_accounts_enabled -%}
+          {%- if customer -%}
+            <li>
+              <a href="/account">Account</a>
+            </li>
+            <li>
+              {{ 'Log out' | customer_logout_link }}
+            </li>
+          {%- else -%}
+            <li>
+              {{ 'Log in' | customer_login_link }}
+            </li>
+            <li>
+              {{ 'Create account' | customer_register_link }}
+            </li>
+          {%- endif -%}
+        {%- endif -%}
       </ul>
     </div>
   </div>
