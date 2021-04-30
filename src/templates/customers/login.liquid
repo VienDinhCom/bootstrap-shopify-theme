@@ -4,21 +4,40 @@
       <div class="card">
         <h1 class="card-header fs-3 text-center">Login</h1>
         <div class="card-body">
-          {% form 'customer_login' %}
-            {% render 'form-errors' form: form %}
+          <div class="template-customer-login__tab template-customer-login__tab--main template-customer-login__tab--active">
+            {% form 'customer_login' %}
+              {% render 'form-errors' form: form %}
 
-            <div class="mb-3">
-              <label class="form-label" for="account-register-email">Email</label>
-              <input class="form-control" id="account-register-email" name="customer[email]" size="30" type="email"/>
-            </div>
+              <div class="mb-3">
+                <label class="form-label" for="account-login-main-email">Email</label>
+                <input class="form-control" id="account-login-main-email" name="customer[email]" size="30" type="email"/>
+              </div>
 
-            <div class="mb-3">
-              <label class="form-label" for="account-register-password">Password</label>
-              <input class="form-control" id="account-register-password" name="customer[password]" size="30" type="password"/>
-            </div>
+              <div class="mb-3">
+                <label class="form-label" for="account-login-main-password">Password</label>
+                <input class="form-control" id="account-login-main-password" name="customer[password]" size="30" type="password"/>
+              </div>
 
-            <button class="btn btn-primary" type="submit">Login</button>
-          {% endform %}
+              <button class="btn btn-primary me-2" type="submit">Login</button>
+              <button class="btn btn-secondary" id="show-recovery-tab" type="button">Forget Password</button>
+
+            {% endform %}
+          </div>
+
+          <div class="template-customer-login__tab template-customer-login__tab--recovery">
+
+            {% form 'recover_customer_password' %}
+              {% render 'form-errors' form: form %}
+
+              <div class="mb-3">
+                <label class="form-label" for="account-login-recovery-email">Email</label>
+                <input class="form-control" id="account-login-recovery-email" name="customer[email]" size="30" type="email"/>
+              </div>
+
+              <button class="btn btn-primary me-2" type="submit">Reset Password</button>
+              <button class="btn btn-secondary" id="show-main-tab" type="button">Back to Login</button>
+            {% endform %}
+          </div>
         </div>
       </div>
     </div>
