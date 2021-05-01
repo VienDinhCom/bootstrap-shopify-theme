@@ -57,17 +57,17 @@
         {%- if shop.customer_accounts_enabled -%}
           {%- if customer -%}
             <li class="nav-item">
-              <a class="nav-link {% if link.active %}text-secondary{% else %}text-white{% endif %}" href="/account">Account</a>
+              <a class="nav-link {% if request.path == routes.account_url %}text-secondary{% else %}text-white{% endif %}" href="/account">Account</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link {% if link.active %}text-secondary{% else %}text-white{% endif %}" href="/account/logout">Logout</a>
+              <a class="nav-link {% if request.path == routes.account_logout_url %}text-secondary{% else %}text-white{% endif %}" href="/account/logout">Logout</a>
             </li>
           {%- else -%}
             <li class="nav-item">
-              <a class="nav-link {% if link.active %}text-secondary{% else %}text-white{% endif %}" href="/account/login">Login</a>
+              <a class="nav-link {% if request.path == routes.account_login_url %}text-secondary{% else %}text-white{% endif %}" href="/account/login">Login</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link {% if link.active %}text-secondary{% else %}text-white{% endif %}" href="/account/register">Register</a>
+              <a class="nav-link {% if request.path == routes.account_register_url %}text-secondary{% else %}text-white{% endif %}" href="/account/register">Register</a>
             </li>
           {%- endif -%}
         {%- endif -%}
