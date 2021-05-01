@@ -1,0 +1,56 @@
+{% render 'page-header' title: page_title %}
+
+<div class="template-customer-account">
+  <div class="container">
+    {% paginate customer.orders by 10 %}
+      {% if customer.orders.size == 0 %}
+        <p>You haven't placed any orders yet.</p>
+      {% else %}
+        <div class="table-responsive">
+          <table class="table border rounded">
+            <thead>
+              <tr valign="middle">
+                <th>Order</th>
+                <th>Date</th>
+                <th>Payment</th>
+                <th>Fulfillment</th>
+                <th class="text-end">Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for order in customer.orders %}
+                <tr valign="middle">
+                  <th>
+                    <a href="{{ order.customer_url }}">{{ order.name }}</a>
+                  </th>
+                  <th>
+                    {{ order.created_at | time_tag: format: 'date' }}
+                  </th>
+                  <th>
+                    {{ order.financial_status_label }}
+                  </th>
+                  <th>
+                    {{ order.fulfillment_status_label }}
+                  </th>
+                  <th class="text-end">
+                    {{ order.total_price | money }}
+                  </th>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      {% endif %}
+
+      {% render 'pagination' paginate: paginate %}
+    {% endpaginate %}
+
+    <div class="template-customer-account__address mt-3">
+      <h3>Default Address</h3>
+      {{ customer.default_address | format_address }}
+      <a href="{{ routes.account_addresses_url }}" class="text-decoration-none">View Addresses ({{ customer.addresses_count }})</a>
+    </div>
+
+  </div>
+</div>
+<!-- /.template-customer-account -->
