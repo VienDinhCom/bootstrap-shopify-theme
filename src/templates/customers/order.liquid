@@ -1,0 +1,89 @@
+{% render 'page-header' title: page_title %}
+
+<div class="template-customer-order">
+  <div class="container">
+    {% paginate customer.orders by 10 %}
+      {% if customer.orders.size == 0 %}
+        <p>You haven't placed any orders yet.</p>
+      {% else %}
+        <div class="table-responsive mb-3">
+          <table class="table border rounded">
+            <thead>
+              <tr valign="middle">
+                <th>Item</th>
+                <th>SKU</th>
+                <th>Quantity</th>
+                <th class="text-end">Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for item in order.line_items %}
+                <tr valign="middle">
+                  <th>
+                    <a href="{{ item.url }}">{{ item.title }}</a>
+                  </th>
+                  <th>
+                    {{ item.sku }}
+                  </th>
+                  <th>
+                    {{ item.quantity }}
+                  </th>
+                  <th class="text-end">
+                    {{ item.original_price | money }}
+                  </th>
+                </tr>
+              {% endfor %}
+
+              <tr class="table-light" valign="middle">
+                <th>Subtotal</th>
+                <th></th>
+                <th></th>
+                <th class="text-end">
+                  {{ order.subtotal_price | money }}
+                </th>
+              </tr>
+              <tr class="table-light" valign="middle">
+                <th>International Shipping</th>
+                <th></th>
+                <th></th>
+                <th class="text-end">
+                  {{ order.shipping_price | money }}
+                </th>
+              </tr>
+              <tr class="table-light" valign="middle">
+                <th>Tax</th>
+                <th></th>
+                <th></th>
+                <th class="text-end">
+                  {{ order.tax_price | money }}
+                </th>
+              </tr>
+              <tr class="table-secondary" valign="middle">
+                <th>Total</th>
+                <th></th>
+                <th></th>
+                <th class="text-end">
+                  {{ order.total_price | money }}
+                </th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      {% endif %}
+
+      {% render 'pagination' paginate: paginate %}
+    {% endpaginate %}
+
+    <div class="row">
+      <div class="col-sm">
+        <h3>Billing Address</h3>
+        {{ order.billing_address | format_address }}
+      </div>
+      <div class="col-sm">
+        <h3>Shipping Address</h3>
+        {{ order.shipping_address | format_address }}
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /.template-customer-order -->
