@@ -52,6 +52,26 @@
           {%- endif -%}
         {% endfor %}
         <li class="nav-item d-none d-md-block">
+          <a class="nav-link text-secondary">|</a>
+        </li>
+        {%- if shop.customer_accounts_enabled -%}
+          {%- if customer -%}
+            <li class="nav-item">
+              <a class="nav-link {% if link.active %}text-secondary{% else %}text-white{% endif %}" href="/account/login">Account</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% if link.active %}text-secondary{% else %}text-white{% endif %}" href="/account/logout">Logout</a>
+            </li>
+          {%- else -%}
+            <li class="nav-item">
+              <a class="nav-link {% if link.active %}text-secondary{% else %}text-white{% endif %}" href="/account/login">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% if link.active %}text-secondary{% else %}text-white{% endif %}" href="/account/register">Register</a>
+            </li>
+          {%- endif -%}
+        {%- endif -%}
+        <li class="nav-item d-none d-md-block">
           <a class="nav-link {% if request.path == routes.cart_url %}text-secondary{% else %}text-white{% endif %}" href="/cart">
             Cart
             {% if cart.item_count > 0 %}
@@ -59,24 +79,6 @@
             {% endif %}
           </a>
         </li>
-
-        {%- if shop.customer_accounts_enabled -%}
-          {%- if customer -%}
-            <li>
-              <a href="/account">Account</a>
-            </li>
-            <li>
-              {{ 'Log out' | customer_logout_link }}
-            </li>
-          {%- else -%}
-            <li>
-              {{ 'Log in' | customer_login_link }}
-            </li>
-            <li>
-              {{ 'Create account' | customer_register_link }}
-            </li>
-          {%- endif -%}
-        {%- endif -%}
       </ul>
     </div>
   </div>
