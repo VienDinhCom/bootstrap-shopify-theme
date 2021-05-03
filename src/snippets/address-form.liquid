@@ -1,0 +1,54 @@
+{% form 'customer_address', address, data-address: 'root' %}
+  <div>
+    <label for="AddressFirstName">first_name</label>
+    <input type="text" id="AddressFirstName" name="address[first_name]" value="{{ form.first_name }}">
+  </div>
+
+  <div>
+    <label for="AddressLastName">last_name</label>
+    <input type="text" id="AddressLastName" name="address[last_name]" value="{{ form.last_name }}">
+  </div>
+
+  <div>
+    <label for="AddressCompany">company</label>
+    <input type="text" id="AddressCompany" name="address[company]" value="{{ form.company }}">
+  </div>
+
+  <div>
+    <label for="AddressAddress1">address1</label>
+    <input type="text" id="AddressAddress1" name="address[address1]" value="{{ form.address1 }}">
+  </div>
+
+  <div>
+    <label for="AddressAddress2">address2</label>
+    <input type="text" id="AddressAddress2" name="address[address2]" value="{{ form.address2 }}">
+  </div>
+
+  <div>
+    <label for="AddressCity">city</label>
+    <input type="text" id="AddressCity" name="address[city]" value="{{ form.city }}">
+  </div>
+
+  <div>
+    <label for="AddressCountry">country</label>
+    <select id="AddressCountry" name="address[country]" data-default="{{ form.country }}"></select>
+  </div>
+
+  <div>
+    <label for="AddressProvince">province</label>
+    <select id="AddressProvince" name="address[province]" data-default="{{ form.province }}"></select>
+  </div>
+
+  <div>
+    <label for="AddressZip">zip</label>
+    <input type="text" id="AddressZip" name="address[zip]" value="{{ form.zip }}" autocapitalize="characters">
+  </div>
+
+  <div>
+    <label for="AddressPhone">phone</label>
+    <input type="tel" id="AddressPhone" name="address[phone]" value="{{ form.phone }}">
+  </div>
+
+  <button type="submit">Update</button>
+</form>
+{% endform %}

@@ -17,75 +17,9 @@
                 <button class="btn btn-sm btn-danger" type="submit">Delete</button>
               </form>
 
-              {% form 'customer_address', address %}
-                <div aria-hidden="true" aria-labelledby="staticBackdropLabel" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" id="modal-{{ address.id }}" tabindex="-1">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Edit Address</h5>
-                        <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
-                      </div>
-                      <div class="modal-body">
 
-                        <div class="mb-3">
-                          <label class="form-label" for="first-name-{{ address.id }}">First name</label>
-                          <input class="form-control" id="first-name-{{ address.id }}" name="address[first_name]" value="{{ address.first_name }}" type="text">
-                        </div>
+              {% render 'address-form' address: address %}
 
-                        <div class="mb-3">
-                          <label class="form-label" for="last-name-{{ address.id }}">Last name</label>
-                          <input class="form-control" id="last-name-{{ address.id }}" name="address[last_name]" value="{{ address.last_name }}" type="text">
-                        </div>
-
-                        <div class="mb-3">
-                          <label class="form-label" for="company-{{ address.id }}">Company</label>
-                          <input class="form-control" id="company-{{ address.id }}" name="address[company]" value="{{ address.company }}" type="text">
-                        </div>
-
-                        <div class="mb-3">
-                          <label class="form-label" for="address-1-{{ address.id }}">Address 1</label>
-                          <input class="form-control" id="address-1-{{ address.id }}" name="address[address1]" value="{{ address.address1 }}" type="text">
-                        </div>
-
-                        <div class="mb-3">
-                          <label class="form-label" for="address-2-{{ address.id }}">Address 2</label>
-                          <input class="form-control" id="address-2-{{ address.id }}" name="address[address2]" value="{{ address.address2 }}" type="text">
-                        </div>
-
-                        <div class="mb-3">
-                          <label class="form-label" for="city-{{ address.id }}">City</label>
-                          <input class="form-control" id="city-{{ address.id }}" name="address[city]" value="{{ address.city }}" type="text">
-                        </div>
-
-                        <div class="mb-3">
-                          <label class="form-label" for="country-{{ address.id }}">Country</label>
-                          <select class="form-control" id="country-{{ address.id }}" name="address[country]" data-default="{{ form.country }}"></select>
-                        </div>
-
-                        <div class="mb-3">
-                          <label class="form-label" for="province-{{ address.id }}">Province</label>
-                          <select class="form-control" id="province-{{ address.id }}" name="address[province]" data-default="{{ form.province }}"></select>
-                        </div>
-
-                        <div class="mb-3">
-                          <label class="form-label" for="zip-{{ address.id }}">ZIP/Postal Code</label>
-                          <input class="form-control" id="zip-{{ address.id }}" name="address[zip]" value="{{ address.zip }}" type="text" autocapitalize="characters">
-                        </div>
-
-                        <div class="mb-3">
-                          <label class="form-label" for="phone-{{ address.id }}">Phone Number</label>
-                          <input class="form-control" id="phone-{{ address.id }}" name="address[phone]" value="{{ address.phone }}" type="tel">
-                        </div>
-
-                      </div>
-                      <div class="modal-footer">
-                        <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Cancel</button>
-                        <button class="btn btn-primary" type="submit">Save</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              {% endform %}
             </div>
           </div>
         </div>
@@ -94,8 +28,3 @@
   </div>
 </div>
 <!-- /.template-customer-addresses -->
-
-
-<br><br>
-
-<!-- Button trigger modal -->

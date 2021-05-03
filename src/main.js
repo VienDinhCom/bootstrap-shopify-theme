@@ -4,5 +4,6 @@ import 'smartmenus-bootstrap-4';
 
 import './main.scss';
 
-import './templates/customers/addresses';
+import './snippets/address-form';
+
 import './templates/customers/login';
