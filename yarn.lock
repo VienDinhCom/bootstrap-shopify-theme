@@ -927,6 +927,11 @@
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.9.2.tgz#adea7b6953cbb34651766b0548468e743c6a2353"
   integrity sha512-VZMYa7+fXHdwIq1TDhSXoVmSPEGM/aa+6Aiq3nVVJ9bXr24zScr+NlKFKC3iPljA7ho/GAZr+d2jOf5GIRC30Q==
 
+"@shopify/theme-addresses@^4.1.1":
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/@shopify/theme-addresses/-/theme-addresses-4.1.1.tgz#a6b7cf7561fdc9aba118408fe1f63b2f730f9f56"
+  integrity sha512-n5vTbfeIygb3uYmVmmDoM+qSduw1Xo3U285ZSjuQi0xX+CdtJWbzXxBOpDkfDCrXFWrhiIQ5byEa4anlMumjdA==
+
 "@shopify/themekit@^1.1.7":
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/@shopify/themekit/-/themekit-1.1.7.tgz#06a1b81cca12b744c3fb72c9d937fd78793a83db"

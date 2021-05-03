@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.9.2",
+    "@shopify/theme-addresses": "^4.1.1",
     "bootstrap": "^5.0.0-beta3",
     "jquery": "^3.6.0",
     "smartmenus-bootstrap-4": "^0.1.0"
