@@ -5,25 +5,30 @@
     <div class="row">
       {% for address in customer.addresses %}
         <div class="col-sm-4">
-          <div class="card">
-            <div class="card-body">
+          <div class="template-customer-addresses__card card">
+            <div class="template-customer-addresses__card-body card-body">
               {{ address | format_address }}
-
-              <form action="/account/addresses/{{ address.id }}" data-confirm-message="dfdfd" method="post">
+            </div>
+            <div class="card-footer">
+              <form action="/account/addresses/{{ address.id }}" method="post">
                 <input name="_method" type="hidden" value="delete"/>
-                <button class="btn btn-sm btn-primary" data-bs-target="#modal-{{ address.id }}" data-bs-toggle="modal" type="button">
+                <button class="btn btn-sm btn-primary me-2" data-bs-target="#modal-{{ address.id }}" data-bs-toggle="modal" type="button">
                   Edit
                 </button>
                 <button class="btn btn-sm btn-danger" type="submit">Delete</button>
               </form>
 
-
               {% render 'address-form' address: address %}
-
             </div>
           </div>
         </div>
       {% endfor %}
+      <div class="col-sm-4">
+        <button class="btn btn-primary" data-bs-target="#modal-{{ customer.new_address.id }}" data-bs-toggle="modal" type="button">
+          Add Address
+        </button>
+        {% render 'address-form' address: customer.new_address %}
+      </div>
     </div>
   </div>
 </div>

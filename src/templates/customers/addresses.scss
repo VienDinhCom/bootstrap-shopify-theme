@@ -1,0 +1,10 @@
+.template-customer-addresses {
+  &__card {
+    height: calc(100% - 30px);
+    margin-bottom: 30px;
+  }
+
+  &__card-body > p {
+    margin-bottom: 0;
+  }
+}
