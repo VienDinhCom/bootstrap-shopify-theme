@@ -1,3 +1,11 @@
 import { AddressForm } from '@shopify/theme-addresses';
 
-AddressForm(document.querySelector('[data-address=root]'), 'en');
+const addressForms = document.querySelectorAll('[data-address=root]');
+
+if (addressForms.length) {
+  addressForms.forEach((addressForm) => {
+    AddressForm(addressForm, 'en');
+
+    console.log(addressForm);
+  });
+}
