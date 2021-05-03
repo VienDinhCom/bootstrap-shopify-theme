@@ -6,57 +6,65 @@
           <h5 class="modal-title" id="modal-{{ address.id }}-backdrop-label">Address</h5>
           <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
         </div>
-        <div class="modal-body snippet-address-form__fields">
+        <div class="modal-body">
 
-          <div class="mb-3">
-            <label class="form-label" for="first-name-{{ address.id }}">First name</label>
-            <input class="form-control" id="first-name-{{ address.id }}" name="address[first_name]" value="{{ address.first_name }}" type="text">
+          <div class="snippet-address-form__fields">
+            <div class="mb-3">
+              <label class="form-label" for="first-name-{{ address.id }}">First name</label>
+              <input class="form-control" id="first-name-{{ address.id }}" name="address[first_name]" value="{{ address.first_name }}" type="text">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label" for="last-name-{{ address.id }}">Last name</label>
+              <input class="form-control" id="last-name-{{ address.id }}" name="address[last_name]" value="{{ address.last_name }}" type="text">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label" for="company-{{ address.id }}">Company</label>
+              <input class="form-control" id="company-{{ address.id }}" name="address[company]" value="{{ address.company }}" type="text">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label" for="address-1-{{ address.id }}">Address 1</label>
+              <input class="form-control" id="address-1-{{ address.id }}" name="address[address1]" value="{{ address.address1 }}" type="text">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label" for="address-2-{{ address.id }}">Address 2</label>
+              <input class="form-control" id="address-2-{{ address.id }}" name="address[address2]" value="{{ address.address2 }}" type="text">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label" for="city-{{ address.id }}">City</label>
+              <input class="form-control" id="city-{{ address.id }}" name="address[city]" value="{{ address.city }}" type="text">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label" for="country-{{ address.id }}">Country</label>
+              <select class="form-control" id="country-{{ address.id }}" name="address[country]" data-default="{{ address.country_code }}"></select>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label" for="province-{{ address.id }}">Province</label>
+              <select class="form-control" id="province-{{ address.id }}" name="address[province]" data-default="{{ address.province_code }}"></select>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label" for="zip-{{ address.id }}">ZIP/Postal Code</label>
+              <input class="form-control" id="zip-{{ address.id }}" name="address[zip]" value="{{ address.zip }}" type="text">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label" for="phone-{{ address.id }}">Phone Number</label>
+              <input class="form-control" id="phone-{{ address.id }}" name="address[phone]" value="{{ address.phone }}" type="tel">
+            </div>
           </div>
 
           <div class="mb-3">
-            <label class="form-label" for="last-name-{{ address.id }}">Last name</label>
-            <input class="form-control" id="last-name-{{ address.id }}" name="address[last_name]" value="{{ address.last_name }}" type="text">
+            {{ form.set_as_default_checkbox }}
+            Default
           </div>
 
-          <div class="mb-3">
-            <label class="form-label" for="company-{{ address.id }}">Company</label>
-            <input class="form-control" id="company-{{ address.id }}" name="address[company]" value="{{ address.company }}" type="text">
-          </div>
-
-          <div class="mb-3">
-            <label class="form-label" for="address-1-{{ address.id }}">Address 1</label>
-            <input class="form-control" id="address-1-{{ address.id }}" name="address[address1]" value="{{ address.address1 }}" type="text">
-          </div>
-
-          <div class="mb-3">
-            <label class="form-label" for="address-2-{{ address.id }}">Address 2</label>
-            <input class="form-control" id="address-2-{{ address.id }}" name="address[address2]" value="{{ address.address2 }}" type="text">
-          </div>
-
-          <div class="mb-3">
-            <label class="form-label" for="city-{{ address.id }}">City</label>
-            <input class="form-control" id="city-{{ address.id }}" name="address[city]" value="{{ address.city }}" type="text">
-          </div>
-
-          <div class="mb-3">
-            <label class="form-label" for="country-{{ address.id }}">Country</label>
-            <select class="form-control" id="country-{{ address.id }}" name="address[country]" data-default="{{ address.country_code }}"></select>
-          </div>
-
-          <div class="mb-3">
-            <label class="form-label" for="province-{{ address.id }}">Province</label>
-            <select class="form-control" id="province-{{ address.id }}" name="address[province]" data-default="{{ address.province_code }}"></select>
-          </div>
-
-          <div class="mb-3">
-            <label class="form-label" for="zip-{{ address.id }}">ZIP/Postal Code</label>
-            <input class="form-control" id="zip-{{ address.id }}" name="address[zip]" value="{{ address.zip }}" type="text">
-          </div>
-
-          <div class="mb-3">
-            <label class="form-label" for="phone-{{ address.id }}">Phone Number</label>
-            <input class="form-control" id="phone-{{ address.id }}" name="address[phone]" value="{{ address.phone }}" type="tel">
-          </div>
         </div>
 
         <div class="modal-footer">
