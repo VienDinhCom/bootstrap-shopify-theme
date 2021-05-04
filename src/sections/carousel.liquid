@@ -7,10 +7,21 @@
   <div class="carousel-inner">
     {% for block in section.blocks %}
       <div class="section-carousel__item carousel-item {% if forloop.first == true %}active{% endif %}">
-        <img alt="..." class="section-carousel__item-image d-block w-100" src="{{ block.settings.image | img_url: '1200x350', crop: 'center' }} }}" width="1200" height="350">
-        <div class="section-carousel__item-caption carousel-caption d-none d-md-block">
-          <h5>{{ block.settings.title }}</h5>
-          {{ block.settings.description }}
+        <img alt="{{ block.settings.image.alt }}" class="section-carousel__item-image d-block w-100" src="{{ block.settings.image | img_url: '1200x450', crop: 'center' }} }}" width="1200" height="450">
+        <div class="section-carousel__item-caption carousel-caption">
+          <div class="section-carousel__item-caption-text">
+            {% if block.settings.title != '' %}
+              <h5>{{ block.settings.title }}</h5>
+            {% endif %}
+
+            {% if block.settings.description != '' %}
+              {{ block.settings.description }}
+            {% endif %}
+          </div>
+
+          {% if block.settings.actionButton != '' %}
+            <a class="btn btn-primary mb-2" href="{{ block.settings.actionLink }}">{{ block.settings.actionButton }}</a>
+          {% endif %}
         </div>
       </div>
     {% endfor %}
@@ -44,11 +55,25 @@
           "type": "richtext",
           "label": "Description"
         }, {
+          "id": "actionButton",
+          "type": "text",
+          "label": "Action Button"
+        }, {
+          "id": "actionLink",
+          "type": "url",
+          "label": "Action Link"
+        }, {
           "id": "image",
           "type": "image_picker",
           "label": "Image"
         }
       ]
+    }
+  ],
+  "presets": [
+    {
+      "category": "Carouses",
+      "name": "Carousel"
     }
   ]
 }
