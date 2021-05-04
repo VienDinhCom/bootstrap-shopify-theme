@@ -7,6 +7,10 @@
         <div class="col-sm-4">
           <div class="template-customer-addresses__card card">
             <div class="template-customer-addresses__card-body card-body">
+              {% if address == customer.default_address %}
+                <h6 class="card-subtitle mb-2 text-muted">DEFAULT</h6>
+              {% endif %}
+
               {{ address | format_address }}
             </div>
             <div class="card-footer">
