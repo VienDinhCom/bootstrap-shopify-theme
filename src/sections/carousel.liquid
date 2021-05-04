@@ -1,0 +1,56 @@
+<div class="section-carousel carousel slide" data-bs-ride="carousel" id="section-{{ section.id }}">
+  <div class="carousel-indicators">
+    {% for block in section.blocks %}
+      <button type="button" data-bs-target="#section-{{ section.id }}" data-bs-slide-to="{{ forloop.index0 }}" class="{% if forloop.first == true %}active{% endif %}" aria-current="true" aria-label="Slide {{ forloop.index }}"></button>
+    {% endfor %}
+  </div>
+  <div class="carousel-inner">
+    {% for block in section.blocks %}
+      <div class="section-carousel__item carousel-item {% if forloop.first == true %}active{% endif %}">
+        <img alt="..." class="section-carousel__item-image d-block w-100" src="{{ block.settings.image | img_url: '1200x350', crop: 'center' }} }}" width="1200" height="350">
+        <div class="section-carousel__item-caption carousel-caption d-none d-md-block">
+          <h5>{{ block.settings.title }}</h5>
+          {{ block.settings.description }}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#section-{{ section.id }}" type="button">
+    <span aria-hidden="true" class="carousel-control-prev-icon"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" data-bs-slide="next" data-bs-target="#section-{{ section.id }}" type="button">
+    <span aria-hidden="true" class="carousel-control-next-icon"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<!-- /.section-carousel -->
+
+{% schema %}
+
+{
+  "name": "Carousel",
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        {
+          "id": "title",
+          "type": "text",
+          "label": "Title"
+        }, {
+          "id": "description",
+          "type": "richtext",
+          "label": "Description"
+        }, {
+          "id": "image",
+          "type": "image_picker",
+          "label": "Image"
+        }
+      ]
+    }
+  ]
+}
+
+{% endschema %}
