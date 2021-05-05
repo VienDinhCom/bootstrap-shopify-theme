@@ -5,24 +5,7 @@
     <div class="row">
       {% for collection in collections %}
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-          <div class="template-list-collections__card card">
-            {% if collection.image %}
-              <img class="template-list-collections__image card-img-top" src="{{ collection | img_url: '450x450', crop: 'center' }}" width="450" height="450" alt="{{ collection.image.alt }}"/>
-            {% else %}
-              <img class="template-list-collections__image card-img-top" src="{{ collection.products.first | img_url: '450x450', crop: 'center' }}" width="450" height="450" alt="{{ collection.title | escape }}"/>
-            {% endif %}
-            <div class="template-list-collections__card-body card-body">
-              <div class="template-list-collections__card-info">
-                <h5 class="card-title">{{ collection.title }}</h5>
-                <p class="card-text">{{ collection.description | strip_html | truncate: 100 }}</p>
-              </div>
-              <a class="btn btn-primary btn-block" href="{{ collection.url }}">
-                Explore
-                {{ collection.products_count }}
-                {{ collection.products_count | pluralize: 'Product', 'Products' }}
-              </a>
-            </div>
-          </div>
+          {% render 'collection-item' collection: collection %}
         </div>
       {% endfor %}
     </div>
