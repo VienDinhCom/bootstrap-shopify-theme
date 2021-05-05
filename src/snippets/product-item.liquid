@@ -6,7 +6,7 @@
       <p class="card-text">{{ product.description | strip_html | truncate: 50 }}</p>
 
     </div>
-    <h5 class="text-danger mb-3">
+    <h6 class="text-danger mb-3">
       {%- if product.price_varies -%}
         <span>Starting at</span>
         {{ product.price_min | money_without_trailing_zeros }}
@@ -14,7 +14,7 @@
       {%- else -%}
         {{ product.price | money_without_trailing_zeros }}
       {%- endif -%}
-    </h5>
+    </h6>
 
     <a class="btn btn-primary btn-block" href="{{ product.url | within: collection }}">View</a>
   </div>
