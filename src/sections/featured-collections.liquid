@@ -1,0 +1,36 @@
+{% render 'featured-slider' section: section, type: 'collection' %}
+
+{% schema %}
+
+{
+  "name": "Featured Collections",
+  "settings": [
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Title",
+      "default": "Featured Collections"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        {
+          "id": "collection",
+          "type": "collection",
+          "label": "Collection"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "category": "Sliders",
+      "name": "Featured Collections"
+    }
+  ]
+}
+
+{% endschema %}
