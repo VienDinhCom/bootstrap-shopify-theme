@@ -1,0 +1,23 @@
+.snippet-product-item {
+  height: 100%;
+
+  &__image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+
+    @media (max-width: 575px) {
+      height: 350px;
+    }
+  }
+
+  &__card-body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__card-info {
+    flex: 1;
+    margin-bottom: 0.75rem;
+  }
+}
