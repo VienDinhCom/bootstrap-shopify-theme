@@ -6,26 +6,7 @@
       <div class="row">
         {%- for article in blog.articles -%}
           <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="template-blog__card card">
-              <img class="template-blog__image card-img-top" src="{{ article.image | img_url: '450x450', crop: 'center' }}" width="450" height="450" alt="{{article.title}}"/>
-              <div class="template-blog__card-body card-body">
-                <div class="template-blog__card-info">
-                  <h5 class="card-title mb-3">{{ article.title }}</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">
-                    {{ article.published_at | date: format: 'abbreviated_date' }}
-                  </h6>
-                  <p class="card-text">
-                    {%- if article.excerpt.size > 0 -%}
-                      {{ article.excerpt }}
-                    {%- else -%}
-                      {{ article.content | strip_html | truncate: 120 }}
-                    {%- endif -%}
-                  </p>
-                </div>
-
-                <a class="btn btn-primary btn-block" href="{{ article.url }}">Read</a>
-              </div>
-            </div>
+            {% render 'article-item' article: article %}
           </div>
         {% endfor %}
       </div>
