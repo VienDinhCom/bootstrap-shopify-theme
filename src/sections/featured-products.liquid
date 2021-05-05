@@ -1,29 +1,4 @@
-<div class="section-featured-products card">
-  <h4 class="card-header">{{ section.settings.title }}</h4>
-
-  <div class="card-body carousel">
-    <div class="section-featured-products__swiper swiper-container">
-      <div class="swiper-wrapper">
-        {% for block in section.blocks %}
-          {%- assign product = all_products[block.settings.product] -%}
-          <div class="section-featured-products__swiper-slide swiper-slide">
-            {% render 'product-item' product: product %}
-          </div>
-        {% endfor %}
-      </div>
-
-      <button class="section-featured-products__swiper-control carousel-control-prev" type="button">
-        <span aria-hidden="true" class="carousel-control-prev-icon"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="section-featured-products__swiper-control carousel-control-next" type="button">
-        <span aria-hidden="true" class="carousel-control-next-icon"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-  </div>
-</div>
-<!-- /.section-featured-products -->
+{% render 'featured-slider' section: section, type: 'product' %}
 
 
 {% schema %}
