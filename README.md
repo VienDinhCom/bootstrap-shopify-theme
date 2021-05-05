@@ -12,7 +12,7 @@
 
 - Home
   - Slider: Done
-  - Featured Products
+  - Featured Products: Done
 - Policies
 - Footer
 - Demo
