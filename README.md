@@ -11,7 +11,7 @@
 ## Todo List
 
 - Home
-  - Slider
+  - Slider: Done
   - Featured Products
 - Policies
 - Footer

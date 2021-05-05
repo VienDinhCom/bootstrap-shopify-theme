@@ -6,4 +6,6 @@ import './main.scss';
 
 import './snippets/address-form';
 
+import './sections/featured-products';
+
 import './templates/customers/login';
