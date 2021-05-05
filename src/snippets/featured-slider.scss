@@ -1,0 +1,30 @@
+.snippet-featured-slider {
+  margin-bottom: 30px;
+
+  &__swiper-slide {
+    height: auto;
+  }
+
+  &__swiper-control {
+    width: 20%;
+    transition-duration: 0.3s;
+
+    @media (min-width: 576px) {
+      width: 15%;
+    }
+
+    @media (min-width: 768px) {
+      width: 10%;
+    }
+
+    @media (min-width: 992px) {
+      width: 5%;
+    }
+  }
+
+  &:hover {
+    .snippet-featured-slider__swiper-control {
+      background: rgba($color: #000000, $alpha: 0.1);
+    }
+  }
+}
