@@ -1,0 +1,36 @@
+{% render 'featured-slider' section: section, type: 'article' %}
+
+{% schema %}
+
+{
+  "name": "Featured Articles",
+  "settings": [
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Title",
+      "default": "Featured Articles"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        {
+          "id": "article",
+          "type": "article",
+          "label": "Article"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "category": "Sliders",
+      "name": "Featured Articles"
+    }
+  ]
+}
+
+{% endschema %}

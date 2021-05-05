@@ -5,16 +5,23 @@
     <div class="snippet-featured-slider__swiper swiper-container">
       <div class="swiper-wrapper">
         {% for block in section.blocks %}
-          {%- assign product = all_products[block.settings[type]] -%}
-          {%- assign collection = collections[block.settings[type]] -%}
+          {%- liquid
+            assign article = articles[block.settings[type]]
+            assign collection = collections[block.settings[type]]
+            assign product = all_products[block.settings[type]]
+          -%}
 
           <div class="snippet-featured-slider__swiper-slide swiper-slide">
-            {% case type %}
-              {% when 'product' %}
-                {% render 'product-item' product: product %}
-              {% when 'collection' %}
-                {% render 'collection-item' collection: collection %}
-            {% endcase %}
+            {%- liquid
+              case type
+                when 'article':
+                  render 'article-item' article: article
+                when 'collection':
+                  render 'collection-item' collection: collection
+                when 'product':
+                  render 'product-item' product: product
+              endcase
+            -%}
           </div>
         {% endfor %}
       </div>
