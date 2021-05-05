@@ -1,0 +1,21 @@
+<div class="snippet-article-item card">
+  <img class="snippet-article-item__image card-img-top" src="{{ article.image | img_url: '450x450', crop: 'center' }}" width="450" height="450" alt="{{article.title}}"/>
+  <div class="snippet-article-item__card-body card-body">
+    <div class="snippet-article-item__card-info">
+      <h5 class="card-title mb-3">{{ article.title }}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">
+        {{ article.published_at | date: format: 'abbreviated_date' }}
+      </h6>
+      <p class="card-text">
+        {%- if article.excerpt.size > 0 -%}
+          {{ article.excerpt }}
+        {%- else -%}
+          {{ article.content | strip_html | truncate: 120 }}
+        {%- endif -%}
+      </p>
+    </div>
+
+    <a class="btn btn-primary btn-block" href="{{ article.url }}">Read</a>
+  </div>
+</div>
+<!-- /.snippet-article-item -->
