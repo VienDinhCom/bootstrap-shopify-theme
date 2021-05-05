@@ -1,8 +1,8 @@
-<nav class="snippet-main-menu navbar navbar-expand-md navbar-dark fixed-top bg-dark shadow">
+<nav class="snippet-main-menu navbar navbar-expand-lg navbar-dark fixed-top bg-dark shadow">
   <div class="container">
     <a class="navbar-brand fw-bold" href="{{ routes.root_url }}">{{ shop.name }}</a>
 
-    <a class="nav-link d-sm-block d-md-none ms-auto {% if request.path == routes.cart_url %}text-secondary{% else %}text-white{% endif %}" href="/cart">
+    <a class="nav-link d-md-block d-lg-none ms-auto {% if request.path == routes.cart_url %}text-secondary{% else %}text-white{% endif %}" href="/cart">
       Cart
       <sup class="badge rounded-pill bg-danger">{{ cart.item_count }}</sup>
     </a>
@@ -51,7 +51,7 @@
             </li>
           {%- endif -%}
         {% endfor %}
-        <li class="nav-item d-none d-md-block">
+        <li class="nav-item d-none d-lg-block">
           <a class="nav-link text-secondary">|</a>
         </li>
         {%- if shop.customer_accounts_enabled -%}
@@ -71,7 +71,7 @@
             </li>
           {%- endif -%}
         {%- endif -%}
-        <li class="nav-item d-none d-md-block">
+        <li class="nav-item d-none d-lg-block">
           <a class="nav-link {% if request.path == routes.cart_url %}text-secondary{% else %}text-white{% endif %}" href="/cart">
             Cart
             {% if cart.item_count > 0 %}
