@@ -1,7 +1,7 @@
 {
-  "name": "shopify-base-theme",
-  "version": "0.0.0",
-  "repository": "https://github.com/maxvien/shopify-base-theme.git",
+  "name": "bootstrap-shopify-theme",
+  "version": "1.0.0",
+  "repository": "https://github.com/maxvien/bootstrap-shopify-theme.git",
   "author": "Vien Dinh <maxvien@gmail.com>",
   "license": "MIT",
   "scripts": {
