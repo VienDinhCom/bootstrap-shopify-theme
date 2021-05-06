@@ -1,0 +1,19 @@
+.snippet-footer {
+  padding: 20px 0 25px 0;
+
+  &__nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  &__nav-link {
+    display: block;
+    margin: 3px 10px;
+  }
+
+  &__copyright {
+    font-size: 13px;
+    text-align: center;
+  }
+}

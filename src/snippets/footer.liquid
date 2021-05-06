@@ -1,0 +1,22 @@
+<footer class="snippet-footer bg-dark text-white">
+  <div class="snippet-footer__nav container mb-1">
+    {% for link in linklists.footer.links %}
+      <a class="snippet-footer__nav-link text-white text-decoration-none" href="{{ link.url }}">{{ link.title }}</a>
+    {%- endfor -%}
+    {% for link in shop.policies %}
+      <a class="snippet-footer__nav-link text-white text-decoration-none" href="{{ link.url }}">{{ link.title }}</a>
+    {% endfor %}
+  </div>
+
+  <div class="snippet-footer__copyright container text-secondary">
+    © Copyright
+    {{ 'now' | date: '%Y' }}
+    |
+    <a class="text-secondary" href="https://github.com/maxvien/bootstrap-shopify-theme">Bootstrap Shopify Theme</a>
+    by
+    <a class="text-secondary" href="https://github.com/maxvien">Vien Dinh</a>
+    | All rights reserved | Powered by
+    <a class="text-secondary" href="https://www.shopify.com/">Shopify</a>
+  </div>
+</footer>
+<!-- /.snippet-footer -->
