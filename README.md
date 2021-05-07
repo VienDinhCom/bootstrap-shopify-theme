@@ -7,6 +7,9 @@
 - Bootstrap
 - BEM
 - Build from Scratch
+- Theme Scripts
+- Swiper Slider
+- Multi level menu with smartmenus-bootstrap-4
 
 ## Todo List
 
