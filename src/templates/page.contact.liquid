@@ -1,0 +1,41 @@
+<div class="template-page template-page--contact">
+  <div class="container">
+    <div class="card">
+      <div class="card-body">
+        <h1 class="card-title fs-2">{{ page.title | escape }}</h1>
+        <div class="card-text mb-3">{{ page.content }}</div>
+
+        <div class="card">
+          <div class="container pt-2 pb-3">
+            {% form 'contact', id: 'ContactForm' %}
+              {% render 'form-errors' form: form %}
+
+              <div class="mb-3">
+                <label class="form-label" for="contact-name">Name</label>
+                <input class="form-control" id="contact-name" name="contact[Name]" size="30" type="text"/>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label" for="contact-email">Email</label>
+                <input class="form-control" id="contact-email" name="contact[Email]" size="30" type="email"/>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label" for="contact-phone">Phone</label>
+                <input class="form-control" id="contact-phone" name="contact[Phone]" size="30" type="tel"/>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label" for="contact-message">Message</label>
+                <textarea class="form-control" id="contact-message" name="contact[Message]" rows="5"></textarea>
+              </div>
+
+              <button class="btn btn-primary" type="submit">Send</button>
+            {% endform %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /.template-page -->
