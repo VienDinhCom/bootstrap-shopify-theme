@@ -1,5 +1,5 @@
 <div class="snippet-article-item card">
-  <img class="snippet-article-item__image card-img-top" src="{{ article.image | img_url: '450x450', crop: 'center' }}" width="450" height="450" alt="{{article.title}}"/>
+  <img class="snippet-article-item__image card-img-top" src="{{ article.image | img_url: '450x450', crop: 'center' }}" width="450" height="450" alt="{{ article.title }}"/>
   <div class="snippet-article-item__card-body card-body">
     <div class="snippet-article-item__card-info">
       <h5 class="card-title mb-3">{{ article.title }}</h5>
