@@ -5,12 +5,10 @@
   "author": "Vien Dinh <maxvien@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "test": "theme-check dist",
-    "pretest": "npm run build",
-    "predeploy": "npm run build",
-    "deploy": "shopify-themekit deploy --allow-live",
     "dev": "cross-env NODE_ENV=development gulp dev",
-    "build": "cross-env NODE_ENV=production gulp build"
+    "test": "cross-env NODE_ENV=production gulp test",
+    "build": "cross-env NODE_ENV=production gulp build",
+    "deploy": "cross-env NODE_ENV=production gulp deploy"
   },
   "dependencies": {
     "@popperjs/core": "^2.9.2",

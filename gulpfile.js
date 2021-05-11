@@ -2,6 +2,7 @@ const fs = require('fs');
 const gulp = require('gulp');
 const yaml = require('yaml');
 const path = require('path');
+const { exec } = require('child_process');
 const browserSync = require('browser-sync');
 const themeKit = require('@shopify/themekit');
 const plugins = require('gulp-load-plugins')();
@@ -11,9 +12,11 @@ const Bundler = require('parcel-bundler');
 const entryFile = path.join(__dirname, 'src/main.js');
 const outDir = path.join(__dirname, 'dist/assets');
 
-const isDev = process.env.NODE_ENV === 'development';
-const isProd = process.env.NODE_ENV === 'production';
-const config = yaml.parse(fs.readFileSync('config.yml', 'utf-8')).development;
+const { NODE_ENV } = process.env;
+const isDev = NODE_ENV === 'development';
+const isProd = NODE_ENV === 'production';
+
+const config = yaml.parse(fs.readFileSync('config.yml', 'utf-8'))[NODE_ENV];
 
 gulp.task('folders', () => {
   return gulp
@@ -32,13 +35,14 @@ gulp.task('liquid', () => {
   return gulp.src('src/**/*.liquid').pipe(gulp.dest('dist'));
 });
 
-gulp.task('bundle', () => {
+gulp.task('bundle', (options) => {
   return new Bundler(entryFile, {
     outDir,
     hmr: false,
-    watch: isDev,
+    watch: false,
     minify: isProd,
     sourceMaps: false,
+    ...options,
   }).bundle();
 });
 
@@ -59,13 +63,13 @@ gulp.task('locales', () => {
 });
 
 gulp.task('watch', () => {
-  gulp.task('bundle')();
+  gulp.task('bundle')({ watch: true });
 
   gulp.watch('src/**/*.liquid', gulp.parallel('liquid'));
 
   themeKit.command('watch', {
     allowLive: true,
-    env: 'development',
+    env: NODE_ENV,
     notify: path.join(__dirname, '.cache/updated'),
   });
 });
@@ -93,4 +97,22 @@ const copy = gulp.parallel('assets', 'config', 'locales', 'liquid');
 
 gulp.task('build', gulp.series(prepare, gulp.parallel(copy, 'bundle')));
 
-gulp.task('dev', gulp.series(prepare, copy, gulp.parallel('watch', 'serve')));
+gulp.task(
+  'test',
+  gulp.series('build', function processing(callback) {
+    exec('theme-check dist', function (err, stdout, stderr) {
+      console.log(stdout);
+      console.log(stderr);
+      callback(err);
+    });
+  })
+);
+
+gulp.task(
+  'deploy',
+  gulp.series('build', function processing() {
+    return themeKit.command('deploy', { allowLive: true, env: NODE_ENV });
+  })
+);
+
+gulp.task('dev', gulp.series('deploy', gulp.parallel('watch', 'serve')));
