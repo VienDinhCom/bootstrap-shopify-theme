@@ -2,6 +2,7 @@
   "recommendations": [
     "shopify.theme-check-vscode",
     "sissel.shopify-liquid",
-    "esbenp.prettier-vscode"
+    "esbenp.prettier-vscode",
+    "zignd.html-css-class-completion"
   ]
 }
