@@ -12,7 +12,7 @@ A free [**Shopify Theme**](https://github.com/maxvien/bootstrap-shopify-theme) b
 - Using [PostCSS](https://postcss.org/) to Make CSS Code Compatible with Old Browsers.
 - Using [Swiper](https://swiperjs.com/) to Create Beautiful, Touchable, Responsive Sliders.
 - Using [Shopify Theme Scripts](https://github.com/Shopify/theme-scripts) to Solve Theme Problems Faster.
-- Using [Shopify Theme Kit](https://github.com/Shopify/themekit) Develop and Deploy the Theme.
+- Using [Shopify Theme Kit](https://github.com/Shopify/themekit) to Develop and Deploy the Theme.
 - Using [Shopify Theme Check](https://github.com/Shopify/theme-check) to Follow Theme Best Practices.
 - Using [Gulp](https://gulpjs.com/) to Automate & Enhance the Development Workflow.
 - Using [Parcel](https://parceljs.org/) to Bundle all SCSS, JavaScript, Font, Image, ... Assets.
@@ -65,7 +65,7 @@ production:
 
 ### Store Property
 
-To fill the `store` property, you copy your store's hostname and paste it to the `config.yml` file.
+To fill the `store` property, you copy your store's **hostname** and paste it to the `config.yml` file.
 
 ### Password Property
 
