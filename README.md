@@ -28,13 +28,13 @@ These are my experiences when I have been working on this theme. If you like the
 
 ## Installation
 
-Clone the Source Code into Your Computer
+Clone the source code into your computer.
 
 ```bash
 git clone https://github.com/Maxvien/bootstrap-shopify-theme.git
 ```
 
-Install the Project's Dependences
+Install the project's dependencies.
 
 ```bash
 yarn install
