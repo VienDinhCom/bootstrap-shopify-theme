@@ -1,4 +1,6 @@
 {
-  "current": {},
-  "presets": {}
+  "current": "Default",
+  "presets": {
+    "Default": {}
+  }
 }
