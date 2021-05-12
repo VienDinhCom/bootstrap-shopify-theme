@@ -17,7 +17,7 @@ A free [**Shopify Theme**](https://github.com/maxvien/bootstrap-shopify-theme) b
 - Using [Gulp](https://gulpjs.com/) to Automate & Enhance the Development Workflow.
 - Using [Parcel](https://parceljs.org/) to Bundle all SCSS, JavaScript, Font, Image, ... Assets.
 - Using [BrowserSync](https://github.com/Browsersync/browser-sync) to Reload the Browser Automatically When Saving the Files.
-- Using [Liquid](https://marketplace.visualstudio.com/items?itemName=sissel.shopify-liquid) & [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) Visual Studio Code Plugins to Format the Source Code.
+- Using [Liquid](https://marketplace.visualstudio.com/items?itemName=sissel.shopify-liquid) & [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) Visual Studio Code Extensions to Format the Source Code.
 
 These are my experiences when I have been working on this theme. If you like the project, please hit the **STAR** button to support my work. ⭐️
 
@@ -97,7 +97,7 @@ To fill the `theme_id` property, please follow these steps:
 
 To start to develop the theme, you need to follow the [**Configuration**](#configuration) to config the `development` section in the `config.yml` file.
 
-Next, run this commmand to run the development server.
+Next, run this commmand to run the **development** server.
 
 ```bash
 yarn dev
@@ -114,3 +114,19 @@ Next, run this commmand to deploy the theme to your **production** store.
 ```bash
 yarn deploy
 ```
+
+## Extras
+
+### Shopify Theme Check
+
+To follow Shopify Theme best practices, you need to install [Shopify Theme Check](https://github.com/Shopify/theme-check#installation).
+
+### Visual Studio Code Extensions
+
+To speed up your productivity, you can install these extensions:
+
+- [Liquid](https://marketplace.visualstudio.com/items?itemName=sissel.shopify-liquid)
+- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+- [Theme Check](https://marketplace.visualstudio.com/items?itemName=Shopify.theme-check-vscode)
+- [IntelliSense for CSS](https://marketplace.visualstudio.com/items?itemName=Zignd.html-css-class-completion)
+- [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)
