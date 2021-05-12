@@ -1,6 +1,6 @@
 # Bootstrap Shopify Theme
 
-A free [**Shopify Theme**](https://github.com/maxvien/bootstrap-shopify-theme) built with [**Bootstrap**](https://getbootstrap.com/), [BEM](http://getbem.com/), [Theme Tools](https://shopify.dev/tools/themes), [Swiper](https://swiperjs.com/), [Gulp](https://gulpjs.com/), [Parcel](https://parceljs.org/), [Liquid](https://shopify.github.io/liquid/), [SASS](https://sass-lang.com/), [PostCSS](https://postcss.org/), [ESNext](https://en.wikipedia.org/wiki/ECMAScript#ES.Next)... and [Passion](https://www.urbandictionary.com/define.php?term=Passion).
+A free [**Shopify Theme**](https://github.com/maxvien/bootstrap-shopify-theme) built with [**Bootstrap**](https://getbootstrap.com/), [BEM](http://getbem.com/), [Theme Tools](https://shopify.dev/tools/themes), [Swiper](https://swiperjs.com/), [Gulp](https://gulpjs.com/), [Parcel](https://parceljs.org/), [Liquid](https://shopify.github.io/liquid/), [SASS](https://sass-lang.com/), [PostCSS](https://postcss.org/), [ESNext](https://en.wikipedia.org/wiki/ECMAScript#ES.Next), ... and [Passion](https://www.urbandictionary.com/define.php?term=Passion).
 
 ## Experiences
 
