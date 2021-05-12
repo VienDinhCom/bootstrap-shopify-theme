@@ -4,17 +4,18 @@ A free [**Shopify Theme**](https://github.com/maxvien/bootstrap-shopify-theme) b
 
 ## Experience
 
-- Building a **Shopify Theme** from Scratch.
+- Building a [Shopify Theme](https://github.com/maxvien/bootstrap-shopify-theme) from Scratch.
+- Using [Bootstrap@5](https://getbootstrap.com/) to Create a Nice User Interface.
+- Using [BEM Methodology](http://getbem.com/) to Create Minimal, Reusable Source Code.
+- Using [Liquid](https://shopify.github.io/liquid/), [SASS](https://sass-lang.com/), [ESNext](https://en.wikipedia.org/wiki/ECMAScript#ES.Next) to Develop the Theme Fashionably.
+- Using [CSS Media Queries](https://www.w3schools.com/css/css_rwd_mediaqueries.asp) to Create a Mobile-First and Responsive Design.
+- Using [PostCSS](https://postcss.org/) to Make CSS Code Compatible with Old Browsers.
+- Using [Swiper](https://swiperjs.com/) to Create Beautiful, Touchable, Responsive Sliders.
+- Using [Shopify Theme Scripts](https://github.com/Shopify/theme-scripts) to Solve Unique Problems Faster.
+- Using [Shopify Theme Kit](https://github.com/Shopify/themekit) Develop and Deploy the Theme.
+- Using [Shopify Theme Check](https://github.com/Shopify/theme-check) to Follow Best Practices by Analyzing the Liquid & JSON inside the Theme.
+- Using [Gulp](https://gulpjs.com/) to Automate & Enhance the Development Workflow.
+- Using [BrowserSync](https://github.com/Browsersync/browser-sync) to Reload the Browser Automatically When You Save the Files.
+- Using [Parcel](https://parceljs.org/) to Bundle all SCSS, JavaScript, Font, Image, ... assets.
 
-- Using **Bootstrap@5** to Create a Nice User Interface.
-- Using **BEM Methodology** to Create Minimal, Reusable Source Code.
-- Using **Liquid, SCSS, ESNext** to Develop the Theme Fashionably.
-- Using **CSS Media Queries** to Create a Mobile-First and Responsive Design.
-- Using **PostCSS** to Make CSS Code Compatible with Old Browsers.
-- Using **Swiper** to Create Beautiful, Touchable, Responsive Sliders.
-- Using **Shopify Theme Scripts** to Solve Unique Problems Faster.
-- Using **Shopify Theme Kit to** Develop and Deploy the Theme.
-- Using **Shopify Theme Check** to Follow Best Practices by Analyzing the Liquid & JSON inside the Theme.
-- Using **Gulp** to Automate & Enhance the Development Workflow.
-- Using **BrowserSync** to Reload the Browser Automatically When You Save the Files.
-- Using **Parcel** to Bundle all SCSS, JavaScript, Fonts, Images, ... assets.
+Hit the **Star** button if you love this project ⭐️
