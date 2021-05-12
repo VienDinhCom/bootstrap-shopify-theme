@@ -105,11 +105,11 @@ yarn dev
 
 Open https://localhost:8080/ with your browser to see the result.
 
-## Deployment
+## Production
 
 To deploy the theme, you need to follow the [**Configuration**](#configuration) to config the `production` section in the `config.yml` file.
 
-Next, run this commmand to deploy the theme to your production store.
+Next, run this commmand to deploy the theme to your **production** store.
 
 ```bash
 yarn deploy
