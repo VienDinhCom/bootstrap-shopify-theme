@@ -95,6 +95,22 @@ To fill the `theme_id` property, please follow these steps:
 
 ## Development
 
+To start to develop the theme, you need to follow the [**Configuration**](#configuration) to config the `development` section in the `config.yml` file.
+
+Next, run this commmand to run the development server.
+
+```bash
+yarn dev
+```
+
+Open https://localhost:8080/ with your browser to see the result.
+
 ## Deployment
 
-## Extras
+To deploy the theme, you need to follow the [**Configuration**](#configuration) to config the `production` section in the `config.yml` file.
+
+Next, run this commmand to deploy the theme to your production store.
+
+```bash
+yarn deploy
+```
