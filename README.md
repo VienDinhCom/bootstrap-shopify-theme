@@ -42,12 +42,12 @@ yarn install
 
 ## Configuration
 
-To config the project, you need to copy and rename the `config.yml.example` to `config.yml`. Then update the `store`, `password`, `theme_id` properties.
+To config the project, you need to copy and rename the `config.yml.example` file to the `config.yml` file. Then update the `store`, `password`, `theme_id` properties.
 
-There are 2 sections in the `config.yml` file:
+There are two sections in the `config.yml` file:
 
-- The `development` section is for your development store.
-- The `production` section is for your production store.
+- The `development` section is for your **development** store.
+- The `production` section is for your **production** store.
 
 ```yml
 development:
@@ -63,11 +63,11 @@ production:
   theme_id: store-theme-id
 ```
 
-### Store
+### Store Property
 
-To fill the `store` property, you copy your store's hostname and paste to the `config.yml`.
+To fill the `store` property, you copy your store's hostname and paste it to the `config.yml` file.
 
-### Password
+### Password Property
 
 To fill the `password` property, please follow these steps:
 
@@ -82,7 +82,7 @@ To fill the `password` property, please follow these steps:
 9. Read the private app confirmation dialog, then click **Create app**.
 10. In the **Admin API** section of the **App**, copy the **password** and paste it into the `config.yml` file.
 
-### Theme ID
+### Theme ID Property
 
 To fill the `theme_id` property, please follow these steps:
 
@@ -91,7 +91,7 @@ To fill the `theme_id` property, please follow these steps:
 3. In the **Current theme** section, click **Actions** and select **Download theme file** from the dropdown.
 4. Read the confirmation dialog, then click **Send email** to backup your current theme.
 5. Next, click the **Customize** button.
-6. There is a link like this `https://store-name.myshopify.com/admin/themes/[theme_id]/editor` on your browser's address bar. Copy the **theme id** and paste it into the `config.yml` file.
+6. There is a link like this `https://store-name.myshopify.com/admin/themes/[theme_id]/editor` on your browser's address bar. Copy the **theme_id** and paste it into the `config.yml` file.
 
 ## Development
 
