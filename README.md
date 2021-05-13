@@ -2,7 +2,7 @@
 
 A free [**Shopify Theme**](https://github.com/maxvien/bootstrap-shopify-theme) built with [**Bootstrap**](https://getbootstrap.com/), [BEM](http://getbem.com/), [Theme Tools](https://shopify.dev/tools/themes), [Swiper](https://swiperjs.com/), [Gulp](https://gulpjs.com/), [Parcel](https://parceljs.org/), [Liquid](https://shopify.github.io/liquid/), [SASS](https://sass-lang.com/), [PostCSS](https://postcss.org/), [ESNext](https://en.wikipedia.org/wiki/ECMAScript#ES.Next), ... and [Passion](https://www.urbandictionary.com/define.php?term=Passion).
 
-## Experiences
+## Experience
 
 - Building a [Shopify Theme](https://github.com/maxvien/bootstrap-shopify-theme) from Scratch.
 - Using [Bootstrap@5](https://getbootstrap.com/) to Create a Nice User Interface.
@@ -19,7 +19,7 @@ A free [**Shopify Theme**](https://github.com/maxvien/bootstrap-shopify-theme) b
 - Using [BrowserSync](https://github.com/Browsersync/browser-sync) to Reload the Browser Automatically When Saving the Files.
 - Using [Liquid](https://marketplace.visualstudio.com/items?itemName=sissel.shopify-liquid) & [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) Visual Studio Code Extensions to Format the Source Code.
 
-These are my experiences when I have been working on this theme. If you like the project, please hit the **STAR** button to support my work. ⭐️
+These are my experience when I have been working on this theme. If you like the project, please hit the **STAR** button to support my work. ⭐️
 
 ## Demonstration
 
