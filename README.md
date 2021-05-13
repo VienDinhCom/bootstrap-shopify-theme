@@ -88,10 +88,9 @@ To fill the `theme_id` property, please follow these steps:
 
 1. From your Shopify admin, click **Online Store**.
 2. At the top of the **Online Store** menu, click **Themes**.
-3. In the **Current theme** section, click **Actions** and select **Download theme file** from the dropdown.
-4. Read the confirmation dialog, then click **Send email** to backup your current theme.
-5. Next, click the **Customize** button.
-6. There is a link like this `https://store-name.myshopify.com/admin/themes/[theme_id]/editor` on your browser's address bar. Copy the **theme_id** and paste it into the `config.yml` file.
+3. In the **Current theme** section, click **Actions** and select **Duplicate** to backup your current theme.
+4. Next, click the **Customize** button.
+5. There is a link like this `https://store-name.myshopify.com/admin/themes/[theme_id]/editor` on your browser's address bar. Copy the **theme_id** and paste it into the `config.yml` file.
 
 ## Development
 
