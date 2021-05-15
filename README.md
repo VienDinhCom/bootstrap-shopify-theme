@@ -104,18 +104,6 @@ yarn dev
 
 Open https://localhost:8080/ with your browser to see the result.
 
-## Production
-
-To deploy the theme, you need to follow the [**Configuration**](#configuration) to config the `production` section in the `config.yml` file.
-
-Next, run this commmand to deploy the theme to your **production** store.
-
-```bash
-yarn deploy
-```
-
-## Extras
-
 ### Shopify Theme Check
 
 To follow Shopify Theme best practices, you need to install [Shopify Theme Check](https://github.com/Shopify/theme-check#installation).
@@ -129,3 +117,13 @@ To speed up your productivity, you can install these extensions:
 - [Theme Check](https://marketplace.visualstudio.com/items?itemName=Shopify.theme-check-vscode)
 - [IntelliSense for CSS](https://marketplace.visualstudio.com/items?itemName=Zignd.html-css-class-completion)
 - [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)
+
+## Production
+
+To deploy the theme, you need to follow the [**Configuration**](#configuration) to config the `production` section in the `config.yml` file.
+
+Next, run this commmand to deploy the theme to your **production** store.
+
+```bash
+yarn deploy
+```
