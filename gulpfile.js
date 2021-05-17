@@ -1,9 +1,10 @@
+const os = require('os');
 const gulp = require('gulp');
 const path = require('path');
 const { exec } = require('child_process');
 const readYaml = require('read-yaml-file');
 const browserSync = require('browser-sync');
-const themeKit = require('@shopify/themekit');
+const themekit = require('@shopify/themekit');
 const plugins = require('gulp-load-plugins')();
 
 const Bundler = require('parcel-bundler');
@@ -66,9 +67,10 @@ gulp.task('watch', () => {
 
   gulp.watch('src/**/*.liquid', gulp.parallel('liquid'));
 
-  themeKit.command('watch', {
-    allowLive: true,
+  themekit.command('watch', {
+    dir: 'dist',
     env: NODE_ENV,
+    allowLive: true,
     notify: watch,
   });
 });
@@ -110,7 +112,11 @@ gulp.task(
 gulp.task(
   'deploy',
   gulp.series('build', function processing() {
-    return themeKit.command('deploy', { allowLive: true, env: NODE_ENV });
+    return themekit.command('deploy', {
+      dir: 'dist',
+      env: NODE_ENV,
+      allowLive: true,
+    });
   })
 );
 
