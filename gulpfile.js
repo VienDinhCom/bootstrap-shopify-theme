@@ -1,8 +1,7 @@
-const fs = require('fs');
 const gulp = require('gulp');
-const yaml = require('yaml');
 const path = require('path');
 const { exec } = require('child_process');
+const readYaml = require('read-yaml-file');
 const browserSync = require('browser-sync');
 const themeKit = require('@shopify/themekit');
 const plugins = require('gulp-load-plugins')();
@@ -13,10 +12,10 @@ const entryFile = path.join(__dirname, 'src/main.js');
 const outDir = path.join(__dirname, 'dist/assets');
 
 const { NODE_ENV } = process.env;
-const isDev = NODE_ENV === 'development';
 const isProd = NODE_ENV === 'production';
 
-const config = yaml.parse(fs.readFileSync('config.yml', 'utf-8'))[NODE_ENV];
+const config = readYaml.sync('config.yml')[NODE_ENV];
+const watch = path.join(os.tmpdir(), `${config.theme_id}.theme`);
 
 gulp.task('folders', () => {
   return gulp
@@ -70,7 +69,7 @@ gulp.task('watch', () => {
   themeKit.command('watch', {
     allowLive: true,
     env: NODE_ENV,
-    notify: path.join(__dirname, '.cache/updated'),
+    notify: watch,
   });
 });
 
@@ -82,7 +81,7 @@ gulp.task('serve', () => {
     notify: false,
     reloadDelay: 1500,
     proxy: `https://${config.store}/`,
-    files: path.join(__dirname, '.cache/updated'),
+    files: watch,
     snippetOptions: {
       rule: {
         match: /<\/body>/i,
