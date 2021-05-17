@@ -23,7 +23,7 @@ These are my experience when I have been working on this theme. If you like the 
 
 ## Demonstration
 
-- **Store Link**: https://maxvien-bootstrap.myshopify.com
+- **Store Link**: <a href="https://maxvien-bootstrap.myshopify.com" target="_blank">https://maxvien-bootstrap.myshopify.com</a>
 - **Store Password**: `maxvien`
 
 ## Installation
