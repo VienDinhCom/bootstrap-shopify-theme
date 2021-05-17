@@ -51,13 +51,11 @@ There are two sections in the `config.yml` file:
 
 ```yml
 development:
-  directory: dist
   store: store-name.myshopify.com
   password: store-admin-api-password
   theme_id: store-theme-id
 
 production:
-  directory: dist
   store: store-name.myshopify.com
   password: store-admin-api-password
   theme_id: store-theme-id
