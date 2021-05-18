@@ -7,27 +7,27 @@
 
         <div class="card">
           <div class="container pt-2 pb-3">
-            {% form 'contact', id: 'ContactForm' %}
-              {% render 'form-errors' form: form %}
+            {% form 'contact' %}
+              {% render 'form-message' form: form %}
 
               <div class="mb-3">
                 <label class="form-label" for="contact-name">Name</label>
-                <input class="form-control" id="contact-name" name="contact[Name]" size="30" type="text"/>
+                <input type="text" id="contact-name" class="form-control" name="contact[Name]" value="{% if customer.name %}{{ customer.name }}{% endif %}">
               </div>
 
               <div class="mb-3">
                 <label class="form-label" for="contact-email">Email</label>
-                <input class="form-control" id="contact-email" name="contact[Email]" size="30" type="email"/>
+                <input type="email" id="contact-email" class="form-control" name="contact[email]" value="{% if customer.email %}{{ customer.email }}{% endif %}">
               </div>
 
               <div class="mb-3">
                 <label class="form-label" for="contact-phone">Phone</label>
-                <input class="form-control" id="contact-phone" name="contact[Phone]" size="30" type="tel"/>
+                <input type="tel" id="contact-phone" class="form-control" name="contact[Phone]" pattern="[0-9\-\+]*" value="{% if customer.phone %}{{ customer.phone }}{% endif %}">
               </div>
 
               <div class="mb-3">
                 <label class="form-label" for="contact-message">Message</label>
-                <textarea class="form-control" id="contact-message" name="contact[Message]" rows="5"></textarea>
+                <textarea class="form-control" id="contact-message" name="contact[Message]" placeholder="Message" rows="5"></textarea>
               </div>
 
               <button class="btn btn-primary" type="submit">Send</button>
