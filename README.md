@@ -4,6 +4,8 @@ A free [**Shopify Theme**](https://github.com/maxvien/bootstrap-shopify-theme) b
 
 ## Experience
 
+These are my experience when I have been working on this theme:
+
 - Building a [Shopify Theme](https://github.com/maxvien/bootstrap-shopify-theme) from Scratch.
 - Using [Bootstrap@5](https://getbootstrap.com/) to Create a Nice User Interface.
 - Using [BEM Methodology](http://getbem.com/) to Create Minimal, Reusable Source Code.
@@ -19,7 +21,7 @@ A free [**Shopify Theme**](https://github.com/maxvien/bootstrap-shopify-theme) b
 - Using [BrowserSync](https://github.com/Browsersync/browser-sync) to Reload the Browser Automatically When Saving the Files.
 - Using [Liquid](https://marketplace.visualstudio.com/items?itemName=sissel.shopify-liquid) & [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) Visual Studio Code Extensions to Format the Source Code.
 
-These are my experience when I have been working on this theme. If you like the project, please hit the **STAR** button to support my work. ⭐️
+If you like the project, please hit the **STAR** button to support my work. ⭐️
 
 ## Demonstration
 
@@ -51,13 +53,11 @@ There are two sections in the `config.yml` file:
 
 ```yml
 development:
-  directory: dist
   store: store-name.myshopify.com
   password: store-admin-api-password
   theme_id: store-theme-id
 
 production:
-  directory: dist
   store: store-name.myshopify.com
   password: store-admin-api-password
   theme_id: store-theme-id
@@ -94,7 +94,7 @@ To fill the `theme_id` property, please follow these steps:
 
 ## Development
 
-To start to develop the theme, you need to follow the [**Configuration**](#configuration) to config the `development` section in the `config.yml` file.
+To develop the theme, you need to follow the [**Configuration**](#configuration) to config the `development` section in the `config.yml` file.
 
 Next, run this commmand to run the **development** server.
 
