@@ -5,7 +5,7 @@
         <h1 class="card-header fs-3 text-center">Activate Account</h1>
         <div class="card-body">
           {% form 'activate_customer_password' %}
-            {% render 'form-errors' form: form %}
+            {% render 'form-message' form: form %}
 
             <div class="mb-3">
               <label class="form-label" for="account-activate-password">Password</label>

@@ -6,7 +6,7 @@
         <div class="card-body">
           <div class="template-customer-login__tab template-customer-login__tab--main template-customer-login__tab--active">
             {% form 'customer_login' %}
-              {% render 'form-errors' form: form %}
+              {% render 'form-message' form: form %}
 
               <div class="mb-3">
                 <label class="form-label" for="account-login-main-email">Email</label>
@@ -27,7 +27,7 @@
           <div class="template-customer-login__tab template-customer-login__tab--recovery">
 
             {% form 'recover_customer_password' %}
-              {% render 'form-errors' form: form %}
+              {% render 'form-message' form: form %}
 
               <div class="mb-3">
                 <label class="form-label" for="account-login-recovery-email">Email</label>

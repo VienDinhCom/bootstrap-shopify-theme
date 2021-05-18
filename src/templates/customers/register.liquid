@@ -5,7 +5,7 @@
         <h1 class="card-header fs-3 text-center">Register</h1>
         <div class="card-body">
           {% form 'create_customer' %}
-            {% render 'form-errors' form: form %}
+            {% render 'form-message' form: form %}
 
             <div class="mb-3">
               <label class="form-label" for="account-register-first-name">First Name</label>
