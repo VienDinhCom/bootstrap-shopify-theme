@@ -1,0 +1,14 @@
+<div class="snippet-form-message">
+  {% if form.posted_successfully? %}
+    <div class="alert alert-success" role="alert">
+      Posted successfully!
+    </div>
+  {% else %}
+    {% for field in form.errors %}
+      <div class="alert alert-danger" role="alert">
+        {{ form.errors.messages[field] }}
+      </div>
+    {% endfor %}
+  {% endif %}
+</div>
+<!-- /.snippet-form-message -->
