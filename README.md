@@ -92,7 +92,7 @@ To fill the `theme_id` property, please follow these steps:
 
 ## Development
 
-To start to develop the theme, you need to follow the [**Configuration**](#configuration) to config the `development` section in the `config.yml` file.
+To develop the theme, you need to follow the [**Configuration**](#configuration) to config the `development` section in the `config.yml` file.
 
 Next, run this commmand to run the **development** server.
 
