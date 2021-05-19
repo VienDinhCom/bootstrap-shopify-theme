@@ -20,12 +20,10 @@
           <div class="template-search__card card mb-3 overflow-hidden">
             <div class="template-search__card-image">
               <a href="{{ item.url }}">
-                {% if item.object_type == 'article' %}
-                  {{ item | img_url: '300x300', crop: 'center' | img_tag: item.title }}
-                {% elsif item.object_type == 'page' %}
-                  {{ item | img_url: '300x300', crop: 'center' | img_tag: item.title }}
+                {% if item.object_type == 'article' or  item.object_type == 'page' %}
+                  {% render 'image' image: item.image, alt: item.title, width: 300, height: 300 %}
                 {% else %}
-                  {{ item.featured_image | img_url: '300x300', crop: 'center' | img_tag: item.featured_image.alt }}
+                  {% render 'image' image: item.featured_image, alt: item.title, width: 300, height: 300 %}
                 {% endif %}
               </a>
             </div>
