@@ -22,7 +22,9 @@
                 <tbody>
                   {%- for item in cart.items -%}
                     <tr valign="middle">
-                      <th><img src="{{ item | img_url: '50x50', crop: 'center' }}" height="50" width="50" alt="{{ item.image.alt | escape }}"></th>
+                      <th>
+                        {% render 'image' image: item.image, width: 50, height: 50 %}
+                      </th>
                       <td>
                         <a class="text-decoration-none" href="{{ item.url | within: collections.all }}">{{ item.product.title }}</a>
                       </td>
@@ -34,7 +36,7 @@
                       </td>
                       <td class="text-center">
                         <b class="text-danger">
-                          {{item.final_price | money}}
+                          {{ item.final_price | money }}
                         </b>
                       </td>
                       <td class="text-end">

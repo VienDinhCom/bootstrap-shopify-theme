@@ -1,5 +1,7 @@
 <div class="snippet-product-item card">
-  <img class="snippet-product-item__image card-img-top" src="{{ product.featured_image.src | img_url: '450x450', crop: 'center' }}" width="450" height="450" alt="{{ product.title }}"/>
+
+  {% render 'image' class: 'snippet-product-item__image card-img-top', image: product.featured_image, alt: product.title, width: 450, height: 450 %}
+
   <div class="snippet-product-item__card-body card-body">
     <div class="snippet-product-item__card-info">
       <h5 class="card-title">{{ product.title }}</h5>

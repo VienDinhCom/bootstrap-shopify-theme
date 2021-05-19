@@ -1,0 +1,23 @@
+{%- liquid
+  if width
+    assign img_width = width
+  else
+    assign img_width = image.width
+  endif
+
+  if height
+    assign img_height = height
+  else
+    assign img_height = image.height
+  endif
+
+  if alt
+    assign img_alt = alt
+  else
+    assign img_alt = image.alt
+  endif
+-%}
+
+{% assign size = img_width | append: 'x' | append: img_height %}
+
+<img class="{{ class }} snippet-image" src="{{ image.src | img_url: size, crop: 'center' }}" alt="{{ img_alt | escape }}" width="{{ img_width }}" height="{{ img_height }}"/>
