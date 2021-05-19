@@ -1,7 +1,9 @@
 <div class="template-article">
   <div class="container">
     <div class="card">
-      <img class="template-article__image card-img-top" src="{{ article.image | img_url: '1024x1024', crop: 'center' }}" width="1024" height="1024" alt="{{ article.image.alt }}"/>
+
+      {% render 'image' class: 'template-article__image card-img-top', image: article.image, width: 1024, height: 1024 %}
+
       <div class="card-body">
         <h1 class="card-title fs-2">{{ article.title | escape }}</h1>
 
