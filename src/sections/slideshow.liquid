@@ -9,7 +9,9 @@
       <div class="carousel-inner">
         {% for block in section.blocks %}
           <div class="section-slideshow__item carousel-item {% if forloop.first == true %}active{% endif %}">
-            <img alt="{{ block.settings.image.alt }}" class="section-slideshow__item-image d-block w-100" src="{{ block.settings.image | img_url: '1200x450', crop: 'center' }} }}" width="1200" height="450">
+
+            {% render 'image' class: 'section-slideshow__item-image d-block w-100', image: block.settings.image, width: 1200, height: 450 %}
+
             <div class="section-slideshow__item-caption carousel-caption">
               <div class="section-slideshow__item-caption-text">
                 {% if block.settings.title != '' %}
