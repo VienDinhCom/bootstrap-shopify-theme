@@ -6,7 +6,7 @@
         {% case media.media_type %}
           {% when 'image' %}
             <div class="snippet-product-carousel__image">
-              <img src="{{ media | img_url: '450x450', crop: 'center' }}" width="450" height="450" alt="{{ media.alt }}">
+              {% render 'image' image: media, width: 450, height: 450 %}
             </div>
           {% when 'external_video' %}
             <div class="snippet-product-carousel__media">
