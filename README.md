@@ -6,7 +6,7 @@ A free [**Shopify Theme**](https://github.com/maxvien/bootstrap-shopify-theme) b
 
 These are my experience when I have been working on this theme:
 
-- Building a [Shopify Theme](https://github.com/maxvien/bootstrap-shopify-theme) from Scratch.
+- Designing & Building [Shopify Themes](https://github.com/maxvien/bootstrap-shopify-theme) from Scratch.
 - Using [Bootstrap@5](https://getbootstrap.com/) to Create a Nice User Interface.
 - Using [BEM Methodology](http://getbem.com/) to Create Minimal, Reusable Source Code.
 - Using [Liquid](https://shopify.github.io/liquid/), [SASS](https://sass-lang.com/), [ESNext](https://en.wikipedia.org/wiki/ECMAScript#ES.Next) to Develop the Theme Fashionably.
