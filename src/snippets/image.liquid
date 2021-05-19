@@ -20,4 +20,4 @@
 
 {% assign size = img_width | append: 'x' | append: img_height %}
 
-<img class="{{ class }}" src="{{ image.src | img_url: size, crop: 'center' }}" alt="{{ img_alt }}" width="{{ img_width }}" height="{{ img_height }}"/>
+<img class="{{ class }} snippet-image" src="{{ image.src | img_url: size, crop: 'center' }}" alt="{{ img_alt | escape }}" width="{{ img_width }}" height="{{ img_height }}"/>
