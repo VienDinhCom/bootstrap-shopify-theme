@@ -65,7 +65,11 @@ gulp.task('locales', () => {
 gulp.task('watch', () => {
   gulp.task('bundle')({ watch: true });
 
+  gulp.watch('src/assets/*.*', gulp.parallel('assets'));
   gulp.watch('src/**/*.liquid', gulp.parallel('liquid'));
+
+  gulp.watch('src/config/*.json', gulp.parallel('config'));
+  gulp.watch('src/config/*.json', gulp.parallel('config'));
 
   themekit.command('watch', {
     dir: 'dist',
