@@ -96,7 +96,7 @@ To fill the `theme_id` property, please follow these steps:
 
 To develop the theme, you need to follow the [**Configuration**](#configuration) to config the `development` section in the `config.yml` file.
 
-Next, run this commmand to run the **development** server.
+Next, run this command to run the **development** server.
 
 ```bash
 yarn dev
@@ -122,7 +122,7 @@ To speed up your productivity, you can install these extensions:
 
 To deploy the theme, you need to follow the [**Configuration**](#configuration) to config the `production` section in the `config.yml` file.
 
-Next, run this commmand to deploy the theme to your **production** store.
+Next, run this command to deploy the theme to your **production** store.
 
 ```bash
 yarn deploy
