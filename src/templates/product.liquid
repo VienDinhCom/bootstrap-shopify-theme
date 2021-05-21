@@ -33,11 +33,11 @@
 
               {% unless product.has_only_default_variant %}
                 {% for option in product.options_with_values %}
-                  <div class="template-product__form-variant mb-3 js-enabled">
-                    <label class="form-label" for="product-form-variant-{{ option.position }}">
+                  <div class="template-product__form-option js-enabled mb-3">
+                    <label class="form-label" for="product-form-option-{{ option.position }}">
                       {{ option.name }}
                     </label>
-                    <select class="form-select" id="product-form-variant-{{ option.position }}" name="options[{{ option.name | escape }}]">
+                    <select class="form-select" id="product-form-option-{{ option.position }}" name="options[{{ option.name | escape }}]" {% if option.position != 1 %} disabled {% endif %}>
                       <option disabled selected value>
                         {{ option.name | escape | prepend: 'Select ' }}
                       </option>
@@ -56,11 +56,6 @@
               <div class="mb-4">
                 <label class="form-label" for="product-form-quantity">Quantity</label>
                 <input class="form-control" id="product-form-quantity" min="1" name="quantity" type="number" value="1">
-              </div>
-
-              <div class="mb-3">
-                <label class="form-label" for="product-form-details">Details</label>
-                <textarea class="form-control" id="product-form-details" name="properties[Details]" rows="3"></textarea>
               </div>
 
               <button class="btn btn-primary btn-lg mb-2" type="submit">Add to Cart</button>
