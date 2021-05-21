@@ -17,6 +17,7 @@
     "@shopify/theme-product-form": "^4.1.1",
     "bootstrap": "^5.0.0-beta3",
     "jquery": "^3.6.0",
+    "lodash": "^4.17.21",
     "read-yaml-file": "^2.1.0",
     "smartmenus-bootstrap-4": "^0.1.0",
     "swiper": "^6.5.9"
@@ -42,7 +43,17 @@
     "trailingComma": "es5"
   },
   "eslintConfig": {
-    "ecmaVersion": "2020",
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 2020,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
     "extends": "eslint:recommended"
   },
   "browserslist": {
