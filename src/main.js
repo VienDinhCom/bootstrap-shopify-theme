@@ -8,3 +8,4 @@ import './snippets/address-form';
 import './snippets/featured-slider';
 
 import './templates/customers/login';
+import './templates/product';

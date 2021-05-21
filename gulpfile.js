@@ -65,7 +65,11 @@ gulp.task('locales', () => {
 gulp.task('watch', () => {
   gulp.task('bundle')({ watch: true });
 
+  gulp.watch('src/assets/*.*', gulp.parallel('assets'));
   gulp.watch('src/**/*.liquid', gulp.parallel('liquid'));
+
+  gulp.watch('src/config/*.json', gulp.parallel('config'));
+  gulp.watch('src/config/*.json', gulp.parallel('config'));
 
   themekit.command('watch', {
     dir: 'dist',
@@ -100,7 +104,7 @@ gulp.task('build', gulp.series(prepare, gulp.parallel(copy, 'bundle')));
 
 gulp.task(
   'test',
-  gulp.series('build', function processing(callback) {
+  gulp.series('build', function proceeding(callback) {
     exec('theme-check dist', function (err, stdout, stderr) {
       console.log(stdout);
       console.log(stderr);
@@ -111,7 +115,7 @@ gulp.task(
 
 gulp.task(
   'deploy',
-  gulp.series('build', function processing() {
+  gulp.series('build', function proceeding() {
     return themekit.command('deploy', {
       dir: 'dist',
       env: NODE_ENV,

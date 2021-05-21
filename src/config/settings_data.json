@@ -1,5 +1,235 @@
 {
-  "current": "Default",
+  "current": {
+    "sections": {
+      "16214099630eec9cc3": {
+        "type": "slideshow",
+        "blocks": {
+          "66040de5-ead7-4970-adb2-475b87d8343c": {
+            "type": "item",
+            "settings": {
+              "title": "Bootstrap Shopify Theme",
+              "description": "<p>A free Shopify Theme built with Bootstrap, BEM, Theme Tools, Swiper, Gulp, Parcel, Liquid, SASS, PostCSS, ESNext, ... and Passion.</p>",
+              "actionButton": "Get Source Code",
+              "image": "shopify://shop_images/working-at-night.jpg"
+            }
+          }
+        },
+        "block_order": ["66040de5-ead7-4970-adb2-475b87d8343c"],
+        "settings": {}
+      },
+      "16214103457aee0d39": {
+        "type": "featured-products",
+        "blocks": {
+          "dda11fea-fd7e-4b4f-97d6-ac3e2e6a7420": {
+            "type": "item",
+            "settings": {
+              "product": "chain-bracelet"
+            }
+          },
+          "c529e3e0-8f76-442d-8159-7c6010d7decd": {
+            "type": "item",
+            "settings": {
+              "product": "leather-anchor"
+            }
+          },
+          "5b5e0678-c4e8-4e25-bcd9-11489a870f81": {
+            "type": "item",
+            "settings": {
+              "product": "antique-drawers"
+            }
+          },
+          "9ecb41ca-f2e7-4771-88b9-33d62267489f": {
+            "type": "item",
+            "settings": {
+              "product": "bangle-bracelet"
+            }
+          },
+          "ffa9fa33-ec8b-491a-9a73-d957f0e1d2df": {
+            "type": "item",
+            "settings": {
+              "product": "bedside-table"
+            }
+          },
+          "4ee78bfe-e4f3-4e0b-bf65-52040e999579": {
+            "type": "item",
+            "settings": {
+              "product": "biodegradable-cardboard-pots"
+            }
+          },
+          "f354b6f7-ca7b-4c45-a75d-f1f8421efadb": {
+            "type": "item",
+            "settings": {
+              "product": "black-bean-bag"
+            }
+          },
+          "4f1e57a5-c5b5-42df-a6c9-0412c28ae6d8": {
+            "type": "item",
+            "settings": {
+              "product": "chequered-red-shirt"
+            }
+          }
+        },
+        "block_order": [
+          "dda11fea-fd7e-4b4f-97d6-ac3e2e6a7420",
+          "c529e3e0-8f76-442d-8159-7c6010d7decd",
+          "5b5e0678-c4e8-4e25-bcd9-11489a870f81",
+          "9ecb41ca-f2e7-4771-88b9-33d62267489f",
+          "ffa9fa33-ec8b-491a-9a73-d957f0e1d2df",
+          "4ee78bfe-e4f3-4e0b-bf65-52040e999579",
+          "f354b6f7-ca7b-4c45-a75d-f1f8421efadb",
+          "4f1e57a5-c5b5-42df-a6c9-0412c28ae6d8"
+        ],
+        "settings": {
+          "title": "Featured Products"
+        }
+      },
+      "162141044380a7180d": {
+        "type": "featured-collections",
+        "blocks": {
+          "f79c04f9-41c9-4495-a248-f666ac4dba43": {
+            "type": "item",
+            "settings": {
+              "collection": "armchair"
+            }
+          },
+          "931e01aa-d73c-43f2-addc-03fc071a8e72": {
+            "type": "item",
+            "settings": {
+              "collection": "bag"
+            }
+          },
+          "03dd3d87-3d56-49c1-9015-1af759648543": {
+            "type": "item",
+            "settings": {
+              "collection": "blouse"
+            }
+          },
+          "214648e7-8f6f-4d5a-ad0d-443b682c5641": {
+            "type": "item",
+            "settings": {
+              "collection": "bracelet"
+            }
+          },
+          "d3c5f54f-0d87-4e27-bcd9-d8e77aec82ef": {
+            "type": "item",
+            "settings": {
+              "collection": "candle"
+            }
+          },
+          "d0e70a85-5b1f-4ec4-be2a-f31b573f08da": {
+            "type": "item",
+            "settings": {
+              "collection": "choker"
+            }
+          },
+          "0890ce35-c39b-4d29-a309-b2982f75561e": {
+            "type": "item",
+            "settings": {
+              "collection": "drawer"
+            }
+          },
+          "343972b0-b6da-4327-bc63-081204c46726": {
+            "type": "item",
+            "settings": {
+              "collection": "earring"
+            }
+          },
+          "53dbfb8d-ab63-40cb-a9a4-923bcb620dac": {
+            "type": "item",
+            "settings": {
+              "collection": "fence"
+            }
+          }
+        },
+        "block_order": [
+          "f79c04f9-41c9-4495-a248-f666ac4dba43",
+          "931e01aa-d73c-43f2-addc-03fc071a8e72",
+          "03dd3d87-3d56-49c1-9015-1af759648543",
+          "214648e7-8f6f-4d5a-ad0d-443b682c5641",
+          "d3c5f54f-0d87-4e27-bcd9-d8e77aec82ef",
+          "d0e70a85-5b1f-4ec4-be2a-f31b573f08da",
+          "0890ce35-c39b-4d29-a309-b2982f75561e",
+          "343972b0-b6da-4327-bc63-081204c46726",
+          "53dbfb8d-ab63-40cb-a9a4-923bcb620dac"
+        ],
+        "settings": {
+          "title": "Featured Collections"
+        }
+      },
+      "16214105149e606985": {
+        "type": "featured-articles",
+        "blocks": {
+          "f2786828-4216-4342-ab24-382511c86db1": {
+            "type": "item",
+            "settings": {
+              "article": "news/dolores-quis-aliquam-delectus-voluptatem-quae-et"
+            }
+          },
+          "2555878b-7b1f-4b61-ad3a-b28a85c7d642": {
+            "type": "item",
+            "settings": {
+              "article": "news/qui-saepe-ratione-reprehenderit-labore-veritatis-animi-tempora-autem"
+            }
+          },
+          "8c332891-1e3e-4805-89ae-38f739cb3304": {
+            "type": "item",
+            "settings": {
+              "article": "news/optio-dicta-ut-earum-veniam-eum-consequatur-laborum"
+            }
+          },
+          "98c08ec6-9ca9-43a2-984c-bf336b9fbe52": {
+            "type": "item",
+            "settings": {
+              "article": "news/maiores-itaque-qui-et"
+            }
+          },
+          "cf9605ca-e217-43f3-93ee-3b21943f25c0": {
+            "type": "item",
+            "settings": {
+              "article": "news/quidem-vero-suscipit-dolore-ad-maiores-deleniti-delectus"
+            }
+          },
+          "532f857d-4f6d-42d2-a06b-7989188b34d7": {
+            "type": "item",
+            "settings": {
+              "article": "news/facilis-ipsam-at-nesciunt-enim"
+            }
+          },
+          "5e05500b-02d2-4d11-a30b-8aa28860e8bd": {
+            "type": "item",
+            "settings": {
+              "article": "news/ut-voluptates-cumque-eligendi-ea-sapiente-rerum-quia"
+            }
+          },
+          "08435eb3-9e5c-4c84-8efd-b5164449b1c3": {
+            "type": "item",
+            "settings": {
+              "article": "news/doloribus-quae-aliquam-accusamus-ea-optio-distinctio-quasi"
+            }
+          }
+        },
+        "block_order": [
+          "f2786828-4216-4342-ab24-382511c86db1",
+          "2555878b-7b1f-4b61-ad3a-b28a85c7d642",
+          "8c332891-1e3e-4805-89ae-38f739cb3304",
+          "98c08ec6-9ca9-43a2-984c-bf336b9fbe52",
+          "cf9605ca-e217-43f3-93ee-3b21943f25c0",
+          "532f857d-4f6d-42d2-a06b-7989188b34d7",
+          "5e05500b-02d2-4d11-a30b-8aa28860e8bd",
+          "08435eb3-9e5c-4c84-8efd-b5164449b1c3"
+        ],
+        "settings": {
+          "title": "Featured Articles"
+        }
+      }
+    },
+    "content_for_index": [
+      "16214099630eec9cc3",
+      "16214103457aee0d39",
+      "162141044380a7180d",
+      "16214105149e606985"
+    ]
+  },
   "presets": {
     "Default": {}
   }
