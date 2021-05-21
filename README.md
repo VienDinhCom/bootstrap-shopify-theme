@@ -15,7 +15,7 @@ These are my experience when I have been working on this theme:
 - Using [Swiper](https://swiperjs.com/) to Create Beautiful, Touchable, Responsive Sliders.
 - Using [Shopify Theme Scripts](https://github.com/Shopify/theme-scripts) to Solve Theme Problems Faster.
 - Using [Shopify Theme Kit](https://github.com/Shopify/themekit) to Develop and Deploy the Theme.
-- Using [Shopify Theme Check](https://github.com/Shopify/theme-check) to Follow Theme Best Practices.
+- Using [Shopify Theme Check](https://github.com/Shopify/theme-check), [ESlint](https://eslint.org/) to Follow Theme Best Practices.
 - Using [Gulp](https://gulpjs.com/) to Automate & Enhance the Development Workflow.
 - Using [Parcel](https://parceljs.org/) to Bundle all SCSS, JavaScript, Font, Image, ... Assets.
 - Using [BrowserSync](https://github.com/Browsersync/browser-sync) to Reload the Browser Automatically When Saving the Files.
@@ -113,6 +113,7 @@ To follow Shopify Theme best practices, you need to install [Shopify Theme Check
 To speed up your productivity, you can install these extensions:
 
 - [Liquid](https://marketplace.visualstudio.com/items?itemName=sissel.shopify-liquid)
+- [ESlint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 - [Theme Check](https://marketplace.visualstudio.com/items?itemName=Shopify.theme-check-vscode)
 - [IntelliSense for CSS](https://marketplace.visualstudio.com/items?itemName=Zignd.html-css-class-completion)

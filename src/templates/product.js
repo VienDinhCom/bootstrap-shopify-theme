@@ -93,8 +93,6 @@ import { ProductForm } from '@shopify/theme-product-form';
 
       proceeding();
 
-      console.log(variant);
-
       if (variant === null) {
         // The combination of selected options does not have a matching variant
 
