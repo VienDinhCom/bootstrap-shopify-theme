@@ -13,8 +13,6 @@ import { ProductForm } from '@shopify/theme-product-form';
   const productData = await fetch(`/products/${productHandle}.js`).then((res) => res.json());
   const buttonElement = formElement.querySelector('button[type=submit]');
 
-  buttonElement.disabled = true;
-
   function proceeding() {
     const selectElements = formElement.querySelectorAll('.template-product__form-option select');
 
@@ -43,7 +41,7 @@ import { ProductForm } from '@shopify/theme-product-form';
     const selectTwoElement = selectElements[1];
     const selectThreeElement = selectElements[2];
 
-    (() => {
+    if (selectTwoElement) {
       const okayOptions = uniq(
         productData.variants
           .filter(({ option1 }) => option1 === selectOneElement.value)
@@ -59,9 +57,9 @@ import { ProductForm } from '@shopify/theme-product-form';
           selectTwoOptionElement.disabled = true;
         }
       });
-    })();
+    }
 
-    (() => {
+    if (selectThreeElement) {
       const okayOptions = uniq(
         productData.variants
           .filter(
@@ -80,10 +78,14 @@ import { ProductForm } from '@shopify/theme-product-form';
           selectThreeOptionElement.disabled = true;
         }
       });
-    })();
+    }
   }
 
   proceeding();
+
+  if (productData.variants.length > 1) {
+    buttonElement.disabled = true;
+  }
 
   new ProductForm(formElement, productData, {
     onOptionChange: (event) => {
@@ -91,11 +93,17 @@ import { ProductForm } from '@shopify/theme-product-form';
 
       proceeding();
 
+      console.log(variant);
+
       if (variant === null) {
         // The combination of selected options does not have a matching variant
+
+        buttonElement.disabled = true;
       } else if (variant && !variant.available) {
         // The combination of selected options has a matching variant but it is
         // currently unavailable
+
+        buttonElement.disabled = true;
       } else if (variant && variant.available) {
         // The combination of selected options has a matching variant and it is
         // available
