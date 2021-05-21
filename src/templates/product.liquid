@@ -8,7 +8,7 @@
           </div>
           <div class="col-md-12 col-lg-6 mb-3">
 
-            {% form "product", product %}
+            {% form 'product', product, class: 'template-product__form', data-product-handle: product.handle %}
 
               <h1 class="mb-3">{{ product.title }}</h1>
 
@@ -16,25 +16,55 @@
 
               <h3 class="mb-3 text-danger">{{ product.price | money}}</h3>
 
-              <div class="mb-3">
-                <label class="form-label" for="product-form-variants">Variants</label>
-                <select class="form-select" id="product-form-variants" name="id">
-                  {% for variant in product.variants %}
-                    <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} value="{{ variant.id }}">
-                      {{ variant.title }}
-                      -
-                      {{ variant.price | money }}
-                    </option>
-                  {% endfor %}
-                </select>
-              </div>
+              <noscript>
+                <div class="mb-3">
+                  <label class="form-label" for="product-form-variants">Variants</label>
+                  <select class="form-select" id="product-form-variants" name="id">
+                    {% for variant in product.variants %}
+                      <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} {% unless variant.available %} disabled="disabled" {% endunless %} value="{{ variant.id }}">
+                        {{ variant.title }}
+                        -
+                        {{ variant.price | money }}
+                      </option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </noscript>
+
+              {% unless product.has_only_default_variant %}
+                {% for option in product.options_with_values %}
+                  <div class="template-product__form-variant mb-3 js-enabled">
+                    <label class="form-label" for="product-form-variant-{{ option.position }}">
+                      {{ option.name }}
+                    </label>
+                    <select class="form-select" id="product-form-variant-{{ option.position }}" name="options[{{ option.name | escape }}]">
+                      <option disabled selected value>
+                        {{ option.name | escape | prepend: 'Select ' }}
+                      </option>
+
+                      {% for value in option.values %}
+                        <option value="{{ value | escape }}">
+                          {{ value }}
+                        </option>
+                      {% endfor %}
+                    </select>
+                  </div>
+                {% endfor %}
+              {% endunless %}
+
 
               <div class="mb-4">
                 <label class="form-label" for="product-form-quantity">Quantity</label>
-                <input class="form-control" id="product-form-quantity" name="quantity" type="text" value="1">
+                <input class="form-control" id="product-form-quantity" min="1" name="quantity" type="number" value="1">
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label" for="product-form-details">Details</label>
+                <textarea class="form-control" id="product-form-details" name="properties[Details]" rows="3"></textarea>
               </div>
 
               <button class="btn btn-primary btn-lg mb-2" type="submit">Add to Cart</button>
+
             {% endform %}
           </div>
         </div>
