@@ -3,6 +3,7 @@
     "shopify.theme-check-vscode",
     "sissel.shopify-liquid",
     "esbenp.prettier-vscode",
-    "zignd.html-css-class-completion"
+    "zignd.html-css-class-completion",
+    "dbaeumer.vscode-eslint"
   ]
 }
