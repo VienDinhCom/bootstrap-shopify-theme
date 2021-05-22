@@ -26,4 +26,16 @@
   &__card-body {
     flex: 1;
   }
+
+  &__form {
+    position: relative;
+  }
+
+  &__form-results {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    margin-top: 10px;
+    z-index: 1000;
+  }
 }

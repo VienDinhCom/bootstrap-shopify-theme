@@ -13,6 +13,7 @@
   "dependencies": {
     "@popperjs/core": "^2.9.2",
     "@shopify/theme-addresses": "^4.1.1",
+    "@shopify/theme-predictive-search": "^4.1.1",
     "@shopify/theme-product": "^4.1.1",
     "@shopify/theme-product-form": "^4.1.1",
     "bootstrap": "^5.0.0-beta3",
