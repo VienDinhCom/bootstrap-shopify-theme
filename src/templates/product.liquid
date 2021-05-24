@@ -4,8 +4,39 @@
       <div class="card-body">
         <div class="row">
           <div class="col-md-12 col-lg-6 mb-3">
-            {% render 'product-carousel' product: product %}
+            <div class="template-product__slider swiper-container">
+              <div class="swiper-wrapper">
+                {% for media in product.media %}
+                  <div class="template-product__slider-slide swiper-slide" data-media-id="{{media.id}}">
+                    {% case media.media_type %}
+                      {% when 'image' %}
+                        {% render 'image' image: media, width: 450, height: 450 %}
+                      {% when 'external_video' %}
+                        {{ media | external_video_tag }}
+                      {% when 'video' %}
+                        {{ media | video_tag: controls: true }}
+                      {% when 'model' %}
+                        {{ media | model_viewer_tag }}
+                      {% else %}
+                        {{ media | media_tag }}
+                    {% endcase %}
+                  </div>
+                {% endfor %}
+              </div>
+
+              {% if product.media.size > 1 %}
+                <button class="carousel-control-prev" type="button">
+                  <span aria-hidden="true" class="carousel-control-prev-icon"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button">
+                  <span aria-hidden="true" class="carousel-control-next-icon"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              {% endif %}
+            </div>
           </div>
+
           <div class="col-md-12 col-lg-6 mb-3">
 
             {% form 'product', product, class: 'template-product__form', data-product-handle: product.handle %}
