@@ -102,7 +102,7 @@ Next, run this command to run the **development** server.
 yarn dev
 ```
 
-Open https://localhost:8080/ with your browser to see the result.
+Open `https://localhost:8080/?preview_theme_id=[theme_id]` with your browser to see the result.
 
 ### Shopify Theme Check
 
