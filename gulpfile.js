@@ -86,7 +86,7 @@ gulp.task('serve', () => {
     https: true,
     notify: false,
     reloadDelay: 1500,
-    proxy: `https://${config.store}/`,
+    proxy: `https://${config.store}/?preview_theme_id=${config.theme_id}`,
     files: watch,
     snippetOptions: {
       rule: {
