@@ -91,7 +91,9 @@ gulp.task('serve', () => {
     snippetOptions: {
       rule: {
         match: /<\/body>/i,
-        fn: (snippet, match) => snippet + match,
+        fn: (snippet, match) => {
+          return snippet + '<style>iframe#preview-bar-iframe { display: none; }</style>' + match;
+        },
       },
     },
   });
