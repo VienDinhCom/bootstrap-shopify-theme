@@ -12,6 +12,7 @@ These are my experience when I have been working on this theme:
 - Using [Liquid](https://shopify.github.io/liquid/), [SASS](https://sass-lang.com/), [ESNext](https://en.wikipedia.org/wiki/ECMAScript#ES.Next) to Develop the Theme Fashionably.
 - Using [CSS Media Queries](https://www.w3schools.com/css/css_rwd_mediaqueries.asp) to Create a Mobile-First and Responsive Design.
 - Using [PostCSS](https://postcss.org/) to Make CSS Code Compatible with Old Browsers.
+- Using [CoreJS](https://github.com/zloirock/core-js) to Make JavaScript Code Compatible with Old Browsers.
 - Using [Swiper](https://swiperjs.com/) to Create Beautiful, Touchable, Responsive Sliders.
 - Using [Shopify Theme Scripts](https://github.com/Shopify/theme-scripts) to Solve Theme Problems Faster.
 - Using [Shopify Theme Kit](https://github.com/Shopify/themekit) to Develop and Deploy the Theme.
