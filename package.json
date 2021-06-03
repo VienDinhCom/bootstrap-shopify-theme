@@ -1,6 +1,6 @@
 {
   "name": "bootstrap-shopify-theme",
-  "version": "1.0.0",
+  "version": "1.4.5",
   "repository": "https://github.com/maxvien/bootstrap-shopify-theme.git",
   "author": "Vien Dinh <maxvien@gmail.com>",
   "license": "MIT",
@@ -72,5 +72,27 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "keywords": [
+    "gulp",
+    "sass",
+    "theme",
+    "bootstrap",
+    "postcss",
+    "bem",
+    "liquid",
+    "parcel",
+    "shopify",
+    "browser-sync",
+    "shopify-themes",
+    "shopify-theme",
+    "swiper",
+    "javascipt",
+    "shopify-development",
+    "bootstrap-shopify-theme",
+    "shopify-theme-kit",
+    "shopify-theme-scripts",
+    "shopify-theme-check",
+    "shopify-theme-development"
+  ]
 }
