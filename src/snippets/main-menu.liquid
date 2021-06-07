@@ -4,7 +4,9 @@
 
     <a class="nav-link d-md-block d-lg-none ms-auto {% if request.path == routes.cart_url %}text-secondary{% else %}text-white{% endif %}" href="/cart">
       Cart
-      <sup class="badge rounded-pill bg-danger">{{ cart.item_count }}</sup>
+      {% if cart.item_count > 0 %}
+        <sup class="badge rounded-pill bg-danger">{{ cart.item_count }}</sup>
+      {% endif %}
     </a>
 
     <button aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarCollapse" data-bs-toggle="collapse" type="button">
