@@ -1,11 +1,8 @@
 import debounce from 'lodash/debounce';
+import { withElements } from 'with-elements';
 import PredictiveSearch from '@shopify/theme-predictive-search';
 
-(async () => {
-  const templateElement = document.querySelector('.template-search');
-
-  if (templateElement === null) return;
-
+withElements('.template-search', async (templateElement) => {
   const formElement = templateElement.querySelector('.template-search__form');
   const formInputElement = formElement.querySelector('.template-search__form-input');
   const formResultsElement = formElement.querySelector('.template-search__form-results');
@@ -28,7 +25,7 @@ import PredictiveSearch from '@shopify/theme-predictive-search';
     } else {
       predictiveSearch.query(value);
     }
-  }, 1000);
+  }, 500);
 
   window.onclick = (event) => {
     if (!formResultsElement.contains(event.target)) {
@@ -57,4 +54,4 @@ import PredictiveSearch from '@shopify/theme-predictive-search';
       })
       .join('');
   });
-})();
+});

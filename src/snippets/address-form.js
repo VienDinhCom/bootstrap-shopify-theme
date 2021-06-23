@@ -1,8 +1,8 @@
+import { withElements } from 'with-elements';
 import { AddressForm } from '@shopify/theme-addresses';
 
-const forms = document.querySelectorAll('.snippet-address-form');
+withElements('.snippet-address-form', async (formElement) => {
+  const fields = formElement.querySelector('.snippet-address-form__fields');
 
-forms.forEach((form) => {
-  const fields = form.querySelector('.snippet-address-form__fields');
   AddressForm(fields, 'en');
 });
