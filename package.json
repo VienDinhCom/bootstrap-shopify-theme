@@ -19,7 +19,6 @@
     "bootstrap": "^5.0.2",
     "jquery": "^3.6.0",
     "lodash": "^4.17.21",
-    "read-yaml-file": "^2.1.0",
     "smartmenus-bootstrap-4": "^0.1.0",
     "swiper": "^6.5.9",
     "with-elements": "^1.0.0"
@@ -39,6 +38,7 @@
     "gulp-load-plugins": "^2.0.6",
     "parcel-bundler": "^1.12.5",
     "postcss-modules": "^4.0.0",
+    "read-yaml-file": "^2.1.0",
     "sass": "^1.32.11"
   },
   "prettier": {
