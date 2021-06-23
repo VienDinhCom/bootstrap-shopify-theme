@@ -16,7 +16,7 @@
     "@shopify/theme-predictive-search": "^4.1.1",
     "@shopify/theme-product": "^4.1.1",
     "@shopify/theme-product-form": "^4.1.1",
-    "bootstrap": "^5.0.0-beta3",
+    "bootstrap": "^5.0.2",
     "jquery": "^3.6.0",
     "lodash": "^4.17.21",
     "read-yaml-file": "^2.1.0",
