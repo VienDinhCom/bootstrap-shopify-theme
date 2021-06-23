@@ -1,3 +1,5 @@
-.snippet-address-form [data-aria-hidden='true'] {
-  display: none;
+.snippet-address-form {
+  [data-aria-hidden='true'] {
+    display: none;
+  }
 }
