@@ -62,7 +62,9 @@
                 </div>
               </noscript>
 
-              {% unless product.has_only_default_variant %}
+              {% if product.has_only_default_variant %}
+                <input name="id" value="{{ product.first_available_variant.id }}" type="hidden">
+              {% else %}
                 {% for option in product.options_with_values %}
                   <div class="template-product__form-option js-enabled mb-3">
                     <label class="form-label" for="product-form-option-{{ option.position }}">
@@ -81,7 +83,7 @@
                     </select>
                   </div>
                 {% endfor %}
-              {% endunless %}
+              {% endif %}
 
 
               <div class="mb-4">
