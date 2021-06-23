@@ -1,10 +1,9 @@
 import Swiper from 'swiper';
 import uniq from 'lodash/uniq';
+import { withElements } from 'with-elements';
 import { ProductForm } from '@shopify/theme-product-form';
 
-const templateElement = document.querySelector('.template-product');
-
-if (templateElement) {
+withElements('.template-product', async (templateElement) => {
   const sliderElement = templateElement.querySelector('.template-product__slider');
   const prevBtn = sliderElement.querySelector('.carousel-control-prev');
   const nextBtn = sliderElement.querySelector('.carousel-control-next');
@@ -139,4 +138,4 @@ if (templateElement) {
       },
     });
   })();
-}
+});

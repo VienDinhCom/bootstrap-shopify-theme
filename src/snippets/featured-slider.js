@@ -1,13 +1,12 @@
 import Swiper from 'swiper';
+import { withElements } from 'with-elements';
 
-const sections = document.querySelectorAll('.snippet-featured-slider');
+withElements('.snippet-featured-slider', async (sliderElement) => {
+  const containerElement = sliderElement.querySelector('.swiper-container');
+  const prevBtn = containerElement.querySelector('.carousel-control-prev');
+  const nextBtn = containerElement.querySelector('.carousel-control-next');
 
-sections.forEach((section) => {
-  const swiperContainer = section.querySelector('.swiper-container');
-  const prevBtn = swiperContainer.querySelector('.carousel-control-prev');
-  const nextBtn = swiperContainer.querySelector('.carousel-control-next');
-
-  const swiper = new Swiper(swiperContainer, {
+  const swiper = new Swiper(containerElement, {
     loop: true,
 
     slidesPerView: 1,
