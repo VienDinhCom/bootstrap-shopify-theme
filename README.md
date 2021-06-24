@@ -23,7 +23,7 @@ These are my experience when I have been working on this theme:
 - Using [BrowserSync](https://github.com/Browsersync/browser-sync) to Reload the Browser Automatically When Saving the Files.
 - Using [Liquid](https://marketplace.visualstudio.com/items?itemName=sissel.shopify-liquid) & [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) Visual Studio Code Extensions to Format the Source Code.
 
-If you like the project, please hit the **STAR** button to support my work. ⭐️
+If you like my work, please hit the **STAR** button to bookmark the project. ⭐️
 
 ## Demonstration
 
