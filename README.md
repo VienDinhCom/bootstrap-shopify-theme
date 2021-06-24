@@ -17,6 +17,7 @@ These are my experience when I have been working on this theme:
 - Using [Shopify Theme Scripts](https://github.com/Shopify/theme-scripts) to Solve Theme Problems Faster.
 - Using [Shopify Theme Kit](https://github.com/Shopify/themekit) to Develop and Deploy the Theme.
 - Using [Shopify Theme Check](https://github.com/Shopify/theme-check), [ESlint](https://eslint.org/) to Follow Theme Best Practices.
+- Using [Shopify Metafield](https://shopify.dev/docs/admin-api/rest/reference/metafield) to add extra information to other Admin API resources.
 - Using [Gulp](https://gulpjs.com/) to Automate & Enhance the Development Workflow.
 - Using [Parcel](https://parceljs.org/) to Bundle all SCSS, JavaScript, Font, Image, ... Assets.
 - Using [BrowserSync](https://github.com/Browsersync/browser-sync) to Reload the Browser Automatically When Saving the Files.
@@ -132,6 +133,6 @@ yarn deploy
 
 ## Related Projects
 
-* **[Next Shopify Storefront](https://github.com/Maxvien/next-shopify-storefront)** • A real-world Shopping Cart built with TypeScript, NextJS, React, Redux, Apollo Client, Shopify Storefront GraphQL API, ... and Material UI.
-* **[Shopify Theme Customizer](https://github.com/Maxvien/shopify-theme-customizer)** • An effective development tool for customizing existing Shopify themes. It's built with Gulp, Theme Kit, Theme Check, BrowserSync, ... and Passion.
-* **[Shopify Data Faker](https://github.com/Maxvien/shopify-data-faker)** • A Shopify development tool for generating dummy store data.
+- **[Next Shopify Storefront](https://github.com/Maxvien/next-shopify-storefront)** • A real-world Shopping Cart built with TypeScript, NextJS, React, Redux, Apollo Client, Shopify Storefront GraphQL API, ... and Material UI.
+- **[Shopify Theme Customizer](https://github.com/Maxvien/shopify-theme-customizer)** • An effective development tool for customizing existing Shopify themes. It's built with Gulp, Theme Kit, Theme Check, BrowserSync, ... and Passion.
+- **[Shopify Data Faker](https://github.com/Maxvien/shopify-data-faker)** • A Shopify development tool for generating dummy store data.
