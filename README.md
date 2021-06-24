@@ -17,7 +17,7 @@ These are my experience when I have been working on this theme:
 - Using [Shopify Theme Scripts](https://github.com/Shopify/theme-scripts) to Solve Theme Problems Faster.
 - Using [Shopify Theme Kit](https://github.com/Shopify/themekit) to Develop and Deploy the Theme.
 - Using [Shopify Theme Check](https://github.com/Shopify/theme-check), [ESlint](https://eslint.org/) to Follow Theme Best Practices.
-- Using [Shopify Metafield](https://shopify.dev/docs/admin-api/rest/reference/metafield) to add extra information to other resources.
+- Using [Shopify Metafield](https://shopify.dev/docs/admin-api/rest/reference/metafield) to Add Extra Information to Other Resources.
 - Using [Gulp](https://gulpjs.com/) to Automate & Enhance the Development Workflow.
 - Using [Parcel](https://parceljs.org/) to Bundle all SCSS, JavaScript, Font, Image, ... Assets.
 - Using [BrowserSync](https://github.com/Browsersync/browser-sync) to Reload the Browser Automatically When Saving the Files.
