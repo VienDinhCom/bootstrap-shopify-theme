@@ -99,9 +99,36 @@
 
         <div class="row">
           <div class="col-12">
-            <div class="card">
-              <div class="card-body">
+            <ul class="nav nav-tabs" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button aria-controls="home" aria-selected="true" class="nav-link active" data-bs-target="#product-description-tab" data-bs-toggle="tab" role="tab" type="button">Description</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button aria-controls="profile" aria-selected="false" class="nav-link" data-bs-target="#product-details-tab" data-bs-toggle="tab" role="tab" type="button">Details</button>
+              </li>
+            </ul>
+            <div class="tab-content pt-3">
+              <div aria-labelledby="product-description-tab" class="tab-pane fade show active" id="product-description-tab" role="tabpanel">
                 {{ product.content }}
+              </div>
+
+              <div aria-labelledby="product-details-tab" class="tab-pane fade" id="product-details-tab" role="tabpanel">
+                {% if product.metafields.details != blank %}
+                  <table class="table table-bordered">
+                    {% if product.metafields.details.material != blank %}
+                      <tr>
+                        <td width="100">Material</td>
+                        <td>{{ product.metafields.details.material }}</td>
+                      </tr>
+                    {% endif %}
+                    {% if product.metafields.details.weight != blank %}
+                      <tr>
+                        <td width="100">Weight</td>
+                        <td>{{ product.metafields.details.weight }}</td>
+                      </tr>
+                    {% endif %}
+                  </table>
+                {% endif %}
               </div>
             </div>
           </div>
