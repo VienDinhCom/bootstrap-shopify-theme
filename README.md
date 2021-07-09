@@ -127,7 +127,7 @@ yarn download --env=environment --file=[your theme file]
 For example, you can run this command to download the `config/settings_data.json` file
 
 ```bash
-yarn download --env=environment --file=config/settings_data.json
+yarn download --env=production --file=config/settings_data.json
 ```
 
 ### Lint
