@@ -48,10 +48,11 @@ yarn install
 
 To config the project, you need to copy and rename the `config.yml.example` file to the `config.yml` file. Then update the `store`, `password`, `theme_id` properties.
 
-There are two sections in the `config.yml` file:
+There are sections in the `config.yml` file:
 
-- The `development` section is for your **development** store.
-- The `production` section is for your **production** store.
+- The `development` section is for your **development** branch.
+- The `production` section is for your **production** branch.
+- The `feature` section is for your **feature** branch.
 
 ```yml
 development:
@@ -60,6 +61,11 @@ development:
   theme_id: store-theme-id
 
 production:
+  store: store-name.myshopify.com
+  password: store-admin-api-password
+  theme_id: store-theme-id
+
+feature:
   store: store-name.myshopify.com
   password: store-admin-api-password
   theme_id: store-theme-id
@@ -94,42 +100,78 @@ To fill the `theme_id` property, please follow these steps:
 4. Next, click the **Customize** button.
 5. There is a link like this `https://store-name.myshopify.com/admin/themes/[theme_id]/editor` on your browser's address bar. Copy the **theme_id** and paste it into the `config.yml` file.
 
-## Development
+## Usage
 
-To develop the theme, you need to follow the [**Configuration**](#configuration) to config the `development` section in the `config.yml` file.
+To work with theme, you need to follow the [**Configuration**](#configuration) section to config the `environments` in the `config.yml` file. The default environment is `development`.
 
-Next, run this command to run the **development** server.
+### Watch
 
 ```bash
-yarn dev
+yarn watch --env=environment
 ```
 
-Open `https://localhost:8080/?preview_theme_id=[theme_id]` with your browser to see the result.
+To enable LiveReload, you need to install the [LiveReload](http://livereload.com/extensions/) extension on your browser.
 
-### Shopify Theme Check
+### Deploy
 
-To follow Shopify Theme best practices, you need to install [Shopify Theme Check](https://github.com/Shopify/theme-check#installation).
+```bash
+yarn deploy --env=environment
+```
 
-### Visual Studio Code Extensions
+### Download
+
+```bash
+yarn download --env=environment --file=[your theme file]
+```
+
+For example, you can run this command to download the `config/settings_data.json` file
+
+```bash
+yarn download --env=environment --file=config/settings_data.json
+```
+
+### Lint
+
+First of all, you need to install [Shopify CLI](https://shopify.dev/apps/tools/cli/installation). Then you can run this command to analyze your code to find problems.
+
+```bash
+yarn lint
+```
+
+Automatically fix problems
+
+```bash
+yarn lint --fix
+```
+
+### Open
+
+```bash
+yarn open --env=environment
+```
+
+### Build
+
+```bash
+yarn build
+```
+
+### Get
+
+```bash
+yarn get --env=environment
+```
+
+## Visual Studio Code Extensions
 
 To speed up your productivity, you can install these extensions:
 
-- [Liquid](https://marketplace.visualstudio.com/items?itemName=sissel.shopify-liquid)
-- [ESlint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+- [Eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-- [Theme Check](https://marketplace.visualstudio.com/items?itemName=Shopify.theme-check-vscode)
+- [Shopify Liquid](https://marketplace.visualstudio.com/items?itemName=Shopify.theme-check-vscode)
 - [IntelliSense for CSS](https://marketplace.visualstudio.com/items?itemName=Zignd.html-css-class-completion)
 - [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)
-
-## Production
-
-To deploy the theme, you need to follow the [**Configuration**](#configuration) to config the `production` section in the `config.yml` file.
-
-Next, run this command to deploy the theme to your **production** store.
-
-```bash
-yarn deploy
-```
+- [Visual Studio IntelliCode](https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode)
 
 ## Related Projects
 
