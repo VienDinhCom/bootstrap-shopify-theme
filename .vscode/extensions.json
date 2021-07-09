@@ -1,9 +1,8 @@
 {
   "recommendations": [
     "shopify.theme-check-vscode",
-    "sissel.shopify-liquid",
     "esbenp.prettier-vscode",
-    "zignd.html-css-class-completion",
+    "ecmel.vscode-html-css",
     "dbaeumer.vscode-eslint"
   ]
 }

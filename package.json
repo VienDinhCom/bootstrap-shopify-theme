@@ -1,14 +1,17 @@
 {
   "name": "bootstrap-shopify-theme",
-  "version": "1.5.x",
+  "version": "1.6.x",
   "repository": "https://github.com/maxvien/bootstrap-shopify-theme.git",
   "author": "Vien Dinh <maxvien@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development gulp dev",
-    "test": "cross-env NODE_ENV=production gulp test",
-    "build": "cross-env NODE_ENV=production gulp build",
-    "deploy": "cross-env NODE_ENV=production gulp deploy"
+    "get": "gulp get",
+    "lint": "gulp lint",
+    "open": "gulp open",
+    "build": "gulp build",
+    "watch": "gulp watch",
+    "deploy": "gulp deploy",
+    "download": "gulp download"
   },
   "dependencies": {
     "@popperjs/core": "^2.9.2",
@@ -24,31 +27,23 @@
     "with-elements": "^1.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.14.3",
-    "@babel/plugin-transform-runtime": "^7.14.3",
-    "@babel/preset-env": "^7.14.2",
-    "@babel/runtime-corejs3": "^7.14.0",
-    "@shopify/themekit": "^1.1.7",
+    "@babel/core": "^7.14.6",
+    "@babel/plugin-transform-runtime": "^7.14.5",
+    "@babel/runtime-corejs3": "^7.14.7",
+    "@shopify/themekit": "^1.1.9",
     "autoprefixer": "^9.8.6",
-    "browser-sync": "^2.26.14",
-    "cross-env": "^7.0.3",
-    "eslint": "^7.26.0",
+    "eslint": "^7.30.0",
     "gulp": "^4.0.2",
     "gulp-clean": "^0.4.0",
-    "gulp-load-plugins": "^2.0.6",
+    "gulp-livereload": "^4.0.2",
+    "gulp-load-plugins": "^2.0.7",
+    "gulp-wait": "^0.0.2",
     "parcel-bundler": "^1.12.5",
-    "postcss-modules": "^4.0.0",
-    "read-yaml-file": "^2.1.0",
-    "sass": "^1.32.11"
-  },
-  "prettier": {
-    "tabWidth": 2,
-    "semi": true,
-    "printWidth": 100,
-    "singleQuote": true,
-    "trailingComma": "es5"
+    "sass": "^1.35.1",
+    "yargs": "^17.0.1"
   },
   "eslintConfig": {
+    "extends": "eslint:recommended",
     "env": {
       "browser": true,
       "node": true
@@ -59,8 +54,14 @@
       "ecmaFeatures": {
         "jsx": true
       }
-    },
-    "extends": "eslint:recommended"
+    }
+  },
+  "prettier": {
+    "tabWidth": 2,
+    "semi": true,
+    "printWidth": 120,
+    "singleQuote": true,
+    "trailingComma": "es5"
   },
   "browserslist": {
     "production": [
@@ -84,7 +85,7 @@
     "liquid",
     "parcel",
     "shopify",
-    "browser-sync",
+    "livereload",
     "shopify-themes",
     "shopify-theme",
     "swiper",
