@@ -166,9 +166,17 @@ gulp.task('open', () => {
 
 /* Get
 ----------------------------------------------------*/
-gulp.task('get', () => {
-  return themekit.command('get', { ...options, dir: 'src' });
-});
+gulp.task(
+  'get',
+  gulp.series(
+    function proceeding() {
+      return gulp.src(['src/*']).pipe(plugins.clean({ force: true }));
+    },
+    function proceeding() {
+      return themekit.command('get', { ...options, dir: 'src' });
+    }
+  )
+);
 
 /* Download
 ----------------------------------------------------*/
