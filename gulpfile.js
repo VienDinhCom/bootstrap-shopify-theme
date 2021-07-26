@@ -102,9 +102,6 @@ gulp.task(
     // Bundle
     await gulp.task('bundle')({ watch: true });
 
-    // Open
-    themekit.command('open', { ...options });
-
     // Watch
     const notify = path.join(os.tmpdir(), `theme.update`);
 
