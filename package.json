@@ -39,6 +39,8 @@
     "gulp-load-plugins": "^2.0.7",
     "gulp-wait": "^0.0.2",
     "parcel-bundler": "^1.12.5",
+    "pluralize": "^8.0.0",
+    "postcss-modules": "^3.2.2",
     "sass": "^1.35.1",
     "yargs": "^17.0.1"
   },
