@@ -21,6 +21,7 @@ import './snippets/address-form';
 import './snippets/address-form.scss';
 
 import './snippets/article-item.scss';
+
 import './snippets/collection-item.scss';
 
 import './snippets/featured-slider';
