@@ -10,6 +10,7 @@ These are my experience when I have been working on this theme:
 - Using [Bootstrap@5](https://getbootstrap.com/) to Create a Nice User Interface.
 - Using [BEM Methodology](http://getbem.com/) to Create Minimal, Reusable Source Code.
 - Using [Liquid](https://shopify.github.io/liquid/), [SASS](https://sass-lang.com/), [ESNext](https://en.wikipedia.org/wiki/ECMAScript#ES.Next) to Develop the Theme Fashionably.
+- Using [CSS Modules](https://github.com/css-modules/css-modules) for Avoiding CSS Conflicts and Better Collaboration.
 - Using [CSS Media Queries](https://www.w3schools.com/css/css_rwd_mediaqueries.asp) to Create a Mobile-First and Responsive Design.
 - Using [PostCSS](https://postcss.org/) to Make CSS Code Compatible with Old Browsers.
 - Using [CoreJS](https://github.com/zloirock/core-js) to Make JavaScript Code Compatible with Old Browsers.

@@ -1,4 +1,3 @@
-const os = require('os');
 const fs = require('fs');
 const util = require('util');
 const path = require('path');
@@ -102,11 +101,8 @@ gulp.task(
     // Bundle
     await gulp.task('bundle')({ watch: true });
 
-    // Open
-    themekit.command('open', { ...options });
-
     // Watch
-    const notify = path.join(os.tmpdir(), `theme.update`);
+    const notify = path.resolve('.cache/others/theme.update');
 
     fs.writeFileSync(notify, 'notify');
     themekit.command('watch', { ...options, notify });

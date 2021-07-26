@@ -1,41 +1,39 @@
-.template-search {
-  &__card {
-    align-items: stretch;
+.__card {
+  align-items: stretch;
 
-    @media (min-width: 768px) {
-      flex-direction: row;
-    }
+  @media (min-width: 768px) {
+    flex-direction: row;
   }
+}
 
-  &__card-image {
+.__card-image {
+  width: 100%;
+  height: 300px;
+
+  img {
     width: 100%;
-    height: 300px;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    @media (min-width: 768px) {
-      width: 150px;
-      height: 100%;
-    }
+    height: 100%;
+    object-fit: cover;
   }
 
-  &__card-body {
-    flex: 1;
+  @media (min-width: 768px) {
+    width: 150px;
+    height: 100%;
   }
+}
 
-  &__form {
-    position: relative;
-  }
+.__card-body {
+  flex: 1;
+}
 
-  &__form-results {
-    position: absolute;
-    top: 100%;
-    width: 100%;
-    margin-top: 10px;
-    z-index: 1000;
-  }
+.__form {
+  position: relative;
+}
+
+.__form-results {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  margin-top: 10px;
+  z-index: 1000;
 }

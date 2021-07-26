@@ -1,5 +1,5 @@
-.template-list-collections {
-  .snippet-collection-item {
+.host {
+  :global(.snippet-collection-item) {
     height: calc(100% - 30px);
     margin-bottom: 30px;
   }

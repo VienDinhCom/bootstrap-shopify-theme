@@ -1,9 +1,7 @@
-.template-customer-login {
-  &__tab {
-    display: none;
+.__tab {
+  display: none;
 
-    &--active {
-      display: block;
-    }
+  &--active {
+    display: block;
   }
 }

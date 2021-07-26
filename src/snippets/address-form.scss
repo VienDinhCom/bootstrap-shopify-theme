@@ -1,5 +1,5 @@
-.snippet-address-form {
-  [data-aria-hidden='true'] {
+.host {
+  :global([data-aria-hidden='true']) {
     display: none;
   }
 }
