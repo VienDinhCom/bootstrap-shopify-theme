@@ -25,6 +25,7 @@ module.exports = {
   plugins: [
     autoprefixer,
     modules({
+      globalModulePaths: ['node_modules', 'global'],
       generateScopedName: (name, filename) => {
         const prefix = createPrefix(filename);
         const ruleset = name === 'host' ? '' : name;
@@ -35,6 +36,12 @@ module.exports = {
         const cssFileName = createPrefix(filename);
         const cssModulesJsonFolder = path.resolve('.cache/others/css-modules');
         const jsonFileName = path.join(cssModulesJsonFolder, `${cssFileName}.json`);
+        const liquidFilename = [...filename.replace(__dirname, '').split('.').slice(0, -1)].join('.') + '.liquid';
+
+        // Each SCSS file must have its own LIQUID file
+        if (!fs.existsSync(path.join(__dirname, liquidFilename))) {
+          throw new Error(`CSS Modules: The '.${liquidFilename}' file does not exists`);
+        }
 
         fs.mkdirSync(cssModulesJsonFolder, { recursive: true });
         fs.writeFileSync(jsonFileName, JSON.stringify(json));
