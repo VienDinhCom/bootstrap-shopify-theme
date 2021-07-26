@@ -1,11 +1,8 @@
 const fs = require('fs');
-const os = require('os');
 const path = require('path');
 const pluralize = require('pluralize');
 const modules = require('postcss-modules');
 const autoprefixer = require('autoprefixer');
-
-const cssModulesJsonFolder = os.tmpdir();
 
 function createPrefix(filename) {
   const slugs = filename
@@ -28,17 +25,19 @@ module.exports = {
   plugins: [
     autoprefixer,
     modules({
-      getJSON: (filename, json) => {
-        const cssFileName = createPrefix(filename);
-        const jsonFileName = path.join(cssModulesJsonFolder, `${cssFileName}.json`);
-
-        fs.writeFileSync(jsonFileName, JSON.stringify(json));
-      },
       generateScopedName: (name, filename) => {
         const prefix = createPrefix(filename);
         const ruleset = name === 'host' ? '' : name;
 
         return prefix + ruleset;
+      },
+      getJSON: (filename, json) => {
+        const cssFileName = createPrefix(filename);
+        const cssModulesJsonFolder = path.resolve('.cache/others/css-modules');
+        const jsonFileName = path.join(cssModulesJsonFolder, `${cssFileName}.json`);
+
+        fs.mkdirSync(cssModulesJsonFolder, { recursive: true });
+        fs.writeFileSync(jsonFileName, JSON.stringify(json));
       },
     }),
   ],
