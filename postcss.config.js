@@ -25,6 +25,7 @@ module.exports = {
   plugins: [
     autoprefixer,
     modules({
+      globalModulePaths: ['node_modules', 'global'],
       generateScopedName: (name, filename) => {
         const prefix = createPrefix(filename);
         const ruleset = name === 'host' ? '' : name;
