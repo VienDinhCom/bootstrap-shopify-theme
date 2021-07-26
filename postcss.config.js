@@ -36,7 +36,7 @@ module.exports = {
       },
       generateScopedName: (name, filename) => {
         const prefix = createPrefix(filename);
-        const ruleset = name === 'root' ? '' : name;
+        const ruleset = name === 'host' ? '' : name;
 
         return prefix + ruleset;
       },
