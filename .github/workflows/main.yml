@@ -25,7 +25,7 @@ jobs:
           bundler-cache: true
 
       - name: Install Shopify CLI
-        run: gem install shopify-cli -v '~> 2.0.0'
+        run: gem install shopify-cli -v '< 3.0.0'
 
       - name: Use Node ${{ matrix.node }}
         uses: actions/setup-node@v1
