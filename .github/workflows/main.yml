@@ -18,15 +18,6 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v2
 
-      - name: Use Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 2.7
-          bundler-cache: true
-
-      - name: Install Shopify CLI
-        run: gem install shopify-cli -v '< 3.0.0'
-
       - name: Use Node ${{ matrix.node }}
         uses: actions/setup-node@v1
         with:
@@ -34,9 +25,6 @@ jobs:
 
       - name: Install Node Dependencies
         run: yarn install
-
-      - name: Lint
-        run: yarn lint
 
       - name: Build
         run: yarn build
