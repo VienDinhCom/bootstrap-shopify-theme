@@ -9,6 +9,9 @@ import 'smartmenus-bootstrap-4/jquery.smartmenus.bootstrap-4.css';
 
 import 'swiper/swiper-bundle.css';
 
+import './global/global';
+import './global/global.scss';
+
 /* Layout
 ----------------------------------------------------*/
 import './layout/theme.scss';
