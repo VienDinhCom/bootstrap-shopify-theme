@@ -25,7 +25,7 @@ module.exports = {
   plugins: [
     autoprefixer,
     modules({
-      globalModulePaths: ['node_modules', 'src/global'].map((dir) => path.resolve(dir)),
+      globalModulePaths: ['src/global'].map((dir) => path.resolve(dir)),
       generateScopedName: (name, filename) => {
         const prefix = createPrefix(filename);
         const ruleset = name === 'host' ? '' : name;
@@ -41,8 +41,7 @@ module.exports = {
         // Each SCSS file must have its own LIQUID file
         if (
           !fs.existsSync(path.join(__dirname, liquidFilename)) &&
-          path.join(__dirname, liquidFilename).indexOf(path.join(__dirname, 'src/global')) < 0 &&
-          path.join(__dirname, liquidFilename).indexOf(path.join(__dirname, 'node_modules')) < 0
+          path.join(__dirname, liquidFilename).indexOf(path.join(__dirname, 'src/global')) < 0
         ) {
           throw new Error(`CSS Modules: The '.${liquidFilename}' file does not exists`);
         }

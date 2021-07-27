@@ -1,1 +1,1 @@
-// This script is fall all layouts.
+// This script is for all layouts.
