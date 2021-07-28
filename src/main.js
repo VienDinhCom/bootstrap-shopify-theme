@@ -9,7 +9,7 @@ import 'smartmenus-bootstrap-4/jquery.smartmenus.bootstrap-4.css';
 
 import 'swiper/swiper-bundle.css';
 
-import './global/global';
+import './global/global.js';
 import './global/global.scss';
 
 /* Layout
@@ -20,14 +20,14 @@ import './layout/password.scss';
 
 /* Snippets
 ----------------------------------------------------*/
-import './snippets/address-form';
+import './snippets/address-form.js';
 import './snippets/address-form.scss';
 
 import './snippets/article-item.scss';
 
 import './snippets/collection-item.scss';
 
-import './snippets/featured-slider';
+import './snippets/featured-slider.js';
 import './snippets/featured-slider.scss';
 
 import './snippets/footer.scss';
@@ -44,8 +44,7 @@ import './sections/slideshow.scss';
 ----------------------------------------------------*/
 import './templates/customers/addresses.scss';
 
-import './templates/customers/login';
-
+import './templates/customers/login.js';
 import './templates/customers/login.scss';
 
 import './templates/article.scss';
@@ -60,9 +59,8 @@ import './templates/list-collections.scss';
 
 import './templates/password.scss';
 
-import './templates/product';
+import './templates/product.js';
 import './templates/product.scss';
 
-import './templates/search';
-
+import './templates/search.js';
 import './templates/search.scss';
