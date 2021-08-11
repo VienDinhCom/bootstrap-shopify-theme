@@ -1,6 +1,6 @@
 # 🛍 Bootstrap Shopify Theme
 
-A free [**Shopify Theme**](https://github.com/maxvien/bootstrap-shopify-theme) built with [**Bootstrap**](https://getbootstrap.com/), [BEM](http://getbem.com/), [Theme Tools](https://shopify.dev/tools/themes), [Liquid](https://shopify.github.io/liquid/), [SASS](https://sass-lang.com/), [ESNext](https://en.wikipedia.org/wiki/ECMAScript#ES.Next), [Webpack](https://webpack.js.org/) ... and [Passion](https://www.urbandictionary.com/define.php?term=Passion).
+A free [**Shopify Theme**](https://github.com/maxvien/bootstrap-shopify-theme) built with [**Bootstrap**](https://getbootstrap.com/), [BEM](http://getbem.com/), [Theme Tools](https://shopify.dev/tools/themes), [Liquid](https://shopify.github.io/liquid/), [Sass](https://sass-lang.com/), [ESNext](https://en.wikipedia.org/wiki/ECMAScript#ES.Next), [Webpack](https://webpack.js.org/), ... and [Passion](https://www.urbandictionary.com/define.php?term=Passion).
 
 ## Experience
 
@@ -17,7 +17,7 @@ These are my experience when I have been working on this theme:
 - Using [Shopify Theme CLI](https://shopify.dev/themes/tools/cli) to Develop and Deploy the Theme.
 - Using [PostCSS](https://postcss.org/) to Make CSS Code Compatible with Old Browsers.
 - Using [CoreJS](https://github.com/zloirock/core-js) to Make JavaScript Code Compatible with Old Browsers.
-- Using [Webpack Encore](https://github.com/symfony/webpack-encore) to Bundle all SCSS, JavaScript, Fonts, Image, ... Assets.
+- Using [Webpack Encore](https://github.com/symfony/webpack-encore) to Bundle all SCSS, JavaScript, Font, Image, ... Assets.
 - Using [Shopify Theme Check](https://shopify.dev/themes/tools/theme-check), [ESlint](https://eslint.org/), [Stylelint](https://stylelint.io/), [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) to Follow Theme Best Practices.
 
 If you like this project, hit the **STAR** button to bookmark it ⭐️
@@ -63,7 +63,7 @@ yarn push
 
 ### Pull
 
-Safely `add` project files to the git staging area, `pull` the theme from your online store, and `clean off` untracked git asset files.
+Safely `add` the current project files to the git staging area, `pull` the theme from your online store, and `clean off` untracked git asset files.
 
 ```bash
 yarn pull
