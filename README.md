@@ -1,6 +1,6 @@
 # 🛍 Bootstrap Shopify Theme
 
-A free [**Shopify Theme**](https://github.com/maxvien/bootstrap-shopify-theme) built with [**Bootstrap**](https://getbootstrap.com/), [BEM](http://getbem.com/), [Theme Tools](https://shopify.dev/tools/themes), [Swiper](https://swiperjs.com/), [Gulp](https://gulpjs.com/), [Parcel](https://parceljs.org/), [Liquid](https://shopify.github.io/liquid/), [SASS](https://sass-lang.com/), [PostCSS](https://postcss.org/), [ESNext](https://en.wikipedia.org/wiki/ECMAScript#ES.Next), ... and [Passion](https://www.urbandictionary.com/define.php?term=Passion).
+A free [**Shopify Theme**](https://github.com/maxvien/bootstrap-shopify-theme) built with [**Bootstrap**](https://getbootstrap.com/), [BEM](http://getbem.com/), [Theme Tools](https://shopify.dev/tools/themes), [Liquid](https://shopify.github.io/liquid/), [SASS](https://sass-lang.com/), [ESNext](https://en.wikipedia.org/wiki/ECMAScript#ES.Next), [Webpack](https://webpack.js.org/) ... and [Passion](https://www.urbandictionary.com/define.php?term=Passion).
 
 ## Experience
 
@@ -10,19 +10,15 @@ These are my experience when I have been working on this theme:
 - Using [Bootstrap@5](https://getbootstrap.com/) to Create a Nice User Interface.
 - Using [BEM Methodology](http://getbem.com/) to Create Minimal, Reusable Source Code.
 - Using [Liquid](https://shopify.github.io/liquid/), [SASS](https://sass-lang.com/), [ESNext](https://en.wikipedia.org/wiki/ECMAScript#ES.Next) to Develop the Theme Fashionably.
-- Using [CSS Modules](https://github.com/css-modules/css-modules) for Avoiding CSS Conflicts and Better Collaboration.
+- Using [Shopify Theme Scripts](https://github.com/Shopify/theme-scripts) to Solve Theme Problems Faster.
+- Using [Shopify Metafield](https://shopify.dev/docs/admin-api/rest/reference/metafield) to Add Extra Information to Other Resources.
+- Using [Swiper](https://swiperjs.com/) to Create Beautiful, Touchable, Responsive Sliders.
 - Using [CSS Media Queries](https://www.w3schools.com/css/css_rwd_mediaqueries.asp) to Create a Mobile-First and Responsive Design.
+- Using [Shopify Theme CLI](https://shopify.dev/themes/tools/cli) to Develop and Deploy the Theme.
 - Using [PostCSS](https://postcss.org/) to Make CSS Code Compatible with Old Browsers.
 - Using [CoreJS](https://github.com/zloirock/core-js) to Make JavaScript Code Compatible with Old Browsers.
-- Using [Swiper](https://swiperjs.com/) to Create Beautiful, Touchable, Responsive Sliders.
-- Using [Shopify Theme Scripts](https://github.com/Shopify/theme-scripts) to Solve Theme Problems Faster.
-- Using [Shopify Theme Kit](https://github.com/Shopify/themekit) to Develop and Deploy the Theme.
-- Using [Shopify Metafield](https://shopify.dev/docs/admin-api/rest/reference/metafield) to Add Extra Information to Other Resources.
-- Using [Shopify Theme Check](https://shopify.dev/themes/tools/theme-check), [ESlint](https://eslint.org/) to Follow Theme Best Practices.
-- Using [Gulp](https://gulpjs.com/) to Automate & Enhance the Development Workflow.
-- Using [Parcel](https://parceljs.org/) to Bundle all SCSS, JavaScript, Font, Image, ... Assets.
-- Using [LiveReload](http://livereload.com/) to Reload the Browser Automatically When Saving the Files.
-- Using [Shopify Liquid](https://marketplace.visualstudio.com/items?itemName=Shopify.theme-check-vscode) & [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) Visual Studio Code Extensions to Format the Source Code.
+- Using [Webpack Encore](https://github.com/symfony/webpack-encore) to Bundle all SCSS, JavaScript, Font, Image, ... Assets.
+- Using [Shopify Theme Check](https://shopify.dev/themes/tools/theme-check), [ESlint](https://eslint.org/), [Stylelint](https://stylelint.io/), [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) to Follow Theme Best Practices.
 
 If you like this project, hit the **STAR** button to bookmark it ⭐️
 
@@ -45,123 +41,67 @@ Install the project's dependencies.
 yarn install
 ```
 
-## Configuration
-
-To config the project, you need to copy and rename the `config.yml.example` file to the `config.yml` file. Then update the `store`, `password`, `theme_id` properties.
-
-There are sections in the `config.yml` file:
-
-- The `development` section is for your **development** branch.
-- The `production` section is for your **production** branch.
-- The `feature` section is for your **feature** branch.
-
-```yml
-development:
-  store: store-name.myshopify.com
-  password: store-admin-api-password
-  theme_id: store-theme-id
-
-production:
-  store: store-name.myshopify.com
-  password: store-admin-api-password
-  theme_id: store-theme-id
-
-feature:
-  store: store-name.myshopify.com
-  password: store-admin-api-password
-  theme_id: store-theme-id
-```
-
-### Store Property
-
-To fill the `store` property, you copy your store's **hostname** and paste it to the `config.yml` file.
-
-### Password Property
-
-To fill the `password` property, please follow these steps:
-
-1. From your Shopify admin, click **Apps**.
-2. Near the bottom of the page, click **Manage private apps**.
-3. If private app development is disabled, then click **Enable private app development**. Only the store owner can [enable private app development](https://help.shopify.com/en/manual/apps/private-apps?#enable-private-app-development-from-the-shopify-admin).
-4. Click **Create new private app**.
-5. In the **App details** section, fill out the app name and your email address.
-6. In the **Admin API** section, click **Show inactive Admin API permissions**.
-7. Scroll to the **Themes** section and select **Read and write** from the dropdown.
-8. Click **Save**.
-9. Read the private app confirmation dialog, then click **Create app**.
-10. In the **Admin API** section of the **App**, copy the **password** and paste it into the `config.yml` file.
-
-### Theme ID Property
-
-To fill the `theme_id` property, please follow these steps:
-
-1. From your Shopify admin, click **Online Store**.
-2. At the top of the **Online Store** menu, click **Themes**.
-3. In the **Current theme** section, click **Actions** and select **Duplicate** to backup your current theme.
-4. Next, click the **Customize** button.
-5. There is a link like this `https://store-name.myshopify.com/admin/themes/[theme_id]/editor` on your browser's address bar. Copy the **theme_id** and paste it into the `config.yml` file.
-
 ## Usage
 
-To work with theme, you need to follow the [**Configuration**](#configuration) section to config the `environments` in the `config.yml` file. The default environment is `development`.
+First of all, you need to install [Shopify CLI](https://shopify.dev/apps/tools/cli/installation), then you can run these commands to work with the theme.
 
-### Watch
+### Serve
+
+Run `webpack watch` and `serve` the theme in development mode.
 
 ```bash
-yarn watch --env=environment
+yarn serve
 ```
 
-To enable LiveReload, you need to install the [LiveReload](http://livereload.com/extensions/) extension on your browser.
+### Push
 
-### Deploy
+Run `webpack build` and `push` the theme to your online store in production mode.
 
 ```bash
-yarn deploy --env=environment
+yarn push
 ```
 
-### Download
+### Pull
+
+Safely `add` project files to the git staging area, `pull` the theme from your online store, and `clean off` untracked git asset files.
 
 ```bash
-yarn download --env=environment --file=[your theme file]
+yarn pull
 ```
 
-For example, you can run this command to download the `config/settings_data.json` file
+### Test
+
+Run unit `test` with jest and make sure the files are following the project workflow.
 
 ```bash
-yarn download --env=production --file=config/settings_data.json
+yarn test
 ```
 
 ### Lint
 
-First of all, you need to install [Shopify CLI](https://shopify.dev/apps/tools/cli/installation). Then you can run this command to analyze your code to find problems.
+Analyze the code to find problems with `shopify theme check`, `eslint`, `stylelint` and `prettier`.
 
 ```bash
 yarn lint
 ```
 
-Automatically fix problems
+Automatically fix problems.
 
 ```bash
-yarn lint --fix
+yarn fix
 ```
 
-### Open
+## Notes
 
-```bash
-yarn open --env=environment
-```
+### Assets
 
-### Build
+All files inside the `theme/assets` directory are ignored by `git`, except files starting with the `static` keyword in their filename.
 
-```bash
-yarn build
-```
+### Webpack Encore
 
-### Get
+[Symfony Webpack Encore](https://symfony.com/doc/current/frontend.html) is a simpler way to integrate Webpack into your application. It wraps Webpack, giving you a clean & powerful API for bundling JavaScript modules, pre-processing CSS & JS and compiling and minifying assets. Encore gives you professional asset system that’s a delight to use.
 
-```bash
-yarn get --env=environment
-```
+If you want to use [React](https://symfony.com/doc/current/frontend/encore/reactjs.html) or [Vue](https://symfony.com/doc/current/frontend/encore/vuejs.html) in the theme, you can follow the documentation [here](https://symfony.com/doc/current/frontend.html).
 
 ## Visual Studio Code Extensions
 
@@ -169,6 +109,7 @@ To speed up your productivity, you can install these extensions:
 
 - [Eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
 - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+- [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
 - [Shopify Liquid](https://marketplace.visualstudio.com/items?itemName=Shopify.theme-check-vscode)
 - [IntelliSense for CSS](https://marketplace.visualstudio.com/items?itemName=Zignd.html-css-class-completion)
 - [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)

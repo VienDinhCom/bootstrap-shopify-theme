@@ -3,6 +3,7 @@
     "shopify.theme-check-vscode",
     "esbenp.prettier-vscode",
     "ecmel.vscode-html-css",
-    "dbaeumer.vscode-eslint"
+    "dbaeumer.vscode-eslint",
+    "stylelint.vscode-stylelint"
   ]
 }
