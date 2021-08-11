@@ -1,12 +1,12 @@
-.host {
+.section-slideshow {
   margin-bottom: 30px;
-}
 
-.__item-image {
-  height: 450px;
-  object-fit: cover;
-}
+  &__item-image {
+    height: 450px;
+    object-fit: cover;
+  }
 
-.__item-caption-text {
-  text-shadow: 1px 1px 4px rgba($color: #000000, $alpha: 0.8);
+  &__item-caption-text {
+    text-shadow: 1px 1px 4px rgba($color: #000000, $alpha: 0.8);
+  }
 }

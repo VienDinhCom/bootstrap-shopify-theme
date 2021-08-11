@@ -9,10 +9,10 @@
 /coverage
 
 # development
-/.cache/
-/dist/
-/.env
-/config.yml
+
+# assets
+theme/assets/*
+!theme/assets/static-*
 
 # misc
 .DS_Store

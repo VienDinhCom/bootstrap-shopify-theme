@@ -61,9 +61,7 @@ withElements('.template-product', async (templateElement) => {
 
       if (selectTwoElement) {
         const okayOptions = uniq(
-          productData.variants
-            .filter(({ option1 }) => option1 === selectOneElement.value)
-            .map(({ option2 }) => option2)
+          productData.variants.filter(({ option1 }) => option1 === selectOneElement.value).map(({ option2 }) => option2)
         );
 
         const selectTwoOptionElements = selectTwoElement.querySelectorAll('option');
@@ -80,10 +78,7 @@ withElements('.template-product', async (templateElement) => {
       if (selectThreeElement) {
         const okayOptions = uniq(
           productData.variants
-            .filter(
-              ({ option1, option2 }) =>
-                option1 === selectOneElement.value && option2 === selectTwoElement.value
-            )
+            .filter(({ option1, option2 }) => option1 === selectOneElement.value && option2 === selectTwoElement.value)
             .map(({ option3 }) => option3)
         );
 
@@ -128,13 +123,11 @@ withElements('.template-product', async (templateElement) => {
         }
 
         // Slide to Current Variant Media
-        sliderElement
-          .querySelectorAll('.template-product__slider-slide')
-          .forEach((slideElement, index) => {
-            if (+slideElement.dataset.mediaId === variant?.featured_media?.id) {
-              slider.slideTo(index + 1);
-            }
-          });
+        sliderElement.querySelectorAll('.template-product__slider-slide').forEach((slideElement, index) => {
+          if (+slideElement.dataset.mediaId === variant?.featured_media?.id) {
+            slider.slideTo(index + 1);
+          }
+        });
       },
     });
   })();

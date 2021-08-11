@@ -10,11 +10,7 @@ withElements('.template-search', async (templateElement) => {
   var predictiveSearch = new PredictiveSearch({
     search_path: PredictiveSearch.SEARCH_PATH,
     resources: {
-      type: [
-        PredictiveSearch.TYPES.PAGE,
-        PredictiveSearch.TYPES.ARTICLE,
-        PredictiveSearch.TYPES.PRODUCT,
-      ],
+      type: [PredictiveSearch.TYPES.PAGE, PredictiveSearch.TYPES.ARTICLE, PredictiveSearch.TYPES.PRODUCT],
       limit: 2,
     },
   });

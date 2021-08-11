@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+
+    <link rel="canonical" href="{{ canonical_url }}">
+    <link href="{{ 'static-favicon.png' | asset_url }}" rel="shortcut icon" type="image/png”"/>
+
+    <title>{{ page_title }}</title>
+    <meta name="description" content="{{ page_description | escape }}">
+
+    <link rel="stylesheet" href="{{ 'vendor.css' | asset_url }}">
+    <link rel="stylesheet" href="{{ 'main.css' | asset_url }}">
+
+      {{ content_for_header }}
+    </head>
+    <body class="layout-theme">
+      {% render 'main-menu' %}
+
+      <main class="layout-theme__content">
+        {{ content_for_layout }}
+      </main>
+
+      {% render 'footer' %}
+      
+      <script defer src="{{ 'vendor.js' | asset_url }}"></script>
+      <script defer src="{{ 'main.js' | asset_url }}"></script>
+    </body><!-- /.layout-theme -->
+  </head>
+</html>
