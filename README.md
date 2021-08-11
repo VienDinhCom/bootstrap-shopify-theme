@@ -17,7 +17,7 @@ These are my experience when I have been working on this theme:
 - Using [Shopify Theme CLI](https://shopify.dev/themes/tools/cli) to Develop and Deploy the Theme.
 - Using [PostCSS](https://postcss.org/) to Make CSS Code Compatible with Old Browsers.
 - Using [CoreJS](https://github.com/zloirock/core-js) to Make JavaScript Code Compatible with Old Browsers.
-- Using [Webpack Encore](https://github.com/symfony/webpack-encore) to Bundle all SCSS, JavaScript, Font, Image, ... Assets.
+- Using [Webpack Encore](https://github.com/symfony/webpack-encore) to Bundle all SCSS, JavaScript, Fonts, Image, ... Assets.
 - Using [Shopify Theme Check](https://shopify.dev/themes/tools/theme-check), [ESlint](https://eslint.org/), [Stylelint](https://stylelint.io/), [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) to Follow Theme Best Practices.
 
 If you like this project, hit the **STAR** button to bookmark it ⭐️
