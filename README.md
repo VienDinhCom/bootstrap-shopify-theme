@@ -43,7 +43,13 @@ yarn install
 
 ## Usage
 
-First of all, you need to install [Shopify CLI](https://shopify.dev/apps/tools/cli/installation), then you can run these commands to work with the theme.
+First of all, you need to install [Shopify CLI](https://shopify.dev/apps/tools/cli/installation) and login into your online store.
+
+```bash
+shopify login --store=your-store.myshopify.com
+```
+
+Then you can run the below commands to work with the theme.
 
 ### Serve
 
@@ -63,7 +69,7 @@ yarn push
 
 ### Pull
 
-Safely `add` the current project files to the git staging area, `pull` the theme from your online store, and `clean off` untracked git asset files.
+Safely `add` the current project files to the git staging area, then `pull` the theme from your online store, and `clean` untracked asset files.
 
 ```bash
 yarn pull
@@ -93,7 +99,7 @@ yarn fix
 
 ## Notes
 
-### Assets
+### Theme Assets
 
 All files inside the `theme/assets` directory are ignored by `git`, except files starting with the `static` keyword in their filename.
 
