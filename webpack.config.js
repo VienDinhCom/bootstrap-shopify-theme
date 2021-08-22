@@ -31,6 +31,9 @@ Encore
   })
   .cleanupOutputBeforeBuild([], () => {
     cp.spawnSync('git', ['clean', '-xdf', dest], { stdio: 'inherit' });
+  })
+  .configureFontRule({
+    filename: '[name].[hash:8][ext]',
   });
 
 module.exports = Encore.getWebpackConfig();
