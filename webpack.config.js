@@ -32,6 +32,9 @@ Encore
   .cleanupOutputBeforeBuild([], () => {
     cp.spawnSync('git', ['clean', '-xdf', dest], { stdio: 'inherit' });
   })
+  .configureImageRule({
+    filename: '[name].[hash:8][ext]',
+  })
   .configureFontRule({
     filename: '[name].[hash:8][ext]',
   });
