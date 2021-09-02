@@ -29,14 +29,14 @@ Encore
     config.useBuiltIns = 'usage';
     config.corejs = 3;
   })
-  .cleanupOutputBeforeBuild([], () => {
-    cp.spawnSync('git', ['clean', '-xdf', dest], { stdio: 'inherit' });
-  })
   .configureImageRule({
     filename: '[name].[hash:8][ext]',
   })
   .configureFontRule({
     filename: '[name].[hash:8][ext]',
+  })
+  .cleanupOutputBeforeBuild([], () => {
+    cp.spawnSync('git', ['clean', '-xdf', dest], { stdio: 'inherit' });
   });
 
 module.exports = Encore.getWebpackConfig();
