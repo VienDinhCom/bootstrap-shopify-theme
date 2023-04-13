@@ -22,6 +22,8 @@ These are my experience when I have been working on this theme:
 
 If you like this project, hit the **STAR** button to bookmark it ⭐️
 
+[<img src="https://raw.githubusercontent.com/appcraftstudio/buymeacoffee/master/Images/snapshot-bmc-button.png" height="48"/>](https://www.buymeacoffee.com/maxvien)
+
 ## Demonstration
 
 - **Store Link**: https://maxvien-bootstrap.myshopify.com
