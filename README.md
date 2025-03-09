@@ -1,24 +1,18 @@
 # 🛍 Bootstrap Shopify Theme
 
-A free [**Shopify Theme**](https://github.com/maxvien/bootstrap-shopify-theme) built with [**Bootstrap**](https://getbootstrap.com/), [BEM](http://getbem.com/), [Liquid](https://shopify.github.io/liquid/), [Sass](https://sass-lang.com/), [ESNext](https://en.wikipedia.org/wiki/ECMAScript#ES.Next), [Theme Tools](https://shopify.dev/tools/themes), ... and [Webpack](https://webpack.js.org/).
+When I started building this Shopify theme, I thought it would be simple. But as I got deeper, I realized there was more to it.  
 
-## Experience
+I build themes from scratch, using [Bootstrap](https://getbootstrap.com/) to create a clean, user-friendly interface. I follow the [BEM Methodology](http://getbem.com/), which helps keep my code minimal and reusable.  
 
-These are my experience when I have been working on this theme:
+For the backend, I work with [Liquid](https://shopify.github.io/liquid/), [SASS](https://sass-lang.com/), [ESNext](https://en.wikipedia.org/wiki/ECMAScript#ES.Next), keeping the theme modern and flexible. When problems arise, [Shopify Theme Scripts](https://github.com/Shopify/theme-scripts) help me solve them faster. I also use [Shopify Metafield](https://shopify.dev/docs/admin-api/rest/reference/metafield) to add extra details where needed.  
 
-- Designing & Building [Shopify Themes](https://github.com/maxvien/bootstrap-shopify-theme) from Scratch.
-- Using [Bootstrap@5](https://getbootstrap.com/) to Create a Nice User Interface.
-- Using [BEM Methodology](http://getbem.com/) to Create Minimal, Reusable Source Code.
-- Using [Liquid](https://shopify.github.io/liquid/), [SASS](https://sass-lang.com/), [ESNext](https://en.wikipedia.org/wiki/ECMAScript#ES.Next) to Develop the Theme Fashionably.
-- Using [Shopify Theme Scripts](https://github.com/Shopify/theme-scripts) to Solve Theme Problems Faster.
-- Using [Shopify Metafield](https://shopify.dev/docs/admin-api/rest/reference/metafield) to Add Extra Information to Other Resources.
-- Using [Swiper](https://swiperjs.com/) to Create Beautiful, Touchable, Responsive Sliders.
-- Using [CSS Media Queries](https://www.w3schools.com/css/css_rwd_mediaqueries.asp) to Create a Mobile-First and Responsive Design.
-- Using [Shopify Theme CLI](https://shopify.dev/themes/tools/cli) to Develop and Deploy the Theme.
-- Using [PostCSS](https://postcss.org/) to Make CSS Code Compatible with Old Browsers.
-- Using [CoreJS](https://github.com/zloirock/core-js) to Make JavaScript Code Compatible with Old Browsers.
-- Using [Webpack Encore](https://github.com/symfony/webpack-encore) to Bundle all SCSS, JavaScript, Font, Image, ... Assets.
-- Using [Shopify Theme Check](https://shopify.dev/themes/tools/theme-check), [ESlint](https://eslint.org/), [Stylelint](https://stylelint.io/), [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) to Follow Theme Best Practices.
+For visuals, I rely on [Swiper](https://swiperjs.com/) to create smooth, touch-friendly sliders and [CSS Media Queries](https://www.w3schools.com/css/css_rwd_mediaqueries.asp) to ensure a responsive, mobile-first design.  
+
+To streamline development, I use the [Shopify Theme CLI](https://shopify.dev/themes/tools/cli) for deployment and [Webpack Encore](https://github.com/symfony/webpack-encore) to bundle assets. [PostCSS](https://postcss.org/) and [CoreJS](https://github.com/zloirock/core-js) help keep the theme compatible with older browsers.  
+
+And of course, I follow best practices with [Shopify Theme Check](https://shopify.dev/themes/tools/theme-check), [ESlint](https://eslint.org/), [Stylelint](https://stylelint.io/), [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)—because clean code makes everything easier.  
+
+It’s a process. A learning curve. But in the end, it’s about crafting themes that work beautifully—for both the store owner and the customer.
 
 If you like this project, hit the **STAR** button to bookmark it ⭐️
 
