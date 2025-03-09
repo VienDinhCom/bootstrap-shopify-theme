@@ -4,7 +4,7 @@ When I started building this Shopify theme, I thought it would be simple. But as
 
 I build themes from scratch, using [Bootstrap](https://getbootstrap.com/) to create a clean, user-friendly interface. I follow the [BEM Methodology](http://getbem.com/), which helps keep my code minimal and reusable.  
 
-For the backend, I work with [Liquid](https://shopify.github.io/liquid/), [SASS](https://sass-lang.com/), [ESNext](https://en.wikipedia.org/wiki/ECMAScript#ES.Next), keeping the theme modern and flexible. When problems arise, [Shopify Theme Scripts](https://github.com/Shopify/theme-scripts) help me solve them faster. I also use [Shopify Metafield](https://shopify.dev/docs/admin-api/rest/reference/metafield) to add extra details where needed.  
+I work with [Liquid](https://shopify.github.io/liquid/), [SASS](https://sass-lang.com/), [ESNext](https://en.wikipedia.org/wiki/ECMAScript#ES.Next) to keep the theme modern and flexible. When problems arise, [Shopify Theme Scripts](https://github.com/Shopify/theme-scripts) help me solve them faster. I also use [Shopify Metafield](https://shopify.dev/docs/admin-api/rest/reference/metafield) to add extra details where needed.  
 
 For visuals, I rely on [Swiper](https://swiperjs.com/) to create smooth, touch-friendly sliders and [CSS Media Queries](https://www.w3schools.com/css/css_rwd_mediaqueries.asp) to ensure a responsive, mobile-first design.  
 
