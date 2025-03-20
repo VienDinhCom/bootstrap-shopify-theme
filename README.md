@@ -30,10 +30,14 @@ If you like this project, hit the **STAR** button to bookmark it ⭐️
 Clone the source code into your computer.
 
 ```bash
-git clone https://github.com/Maxvien/bootstrap-shopify-theme.git
+git clone https://github.com/VienDinhCom/bootstrap-shopify-theme.git
 ```
 
-Install the project's dependencies.
+**This project was developed with Node 18 and NPM 10.**<br>
+
+To set up a compatible environment, please download [Volta](https://github.com/volta-cli/volta) and run `volta setup`.
+
+Then, install the project's dependencies.
 
 ```bash
 yarn install

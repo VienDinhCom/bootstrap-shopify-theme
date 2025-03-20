@@ -4,6 +4,10 @@
   "author": "Vien Dinh <maxvien@gmail.com>",
   "repository": "maxvien/bootstrap-shopify-theme",
   "license": "MIT",
+  "volta": {
+    "node": "18.20.7",
+    "npm": "10.8.2"
+  },
   "scripts": {
     "serve": "run-p serve:*",
     "serve:build": "encore dev --watch",
