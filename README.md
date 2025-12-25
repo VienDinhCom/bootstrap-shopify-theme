@@ -2,6 +2,10 @@
 
 A free [**Shopify Theme**](https://github.com/maxvien/bootstrap-shopify-theme) built with [**Bootstrap**](https://getbootstrap.com/), [BEM](http://getbem.com/), [Liquid](https://shopify.github.io/liquid/), [Sass](https://sass-lang.com/), [ESNext](https://en.wikipedia.org/wiki/ECMAScript#ES.Next), [Theme Tools](https://shopify.dev/tools/themes), ... and [Webpack](https://webpack.js.org/).
 
+---
+Discover [Next Shopify Storefront](https://github.com/VienDinhCom/next-shopify-storefront)—A modern Shopping Cart built with ESMate, Next.js, React.js, ShadCN, ESLint, Prettier, GraphQL, and Shopify Hydrogen.
+---
+
 ## Experience
 
 When I started building this Shopify theme, I thought it would be simple. But as I got deeper, I realized there was more to it.
